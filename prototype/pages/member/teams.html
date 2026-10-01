@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组队开黑 · 吉悠社成员中心</title>
+<!-- M11 组队列表 | 普通成员 | ← PRD 5.4 D8、6.5 / SRS FR-D8、状态机 4.7
+     交互：组队卡（游戏/时间/人数/状态）、发起组队；状态口径 P9-22（无"已完成"态） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="组队开黑" data-page-group="member" data-trace="PRD 5.4 D8、6.5 / SRS FR-D8、状态机 4.7" data-states="normal,empty">
+<main class="max-w-5xl mx-auto px-4 pb-10">
+
+  <div class="flex items-center justify-between mb-5">
+    <div class="flex gap-2">
+      <button class="jys-btn jys-btn-primary jys-btn-sm">全部</button>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm">招募中</button>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm">已满员</button>
+    </div>
+    <button class="jys-btn jys-btn-primary" onclick="document.getElementById('team-modal').classList.remove('hidden')">＋ 发起组队</button>
+  </div>
+
+  <div data-when="normal" class="grid md:grid-cols-2 gap-4">
+    <a href="team-detail.html" class="jys-card jys-card-hover p-4 block">
+      <div class="flex items-center justify-between mb-2"><b>永劫无间 · 今晚 21:00 三排上分</b><span class="jys-badge jys-badge-success jys-badge-dot">招募中</span></div>
+      <p class="text-xs" style="color:var(--jys-text-2)">队长：南栀 · 语音：开黑啦 · 期望段位：陨星以上</p>
+      <div class="flex items-center gap-1 mt-3">
+        <span class="jys-avatar" style="width:26px;height:26px;font-size:10px">南</span><span class="jys-avatar" style="width:26px;height:26px;font-size:10px">屿</span>
+        <span style="width:26px;height:26px;border-radius:50%;border:1.5px dashed var(--jys-border-strong);display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:var(--jys-text-3)">1</span>
+        <span class="text-xs ml-2" style="color:var(--jys-text-3)">2/3 人</span>
+      </div>
+    </a>
+    <a href="team-detail.html" class="jys-card jys-card-hover p-4 block">
+      <div class="flex items-center justify-between mb-2"><b>CS2 · 周五晚优先模式车队</b><span class="jys-badge jys-badge-info jys-badge-dot">已满员</span></div>
+      <p class="text-xs" style="color:var(--jys-text-2)">队长：星野子 · 语音：Discord · 老车每周五固定</p>
+      <div class="flex items-center gap-1 mt-3">
+        <span class="jys-avatar" style="width:26px;height:26px;font-size:10px">星</span><span class="jys-avatar" style="width:26px;height:26px;font-size:10px">夜</span><span class="jys-avatar" style="width:26px;height:26px;font-size:10px">茶</span><span class="jys-avatar" style="width:26px;height:26px;font-size:10px">鱼</span>
+        <span class="text-xs ml-2" style="color:var(--jys-text-3)">5/5 人</span>
+      </div>
+    </a>
+    <a href="team-detail.html" class="jys-card jys-card-hover p-4 block">
+      <div class="flex items-center justify-between mb-2"><b>原神 · 幻想真境剧诗拼车</b><span class="jys-badge jys-badge-success jys-badge-dot">招募中</span></div>
+      <p class="text-xs" style="color:var(--jys-text-2)">队长：月见黑 · 本月结晶差一个强力队</p>
+      <div class="flex items-center gap-1 mt-3">
+        <span class="jys-avatar" style="width:26px;height:26px;font-size:10px">月</span>
+        <span style="width:26px;height:26px;border-radius:50%;border:1.5px dashed var(--jys-border-strong);display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:var(--jys-text-3)">3</span>
+        <span class="text-xs ml-2" style="color:var(--jys-text-3)">1/4 人</span>
+      </div>
+    </a>
+    <div class="jys-card p-4" style="opacity:.75">
+      <div class="flex items-center justify-between mb-2"><b style="color:var(--jys-text-3)">金铲铲 · S3 冲分小队</b><span class="jys-badge jys-badge-error jys-badge-dot">已解散</span></div>
+      <p class="text-xs" style="color:var(--jys-text-3)">队长退出且无受让，组队自动解散并通知全体队员（P9-11）</p>
+    </div>
+  </div>
+
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🎮</div><p class="font-bold" style="color:var(--jys-text-1)">还没有组队</p><p class="text-xs mt-1">发起一个组队帖，找同好开黑</p><button class="jys-btn jys-btn-primary jys-btn-sm mt-3">＋ 发起组队</button></div></div></div>
+
+  <!-- 发起组队弹层 -->
+  <div id="team-modal" class="jys-modal-mask hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+    <div class="jys-modal p-6 jys-fade-in">
+      <h3 class="font-bold text-lg mb-4">发起组队</h3>
+      <div class="space-y-3">
+        <div><label class="jys-label jys-required">游戏</label><input class="jys-input" placeholder="如：永劫无间" value="永劫无间"></div>
+        <div><label class="jys-label jys-required">时间</label><input class="jys-input" value="今晚 21:00"></div>
+        <div><label class="jys-label jys-required">人数</label><select class="jys-select"><option>3 人</option><option>4 人</option><option>5 人</option></select></div>
+        <div><label class="jys-label">说明</label><textarea class="jys-input" rows="2" placeholder="段位要求、语音工具等（选填）"></textarea></div>
+      </div>
+      <div class="flex justify-end gap-2 mt-5">
+        <button class="jys-btn jys-btn-ghost" onclick="document.getElementById('team-modal').classList.add('hidden')">取消</button>
+        <a class="jys-btn jys-btn-primary" href="team-detail.html">发布组队</a>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

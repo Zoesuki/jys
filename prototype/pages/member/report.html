@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提交举报 · 吉悠社成员中心</title>
+<!-- M15 举报提交 | 登录用户 | ← PRD 5.2 B6、6.6 / SRS FR-B6、状态机 4.4
+     交互：理由枚举（垃圾广告/人身攻击/违规内容/其他，可配置）、补充说明、提交成功态；重复举报合并（P9-07） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="提交举报" data-page-group="member" data-trace="PRD 5.2 B6、6.6 / SRS FR-B6、状态机 4.4" data-states="normal,validation">
+<main class="max-w-lg mx-auto px-4 pb-16">
+
+  <div data-when="normal" class="jys-card p-7">
+    <h2 class="text-xl font-bold mb-1">提交举报 🚩</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">举报对象：<b style="color:var(--jys-text-1)">回帖 · #3 楼 · 咸鱼要翻身</b>（帖子：纳西妲配队求助）</p>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">举报理由</label>
+        <div class="space-y-2">
+          <label class="flex items-center gap-2 jys-sunken p-3 text-sm cursor-pointer"><input type="radio" name="reason" class="accent-orange-500">垃圾广告</label>
+          <label class="flex items-center gap-2 jys-sunken p-3 text-sm cursor-pointer" style="border:1.5px solid var(--jys-primary)"><input type="radio" name="reason" checked class="accent-orange-500">人身攻击</label>
+          <label class="flex items-center gap-2 jys-sunken p-3 text-sm cursor-pointer"><input type="radio" name="reason" class="accent-orange-500">违规内容</label>
+          <label class="flex items-center gap-2 jys-sunken p-3 text-sm cursor-pointer"><input type="radio" name="reason" class="accent-orange-500">其他（可配置枚举）</label>
+        </div>
+      </div>
+      <div>
+        <label class="jys-label">补充说明</label>
+        <textarea class="jys-input" rows="3" placeholder="描述具体情况，便于处理人核实（选填）">#3 楼回复中对我进行了人身攻击，措辞不当。</textarea>
+      </div>
+      <div class="jys-sunken p-3 text-xs" style="color:var(--jys-text-2)">提交后生成举报工单，处理时效默认 <b>72 小时</b>（Q8-⑬）；处置结果将通知你，被举报人默认不通知（Q8-㉔）。</div>
+      <div class="flex gap-2">
+        <a class="jys-btn jys-btn-primary flex-1 justify-center" href="post-view-member.html">提交举报</a>
+        <a class="jys-btn jys-btn-ghost" href="post-view-member.html">取消</a>
+      </div>
+    </form>
+  </div>
+
+  <div data-when="validation" class="jys-card p-7">
+    <h2 class="text-xl font-bold mb-4">重复举报提示</h2>
+    <div class="jys-error-banner mb-4" style="background:var(--jys-warning-light);border-color:#FDE68A;color:#B45309">
+      <span>ℹ️</span>
+      <div><p class="font-bold">你已举报过该内容</p><p class="text-xs mt-1">检测到你存在同一对象的未办结工单（工单号 JB-20261001-014），本次举报已<b>合并至既有工单</b>（P9-07），无需重复提交。</p></div>
+    </div>
+    <div class="jys-sunken p-3 text-sm" style="color:var(--jys-text-2)">工单状态：<span class="jys-badge jys-badge-warning jys-badge-dot">处理中</span> · 已用时 31 小时 / 时效 72 小时</div>
+    <a class="jys-btn jys-btn-outline w-full justify-center mt-4" href="post-view-member.html">返回帖子</a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组队详情 · 吉悠社成员中心</title>
+<!-- M12 组队详情 | 普通成员/队长 | ← PRD 5.4 D8、6.5 / SRS FR-D8、状态机 4.7
+     交互：成员名单、申请加入、队长审批（通过/拒绝）、转让队长、退出（P9-11 解散口径） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="组队详情" data-page-group="member" data-trace="PRD 5.4 D8、6.5 / SRS FR-D8、状态机 4.7（P9-11/P9-22）" data-states="normal">
+<main class="max-w-3xl mx-auto px-4 pb-10">
+
+  <div class="jys-card p-6 mb-4">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2"><h2 style="font-size:20px">永劫无间 · 今晚 21:00 三排上分</h2><span class="jys-badge jys-badge-success jys-badge-dot">招募中</span></div>
+      <span class="text-xs" style="color:var(--jys-text-3)">状态仅 招募中/已满员/已解散（P9-22）</span>
+    </div>
+    <p class="text-sm mt-2" style="color:var(--jys-text-2)">语音：开黑啦 · 期望段位：陨星以上 · 车规：不摆烂不挂机</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <!-- 成员名单 -->
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3">成员（2/3）</h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <span class="jys-avatar" style="width:36px;height:36px;font-size:13px">南</span>
+          <div class="flex-1"><b class="text-sm">南栀</b> <span class="jys-badge jys-badge-primary text-[10px]">队长</span><p class="text-xs" style="color:var(--jys-text-3)">陨星·IV</p></div>
+          <button class="jys-btn jys-btn-ghost jys-btn-sm" title="转让队长">转让</button>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="jys-avatar" style="width:36px;height:36px;font-size:13px">屿</span>
+          <div class="flex-1"><b class="text-sm">孤屿</b><p class="text-xs" style="color:var(--jys-text-3)">烛龙·V</p></div>
+          <button class="jys-btn jys-btn-ghost jys-btn-sm" title="移出队伍" style="color:var(--jys-error)">移出</button>
+        </div>
+        <div class="text-center py-3 text-xs" style="color:var(--jys-text-3);border:1.5px dashed var(--jys-border-strong);border-radius:12px">空余 1 位 · 满员后自动关闭加入（R7）</div>
+      </div>
+      <button class="jys-btn jys-btn-outline jys-btn-sm mt-3" style="color:var(--jys-error);border-color:var(--jys-error-light)">退出队伍（队长退出无受让将解散队伍，P9-11）</button>
+    </section>
+
+    <!-- 申请列表（队长视图） -->
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3">加入申请（2）</h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+          <span class="jys-avatar" style="width:34px;height:34px;font-size:12px">鱼</span>
+          <div class="flex-1"><b class="text-sm">咸鱼要翻身</b><p class="text-xs" style="color:var(--jys-text-3)">段位：烛龙·II · 申请于 10 分钟前</p></div>
+          <button class="jys-btn jys-btn-primary jys-btn-sm">通过</button>
+          <button class="jys-btn jys-btn-ghost jys-btn-sm">拒绝</button>
+        </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+          <span class="jys-avatar" style="width:34px;height:34px;font-size:12px">森</span>
+          <div class="flex-1"><b class="text-sm">森林邮递员</b><p class="text-xs" style="color:var(--jys-text-3)">段位：未定级 · 申请于 1 小时前</p></div>
+          <button class="jys-btn jys-btn-primary jys-btn-sm">通过</button>
+          <button class="jys-btn jys-btn-ghost jys-btn-sm">拒绝</button>
+        </div>
+        <p class="text-xs" style="color:var(--jys-text-3)">审批结果将通过站内通知申请人（D8）；审批时满员则提示失败。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>编辑资料 · 吉悠社成员中心</title>
+<!-- M6 资料编辑 | 普通成员 | ← PRD 5.1 A6、5.3 C2 / SRS FR-A6/C2
+     交互：头像上传（合规校验）、昵称、自我介绍（过敏感词）、预设+自定义标签（敏感词校验，≤10 个 P9-09）、出勤可见开关（Q8-⑰） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="编辑资料" data-page-group="member" data-trace="PRD 5.1 A6、5.3 C2 / SRS FR-A6/C2" data-states="normal,validation">
+<main class="max-w-2xl mx-auto px-4 pb-16">
+
+  <div data-when="normal" class="jys-card p-7 space-y-5">
+    <div class="flex items-center gap-4">
+      <span class="jys-avatar" style="width:64px;height:64px;font-size:24px">夜</span>
+      <div>
+        <button class="jys-btn jys-btn-outline jys-btn-sm">更换头像</button>
+        <p class="text-[11px] mt-1" style="color:var(--jys-text-3)">≤10MB · jpg/png/gif/webp · 经内容安全校验（FR-B9）</p>
+      </div>
+    </div>
+    <div>
+      <label class="jys-label jys-required">昵称</label>
+      <input class="jys-input" value="夜风">
+      <p class="jys-field-msg-ok">✓ 昵称可用</p>
+    </div>
+    <div>
+      <label class="jys-label">自我介绍（主页展示）</label>
+      <textarea class="jys-input" rows="3">面杀组织担当 · 每周六漫卷桌游吧见</textarea>
+      <p class="text-xs mt-1" style="color:var(--jys-text-3)">发布时过敏感词校验（FR-B5）</p>
+    </div>
+    <div>
+      <label class="jys-label">兴趣标签（预设库 + 自定义，≤10 个）</label>
+      <div class="flex flex-wrap gap-2 mb-2">
+        <span class="jys-badge jys-badge-primary">血染钟楼 ✕</span><span class="jys-badge jys-badge-primary">桌游主持 ✕</span><span class="jys-badge jys-badge-primary">原神 ✕</span>
+      </div>
+      <div class="flex gap-2">
+        <input class="jys-input" placeholder="自定义标签（需过敏感词校验）" value="">
+        <button class="jys-btn jys-btn-outline shrink-0">添加</button>
+      </div>
+      <p class="text-xs mt-2" style="color:var(--jys-text-3)">常用预设：<a class="jys-link" href="#">金铲铲</a> · <a class="jys-link" href="#">狼人杀</a> · <a class="jys-link" href="#">CS2</a> · <a class="jys-link" href="#">主机游戏</a> · <a class="jys-link" href="#">卡坦岛</a></p>
+    </div>
+    <div class="jys-sunken p-4 flex items-center justify-between">
+      <div><b class="text-sm">公开我的出勤记录</b><p class="text-xs" style="color:var(--jys-text-2)">关闭后个人主页不展示报名/出勤（Q8-⑰）</p></div>
+      <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" checked class="sr-only peer"><div style="width:44px;height:24px;border-radius:12px;background:var(--jys-success);position:relative;transition:.2s" class="peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div></label>
+    </div>
+    <div class="flex gap-2">
+      <button class="jys-btn jys-btn-primary">保存修改</button>
+      <a class="jys-btn jys-btn-ghost" href="profile.html">取消</a>
+    </div>
+  </div>
+
+  <div data-when="validation" class="jys-card p-7 space-y-5">
+    <div>
+      <label class="jys-label jys-required">昵称</label>
+      <input class="jys-input jys-input-error" value="夜">
+      <p class="jys-field-msg-error">⚠ 昵称至少 2 个字符</p>
+    </div>
+    <div>
+      <label class="jys-label">自定义标签</label>
+      <div class="flex gap-2">
+        <input class="jys-input jys-input-error" value="免费代练">
+        <button class="jys-btn jys-btn-outline shrink-0">添加</button>
+      </div>
+      <p class="jys-field-msg-error">⚠ 标签命中敏感词，已拒绝（FR-C2）；当前标签 10/10，已达上限（P9-09）</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>

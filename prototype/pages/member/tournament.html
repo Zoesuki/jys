@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛事与积分 · 吉悠社成员中心</title>
+<!-- M14 赛事与积分 | 普通成员 | ← PRD 5.4 D9（P2）、5.3 C5 / SRS FR-D9/C5、状态机 4.8（P9-12）
+     交互：赛季信息、对阵/成绩、积分排行（贡献值展示，不决定等级）；成绩录错由管理员修正走调整流水 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="赛事与积分" data-page-group="member" data-trace="PRD 5.4 D9（P2）、5.3 C5 / SRS FR-D9/C5、状态机 4.8" data-states="normal,empty">
+<main class="max-w-5xl mx-auto px-4 pb-10">
+
+  <div data-when="normal" class="space-y-5">
+    <!-- 当前赛季 -->
+    <section class="jys-card p-6" style="background:linear-gradient(120deg,#FFF1E4,#FFF 70%)">
+      <div class="flex items-center gap-2 flex-wrap"><h2 style="font-size:20px">金铲铲社区赛 · S3 赛季</h2><span class="jys-badge jys-badge-warning jys-badge-dot">比赛中</span><span class="jys-badge jys-badge-neutral">P2 迭代功能（原型演示）</span></div>
+      <p class="text-sm mt-1" style="color:var(--jys-text-2)">10 月 19 日开赛 · 32 强双败 · 积分 = 胜场 +30 / 参与 +10（运营参数可配置）· 对阵默认人工编排（Q5）</p>
+      <div class="mt-4 grid sm:grid-cols-4 gap-2 text-center text-xs">
+        <div class="jys-sunken p-3"><p style="font-size:18px;font-weight:800">32</p><p style="color:var(--jys-text-2)">报名队伍</p></div>
+        <div class="jys-sunken p-3"><p style="font-size:18px;font-weight:800">16</p><p style="color:var(--jys-text-2)">已录入场次</p></div>
+        <div class="jys-sunken p-3"><p style="font-size:18px;font-weight:800">10-26</p><p style="color:var(--jys-text-2)">决赛日</p></div>
+        <div class="jys-sunken p-3"><p style="font-size:18px;font-weight:800">1,280</p><p style="color:var(--jys-text-2)">预计发放积分</p></div>
+      </div>
+    </section>
+
+    <div class="grid lg:grid-cols-2 gap-5">
+      <!-- 积分排行 -->
+      <section class="jys-card p-5">
+        <h3 class="font-bold mb-3">S2 赛季积分排行（贡献值）</h3>
+        <table class="jys-table">
+          <thead><tr><th>#</th><th>成员</th><th>胜场</th><th>积分</th></tr></thead>
+          <tbody>
+            <tr><td>🥇</td><td><b>北漠</b> <span class="jys-lv jys-lv5"><span class="lv-num">5</span></span></td><td>7</td><td><b>+240</b></td></tr>
+            <tr><td>🥈</td><td><b>星野子</b></td><td>5</td><td>+180</td></tr>
+            <tr><td>🥉</td><td><b>南栀</b></td><td>4</td><td>+150</td></tr>
+            <tr><td>4</td><td>夜风</td><td>3</td><td>+120</td></tr>
+            <tr><td>5</td><td>阿茶</td><td>2</td><td>+90</td></tr>
+          </tbody>
+        </table>
+        <p class="text-[11px] mt-2" style="color:var(--jys-text-3)">积分累积为贡献值仅展示、不解锁权限（Q5/N1）；不参与等级计算（等级由经验值决定）。</p>
+      </section>
+
+      <!-- 最近对阵 -->
+      <section class="jys-card p-5">
+        <h3 class="font-bold mb-3">最近对阵</h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center justify-between p-2.5 rounded-xl" style="border:1px solid var(--jys-border)">
+            <span><b>夜风 / 孤屿</b> vs 月见黑 / 森林邮递员</span>
+            <span class="jys-badge jys-badge-success">2:1 胜</span>
+          </div>
+          <div class="flex items-center justify-between p-2.5 rounded-xl" style="border:1px solid var(--jys-border)">
+            <span>北漠 / 阿茶 vs <b>星野子 / 南栀</b></span>
+            <span class="jys-badge jys-badge-error">0:2 负</span>
+          </div>
+          <div class="flex items-center justify-between p-2.5 rounded-xl" style="border:1px solid var(--jys-border)">
+            <span>咸鱼要翻身 / 咖啡不加糖 vs 待定</span>
+            <span class="jys-badge jys-badge-neutral">待开始</span>
+          </div>
+        </div>
+        <p class="text-[11px] mt-3" style="color:var(--jys-text-3)">成绩录错由管理员修正并生成积分调整流水冲正（P9-12）。</p>
+      </section>
+    </div>
+  </div>
+
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🏆</div><p class="font-bold" style="color:var(--jys-text-1)">暂无进行中的赛事</p><p class="text-xs mt-1">赛事为 P2 迭代功能，敬请期待</p></div></div></div>
+</main>
+</body>
+</html>

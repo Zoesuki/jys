@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系统配置 · 吉悠社管理后台</title>
+<!-- A9 系统配置与运营参数 | 管理员 | ← PRD 5.5 E10、7.1 R9 / SRS FR-E10（Q8-⑭、P9-16/17/23/24）
+     交互：敏感词库（即时生效）、通知开关、公告发布、运营参数集中配置（含 G 模块） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="系统配置与运营参数" data-page-group="admin" data-trace="PRD 5.5 E10、7.1 R9 / SRS FR-E10、附录 10.2 参数表" data-states="normal">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1 space-y-5">
+    <!-- 公告 -->
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3">📢 发布公告（→ 公告栏 / 群机器人 P2）</h3>
+      <div class="flex gap-2">
+        <input class="jys-input" placeholder="公告标题，如：11 月月度聚会报名开启">
+        <button class="jys-btn jys-btn-primary shrink-0">发布公告</button>
+      </div>
+      <p class="text-xs mt-2" style="color:var(--jys-text-3)">公告内容过敏感词校验（FR-B5 口径）。</p>
+    </section>
+
+    <!-- 敏感词库 -->
+    <section class="jys-card p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-bold">🚫 敏感词库（128 个词）</h3>
+        <span class="jys-badge jys-badge-success jys-badge-dot">增删即时生效（Q8-⑭）</span>
+      </div>
+      <div class="flex gap-2 mb-3">
+        <input class="jys-input" placeholder="输入新增敏感词，如：代练">
+        <button class="jys-btn jys-btn-primary shrink-0">添加</button>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="jys-badge jys-badge-error">代练 ✕</span><span class="jys-badge jys-badge-error">刷单 ✕</span><span class="jys-badge jys-badge-error">加V ✕</span>
+        <span class="jys-badge jys-badge-error">外挂 ✕</span><span class="jys-badge jys-badge-error">兜售 ✕</span><span class="jys-badge jys-badge-outline">… 共 128 个</span>
+      </div>
+    </section>
+
+    <!-- 通知开关 -->
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3">🔔 通知开关</h3>
+      <div class="space-y-2 text-sm">
+        <div class="flex items-center justify-between jys-sunken p-3"><span>邮件通知总开关（F2）</span><input type="checkbox" checked class="w-10 h-5 accent-orange-500"></div>
+        <div class="flex items-center justify-between jys-sunken p-3"><span>活动提醒邮件（提前 24h / 1h，Q8-⑩）</span><input type="checkbox" checked class="w-10 h-5 accent-orange-500"></div>
+        <div class="flex items-center justify-between jys-sunken p-3"><span>经验值 / 积分变动通知（变更 N3）</span><input type="checkbox" checked class="w-10 h-5 accent-orange-500"></div>
+        <div class="flex items-center justify-between jys-sunken p-3"><span>QQ 群机器人推送（F3，P2 · 需完成资质申请 Q6）</span><input type="checkbox" disabled class="w-10 h-5"></div>
+        <div class="flex items-center justify-between jys-sunken p-3"><span>短信通知（F4 · 已确认不纳入 X1）</span><span class="jys-badge jys-badge-neutral">范围外</span></div>
+      </div>
+    </section>
+
+    <!-- 运营参数 -->
+    <section class="jys-card p-5">
+      <div class="flex items-center justify-between mb-1">
+        <h3 class="font-bold">⚙️ 运营参数集中配置（R9：标注值仅为默认值，全部可后台修改）</h3>
+        <span class="text-xs" style="color:var(--jys-text-3)">修改留痕 → 审计日志（E11）</span>
+      </div>
+      <table class="jys-table mt-3">
+        <thead><tr><th>参数</th><th>当前值</th><th>默认值</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>入会重新申请间隔</td><td><input class="jys-input" style="width:90px;padding:5px 8px" value="7"><span class="text-xs ml-1">天</span></td><td class="text-xs">7 天</td><td class="text-xs" style="color:var(--jys-text-2)">FR-A4</td></tr>
+          <tr><td>每日签到经验值</td><td><input class="jys-input" style="width:90px;padding:5px 8px" value="10"><span class="text-xs ml-1">点</span></td><td class="text-xs">10（P9-16）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-G1</td></tr>
+          <tr><td>连续签到递增档位</td><td class="text-xs">10/12/14/16/18/20/30</td><td class="text-xs">同左（P9-17）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-G1 · 7 天周期断签重置</td></tr>
+          <tr><td>补签卡</td><td class="text-xs" style="color:var(--jys-error)">获取方式待确认（P9-24）</td><td class="text-xs">—</td><td class="text-xs" style="color:var(--jys-text-2)">FR-G1</td></tr>
+          <tr><td>活动出席奖励</td><td class="text-xs">经验 +50 · 积分 +20</td><td class="text-xs">同左（P9-16）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-G2 · 活动结束自动发放（P9-18）</td></tr>
+          <tr><td>管理员单次赠送上限</td><td><input class="jys-input" style="width:90px;padding:5px 8px" value="1000"></td><td class="text-xs">1000（P9-16）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-G3</td></tr>
+          <tr><td>等级档位表</td><td class="text-xs">Lv1 0–99 / Lv2 100–299 / Lv3 300–699 / Lv4 700–1499 / Lv5 1500+</td><td class="text-xs">同左</td><td class="text-xs" style="color:var(--jys-text-2)">FR-G2 · 修改后即时重算（P9-19）</td></tr>
+          <tr><td>人工审核队列时效</td><td><input class="jys-input" style="width:90px;padding:5px 8px" value="72"><span class="text-xs ml-1">h</span></td><td class="text-xs">72h（P9-03）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-B5</td></tr>
+          <tr><td>登录失败锁定</td><td class="text-xs">5 次 / 15 分钟</td><td class="text-xs">同左（Q8-⑲）</td><td class="text-xs" style="color:var(--jys-text-2)">NFR-06</td></tr>
+          <tr><td>审计日志保存时长</td><td><input class="jys-input" style="width:90px;padding:5px 8px" value="12"><span class="text-xs ml-1">个月</span></td><td class="text-xs">≥1 年（Q8-⑮）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-E11</td></tr>
+          <tr><td>注销冷静期</td><td><input class="jys-input" style="width:90px;padding:5px 8px" value="30"><span class="text-xs ml-1">天</span></td><td class="text-xs">30 天（Q8-㉑）</td><td class="text-xs" style="color:var(--jys-text-2)">FR-A7</td></tr>
+        </tbody>
+      </table>
+      <button class="jys-btn jys-btn-primary mt-3">保存全部参数</button>
+    </section>
+  </div>
+</div>
+</main>
+</body>
+</html>

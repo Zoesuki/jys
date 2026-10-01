@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日签到 · 吉悠社成员中心</title>
+<!-- M7 每日签到 | 普通成员 | ← 变更 N2/N3、P9-16/P9-17 / SRS FR-G1/G2、账务模型 4.9
+     交互：签到按钮、7 天递增周期日历（+10/+12/+14/+16/+18/+20/+30，断签重置）、
+          补签卡（P9-24 获取方式待定）、经验进度与等级档位（P9-16 已确认） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="每日签到" data-page-group="member" data-trace="SRS FR-G1/G2（需求方变更 N2/N3）/ PRD v1.1 C6、C7" data-page-note="等级由经验值决定 · 仅荣誉展示不解锁权限（N6）" data-states="normal,empty,error">
+<main class="max-w-4xl mx-auto px-4 pb-10">
+<div class="grid lg:grid-cols-3 gap-6">
+
+  <!-- 签到卡 -->
+  <div class="lg:col-span-2 space-y-5">
+    <section class="jys-card p-6" style="background:linear-gradient(120deg,#FFF1E4,#FFE8CC)">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <div>
+          <h3 class="font-bold text-lg">10 月连续签到 · 第 6 天</h3>
+          <p class="text-xs mt-1" style="color:var(--jys-text-2)">连续签到按 7 天周期递增，断签后重置（P9-17 已确认）</p>
+        </div>
+        <button class="jys-btn jys-btn-primary jys-btn-lg">✍️ 立即签到（+20）</button>
+      </div>
+      <!-- 7 天周期 -->
+      <div class="grid grid-cols-7 gap-2 mt-5 text-center text-xs">
+        <div class="jys-sunken py-3"><p style="color:var(--jys-text-2)">第1天</p><p class="font-bold mt-1" style="color:var(--jys-success)">+10</p><p class="mt-1">✅</p></div>
+        <div class="jys-sunken py-3"><p style="color:var(--jys-text-2)">第2天</p><p class="font-bold mt-1" style="color:var(--jys-success)">+12</p><p class="mt-1">✅</p></div>
+        <div class="jys-sunken py-3"><p style="color:var(--jys-text-2)">第3天</p><p class="font-bold mt-1" style="color:var(--jys-success)">+14</p><p class="mt-1">✅</p></div>
+        <div class="jys-sunken py-3"><p style="color:var(--jys-text-2)">第4天</p><p class="font-bold mt-1" style="color:var(--jys-success)">+16</p><p class="mt-1">✅</p></div>
+        <div class="jys-sunken py-3"><p style="color:var(--jys-text-2)">第5天</p><p class="font-bold mt-1" style="color:var(--jys-success)">+18</p><p class="mt-1">✅</p></div>
+        <div class="py-3 rounded-xl" style="background:var(--jys-primary);color:#fff"><p>第6天 · 今天</p><p class="font-bold mt-1">+20</p><p class="mt-1">待签</p></div>
+        <div class="jys-sunken py-3" style="border:1.5px dashed var(--jys-border-primary)"><p style="color:var(--jys-text-2)">第7天</p><p class="font-bold mt-1" style="color:var(--jys-primary-hover)">+30</p><p class="mt-1">🔮</p></div>
+      </div>
+      <!-- 补签 -->
+      <div class="mt-4 flex items-center gap-3 flex-wrap">
+        <div class="jys-sunken px-3 py-2 text-sm flex items-center gap-2">
+          🎫 补签卡 <b style="color:var(--jys-primary-hover)">× 2</b>
+          <span class="text-xs" style="color:var(--jys-text-3)">（获取方式待确认 P9-24）</span>
+        </div>
+        <button class="jys-btn jys-btn-outline jys-btn-sm">补签 9 月 28 日（漏签）</button>
+      </div>
+    </section>
+
+    <!-- 签到日历（本月） -->
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3">10 月签到记录</h3>
+      <div class="grid grid-cols-7 gap-1.5 text-center text-sm">
+        <div class="jys-sunken py-2" style="color:var(--jys-success)">1 ✅</div><div class="jys-sunken py-2" style="color:var(--jys-success)">2 ✅</div>
+        <div class="jys-sunken py-2" style="color:var(--jys-error)">3 ❌</div><div class="jys-sunken py-2" style="color:var(--jys-success)">4 ✅</div>
+        <div class="jys-sunken py-2" style="color:var(--jys-success)">5 ✅</div><div class="jys-sunken py-2" style="color:var(--jys-text-3)">…</div>
+        <div class="jys-sunken py-2" style="color:var(--jys-text-3)">…</div>
+      </div>
+      <p class="text-xs mt-3" style="color:var(--jys-text-3)">本月已签 14 天 · 累计获得经验 216 · 每经验值入账均产生流水（4.9，只增不减）</p>
+    </section>
+  </div>
+
+  <!-- 右栏：等级与流水 -->
+  <div class="space-y-5">
+    <section class="jys-card p-5 text-center">
+      <span class="jys-lv jys-lv4" style="font-size:14px"><span class="lv-num" style="width:30px;height:30px;font-size:14px">4</span>元老社员</span>
+      <p style="font-size:28px;font-weight:800;margin-top:8px;color:var(--jys-primary)">1,864</p>
+      <p class="text-xs" style="color:var(--jys-text-2)">当前经验值 · Lv5 需 2,000</p>
+      <div class="jys-progress mt-3"><div style="width:73%"></div></div>
+      <p class="text-[11px] mt-2" style="color:var(--jys-text-3)">等级档位：Lv1 0–99 / Lv2 100–299 / Lv3 300–699 / Lv4 700–1499 / Lv5 1500+（P9-16）</p>
+      <p class="text-[11px] mt-1" style="color:var(--jys-text-3)">等级仅荣誉展示，不解锁任何权限（N6）</p>
+    </section>
+
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3 text-sm">经验值流水（账务 4.9）</h3>
+      <div class="space-y-2 text-xs">
+        <div class="flex justify-between"><span>活动出席 · 面杀第 14 期</span><b style="color:var(--jys-success)">+50</b></div>
+        <div class="flex justify-between"><span>管理员赠送 · 中秋奖励</span><b style="color:var(--jys-success)">+100</b></div>
+        <div class="flex justify-between"><span>每日签到 · 第 5 天</span><b style="color:var(--jys-success)">+18</b></div>
+        <div class="flex justify-between"><span>补签 · 9 月 28 日</span><b style="color:var(--jys-success)">+10</b></div>
+      </div>
+      <a class="jys-link text-xs inline-block mt-3" href="profile.html">查看完整账务 →</a>
+    </section>
+
+    <section class="jys-card p-5">
+      <h3 class="font-bold mb-3 text-sm">积分（贡献值）</h3>
+      <p style="font-size:22px;font-weight:800">640 <span class="text-xs font-normal" style="color:var(--jys-text-3)">来源：赛事积分累积 + 管理员赠送（不变更等级）</span></p>
+    </section>
+  </div>
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吉悠社成员中心 · 高保真原型导航</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="jys">
+<main class="max-w-7xl mx-auto px-4 pb-16">
+
+  <!-- Hero -->
+  <section class="jys-card p-8 mb-6 jys-fade-in" style="background:linear-gradient(135deg,#FFF7ED 0%,#FFF1E4 55%,#FFE8CC 100%);border-color:var(--jys-border-warm)">
+    <div class="flex items-center gap-3 mb-3">
+      <span style="width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#F97316,#FB923C);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;">吉</span>
+      <div>
+        <h1 style="font-size:30px;line-height:1.2">吉悠社成员中心 <span style="color:var(--jys-primary)">高保真原型</span></h1>
+        <p style="color:var(--jys-text-2);font-size:13px">对应 PRD v1.1（53 条功能）+ SRS v1.0（FR-A1～FR-G3） · 纯静态 HTML + Tailwind CDN · 零构建</p>
+      </div>
+      <div class="ml-auto text-right text-xs" style="color:var(--jys-text-2)">
+        <p>设计契约：<b style="color:var(--jys-primary-hover)">方案 C 暖橙休闲亮色</b>（已冻结）</p>
+        <p>状态：草稿 v0.1 · 待逐页评审</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <a class="jys-btn jys-btn-primary" href="design-system.html">🎨 设计系统样例页</a>
+      <a class="jys-btn jys-btn-outline" href="页面清单.md">📋 页面清单与覆盖率核对（41 页）</a>
+    </div>
+  </section>
+
+  <!-- 主流程走查 -->
+  <section class="jys-card p-6 mb-6">
+    <h2 class="text-lg font-bold mb-3">🚶 核心业务主链路（按序点击可走通）</h2>
+    <div class="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/guest/login.html">1 登录</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/guest/register.html">2 注册激活</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/apply.html">3 入会申请</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/admin/2fa.html">4 后台二次验证</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/admin/applications.html">5 审核通过</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/post-editor.html">6 发帖</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/post-view-member.html">7 互动</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/checkin.html">8 每日签到</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/my-events.html">9 报名活动</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/organizer/checkin-desk.html">10 签到核销</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/organizer/recap.html">11 奖励发放</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/admin/gift.html">12 管理员赠送</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/notifications.html">13 收到通知</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/member/report.html">14 举报</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/admin/reports.html">15 举报处置</a><span style="color:var(--jys-text-3)">→</span>
+      <a class="jys-btn jys-btn-outline jys-btn-sm" href="pages/admin/audit.html">16 审计留痕</a>
+    </div>
+  </section>
+
+  <!-- 分区导航 -->
+  <div class="grid md:grid-cols-2 gap-6 mb-6">
+    <section class="jys-card p-6">
+      <div class="flex items-center gap-2 mb-1"><span class="jys-role jys-role-guest">游客</span><h2 class="font-bold text-lg">公共页面</h2><span class="text-xs" style="color:var(--jys-text-3)">pages/guest/ · 11 页</span></div>
+      <p class="text-xs mb-4" style="color:var(--jys-text-2)">← PRD 4.1 拉新旅程：游客仅可浏览公开内容（Q7），互动引导注册</p>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/home.html">G1 社区首页</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/board.html">G2 版块帖子列表</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/post-view.html">G3 帖子详情·游客态</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/activity-calendar.html">G4 活动日历</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/event-view.html">G5 活动详情·游客态</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/members.html">G6 成员列表</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/member-profile.html">G7 个人主页·他人</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/search.html">G8 搜索结果</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/login.html">G9 登录</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/register.html">G10 注册</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/guest/reset.html">G11 找回密码</a>
+      </div>
+    </section>
+
+    <section class="jys-card p-6">
+      <div class="flex items-center gap-2 mb-1"><span class="jys-role jys-role-member">普通成员</span><h2 class="font-bold text-lg">成员前台</h2><span class="text-xs" style="color:var(--jys-text-3)">pages/member/ · 14 页</span></div>
+      <p class="text-xs mb-4" style="color:var(--jys-text-2)">← PRD 4.2 活跃旅程 + 变更 G 模块（签到递增/补签/等级）</p>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/apply.html">M1 入会申请</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/post-editor.html">M2 发帖编辑器</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/post-view-member.html">M3 帖子详情·成员态</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/notifications.html">M4 通知中心</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/profile.html">M5 个人主页·自己</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/profile-edit.html">M6 资料编辑</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/checkin.html">M7 每日签到 ⭐</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/my-events.html">M8 我的报名出勤</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/favorites.html">M9 我的收藏</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/drafts.html">M10 草稿箱</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/teams.html">M11 组队列表</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/team-detail.html">M12 组队详情</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/account-close.html">M13 账号注销</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/tournament.html">M14 赛事与积分 P2</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/member/report.html">M15 举报提交</a>
+      </div>
+    </section>
+
+    <section class="jys-card p-6">
+      <div class="flex items-center gap-2 mb-1"><span class="jys-role jys-role-organizer">活动组织者</span><h2 class="font-bold text-lg">活动管理</h2><span class="text-xs" style="color:var(--jys-text-3)">pages/organizer/ · 4 页</span></div>
+      <p class="text-xs mb-4" style="color:var(--jys-text-2)">← PRD 4.3 活动全周期：发布→报名→签到→出勤→回顾</p>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/organizer/event-form.html">O1 活动发布/编辑</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/organizer/event-manage.html">O2 活动管理/名单</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/organizer/checkin-desk.html">O3 签到核销台</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/organizer/recap.html">O4 出勤统计/回顾</a>
+      </div>
+    </section>
+
+    <section class="jys-card p-6">
+      <div class="flex items-center gap-2 mb-1"><span class="jys-role jys-role-admin">管理员</span><h2 class="font-bold text-lg">管理后台</h2><span class="text-xs" style="color:var(--jys-text-3)">pages/admin/ · 11 页</span></div>
+      <p class="text-xs mb-4" style="color:var(--jys-text-2)">← PRD 4.5 治理旅程：审核→治理→看板→配置（全部操作留痕 R8）</p>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/2fa.html">A1 后台二次验证</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/dashboard.html">A2 数据看板 📊</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/applications.html">A3 入会审核</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/members.html">A4 成员管理</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/posts.html">A5 帖子管理</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/reports.html">A6 举报工单</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/boards.html">A7 版块管理</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/events.html">A8 活动管理</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/settings.html">A9 系统配置 ⭐</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/audit.html">A10 审计日志</a>
+        <a class="jys-btn jys-btn-ghost justify-start" href="pages/admin/gift.html">A11 赠送经验/积分 ⭐</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- 使用说明 -->
+  <section class="jys-card p-6">
+    <h2 class="text-lg font-bold mb-3">📖 原型使用说明</h2>
+    <ul class="text-sm space-y-1.5" style="color:var(--jys-text-2)">
+      <li>· 每页<b style="color:var(--jys-text-1)">左下角</b>为需求追溯条（PRD/SRS 章节号），<b style="color:var(--jys-text-1)">右下角</b>为状态演示切换器（正常/空状态/加载/错误/校验一键切换）；</li>
+      <li>· 顶部导航可跨页面跳转；页面间按钮均为真实链接，按上方主链路可走通全部核心业务流；</li>
+      <li>· Mock 数据为贴合业务的真实感数据（数量级对齐 SRS：成员 ≤5000、峰值在线 ≤500）；</li>
+      <li>· 本原型为草稿，确认前可无限迭代；确认后冻结为 UI 契约，改动需走变更确认。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>入会审核 · 吉悠社管理后台</title>
+<!-- A3 入会审核 | 管理员 | ← PRD 5.5 E1、6.1 / SRS FR-E1、状态机 4.2（R3/R8）
+     交互：待审列表、通过/拒绝（理由必填）、留痕提示 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="入会审核" data-page-group="admin" data-trace="PRD 5.5 E1、6.1 / SRS FR-E1、状态机 4.2" data-states="normal,empty,loading,error">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="applications.html">✅ 入会审核 <span class="jys-badge jys-badge-warning text-[10px]">5</span></a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1 space-y-4">
+    <div class="flex items-center gap-2 flex-wrap">
+      <button class="jys-btn jys-btn-primary jys-btn-sm">待审核（5）</button>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm">已通过（1,086）</button>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm">已拒绝（426）</button>
+    </div>
+
+    <div data-when="normal" class="space-y-3">
+      <div class="jys-card p-5">
+        <div class="flex items-center gap-3 mb-2 flex-wrap">
+          <span class="jys-avatar" style="width:36px;height:36px;font-size:13px">咖</span>
+          <b class="text-sm">咖啡不加糖</b>
+          <span class="text-xs" style="color:var(--jys-text-3)">xingye@163.com · 注册于今天 08:56</span>
+          <span class="ml-auto text-xs" style="color:var(--jys-text-3)">等待 1.2h</span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-3 text-sm">
+          <div class="jys-sunken p-3"><p class="text-xs mb-1" style="color:var(--jys-text-2)">游戏经历</p>PC 端 3 年，主玩金铲铲和 CS2，周末偶尔玩桌游。</div>
+          <div class="jys-sunken p-3"><p class="text-xs mb-1" style="color:var(--jys-text-2)">自我介绍</p>朋友推荐来的，想找周末固定车队，能语音，不鸽不摆。</div>
+        </div>
+        <div class="flex items-center gap-2 mt-3">
+          <button class="jys-btn jys-btn-primary jys-btn-sm">✓ 通过</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm" onclick="document.getElementById('reject-modal').classList.remove('hidden')">✗ 拒绝（须填理由）</button>
+          <span class="ml-auto text-[11px]" style="color:var(--jys-text-3)">审核操作留痕（R8）· 被拒后 7 天可重新申请（R3）</span>
+        </div>
+      </div>
+
+      <div class="jys-card p-5" style="opacity:.9">
+        <div class="flex items-center gap-3 mb-2 flex-wrap">
+          <span class="jys-avatar" style="width:36px;height:36px;font-size:13px">喵</span>
+          <b class="text-sm">喵喵叫的夜袭</b>
+          <span class="text-xs" style="color:var(--jys-text-3)">maomao@qq.com · 注册于昨天 22:30</span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-3 text-sm">
+          <div class="jys-sunken p-3"><p class="text-xs mb-1" style="color:var(--jys-text-2)">游戏经历</p>主机玩家，塞尔达、怪猎全系列通关；最近开始接触桌游。</div>
+          <div class="jys-sunken p-3"><p class="text-xs mb-1" style="color:var(--jys-text-2)">自我介绍</p>社恐但热爱游戏，想参加线下聚会锻炼一下。</div>
+        </div>
+        <div class="flex items-center gap-2 mt-3">
+          <button class="jys-btn jys-btn-primary jys-btn-sm">✓ 通过</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm">✗ 拒绝</button>
+        </div>
+      </div>
+    </div>
+
+    <div data-when="loading" class="space-y-3"><div class="jys-skeleton h-32"></div><div class="jys-skeleton h-32"></div></div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🎉</div><p class="font-bold" style="color:var(--jys-text-1)">全部申请已处理完毕</p><p class="text-xs mt-1">新的入会申请会实时出现在这里</p></div></div></div>
+    <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">申请列表加载失败</p><p class="text-xs mt-1">服务不可用（NET-1004）</p></div></div></div>
+  </div>
+</div>
+</main>
+
+<!-- 拒绝理由弹层 -->
+<div id="reject-modal" class="jys-modal-mask hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+  <div class="jys-modal p-6 jys-fade-in">
+    <h3 class="font-bold text-lg mb-2">拒绝申请 · 咖啡不加糖</h3>
+    <label class="jys-label jys-required">拒绝理由（将通知申请人）</label>
+    <textarea class="jys-input" rows="3" placeholder="请填写具体理由，例如：与社群定位不符…">申请信息过于简单，请补充游戏经历后再申请。</textarea>
+    <p class="text-xs mt-2" style="color:var(--jys-text-3)">拒绝后：站内 + 邮件通知申请人；7 天内不可重复申请（R3）。操作留痕（R8）。</p>
+    <div class="flex justify-end gap-2 mt-4">
+      <button class="jys-btn jys-btn-ghost" onclick="document.getElementById('reject-modal').classList.add('hidden')">取消</button>
+      <button class="jys-btn jys-btn-danger" onclick="document.getElementById('reject-modal').classList.add('hidden')">确认拒绝</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

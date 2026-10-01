@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>版块管理 · 吉悠社管理后台</title>
+<!-- A7 版块管理 | 管理员 | ← PRD 5.5 E7、5.2 B1、7.3 / SRS FR-B1/E7（Q4）
+     交互：两级版块树、增删改排序、公开/专属切换、删除前迁移校验 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="版块管理" data-page-group="admin" data-trace="PRD 5.5 E7、7.3 / SRS FR-B1/E7（Q4）" data-states="normal,validation">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1">
+    <div data-when="normal" class="jys-card p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold">版块结构（两级，Q4）</h3>
+        <button class="jys-btn jys-btn-primary jys-btn-sm">＋ 新增版块</button>
+      </div>
+      <div class="space-y-2">
+        <div class="jys-sunken p-4 flex items-center gap-3 flex-wrap">
+          <b>📢 公告栏</b><span class="jys-badge jys-badge-primary">成员专属</span><span class="text-xs" style="color:var(--jys-text-3)">排序 1 · 128 帖</span>
+          <div class="ml-auto flex gap-1">
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">↑</button><button class="jys-btn jys-btn-ghost jys-btn-sm">↓</button>
+            <button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button><button class="jys-btn jys-btn-outline jys-btn-sm">＋ 子版块</button>
+          </div>
+          <div class="w-full flex gap-2 pl-4 text-sm">
+            <span class="px-2 py-1 rounded" style="border:1px solid var(--jys-border)">社务公告 · 64 帖</span>
+            <span class="px-2 py-1 rounded" style="border:1px solid var(--jys-border)">活动公示 · 64 帖</span>
+          </div>
+        </div>
+        <div class="jys-sunken p-4 flex items-center gap-3 flex-wrap">
+          <b>💬 综合闲聊</b><span class="jys-badge jys-badge-neutral">公开</span><span class="text-xs" style="color:var(--jys-text-3)">排序 2 · 1,842 帖 · 可直接发帖（无子版块）</span>
+          <div class="ml-auto flex gap-1">
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">↑</button><button class="jys-btn jys-btn-ghost jys-btn-sm">↓</button>
+            <button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button><button class="jys-btn jys-btn-outline jys-btn-sm">＋ 子版块</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">删除</button>
+          </div>
+        </div>
+        <div class="jys-sunken p-4 flex items-center gap-3 flex-wrap">
+          <b>🎮 游戏分区</b><span class="jys-badge jys-badge-neutral">公开</span><span class="text-xs" style="color:var(--jys-text-3)">排序 3 · 3,215 帖</span>
+          <div class="ml-auto flex gap-1">
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">↑</button><button class="jys-btn jys-btn-ghost jys-btn-sm">↓</button>
+            <button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button><button class="jys-btn jys-btn-outline jys-btn-sm">＋ 子版块</button>
+          </div>
+          <div class="w-full flex gap-2 pl-4 text-sm flex-wrap">
+            <span class="px-2 py-1 rounded" style="border:1px solid var(--jys-border)">原神 · 1,204 帖</span>
+            <span class="px-2 py-1 rounded" style="border:1px solid var(--jys-border)">金铲铲之战 · 862 帖</span>
+            <span class="px-2 py-1 rounded" style="border:1px solid var(--jys-border)">永劫无间 · 631 帖</span>
+            <span class="px-2 py-1 rounded" style="border:1px solid var(--jys-border)">CS2 · 518 帖</span>
+          </div>
+        </div>
+        <div class="jys-sunken p-4 flex items-center gap-3">
+          <b>🎲 桌游面杀</b><span class="jys-badge jys-badge-neutral">公开</span><span class="text-xs" style="color:var(--jys-text-3)">排序 4 · 967 帖</span>
+          <div class="ml-auto flex gap-1"><button class="jys-btn jys-btn-ghost jys-btn-sm">↑</button><button class="jys-btn jys-btn-ghost jys-btn-sm">↓</button><button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button></div>
+        </div>
+        <div class="jys-sunken p-4 flex items-center gap-3">
+          <b>🍕 线下活动</b><span class="jys-badge jys-badge-neutral">公开</span><span class="text-xs" style="color:var(--jys-text-3)">排序 5 · 423 帖</span>
+          <div class="ml-auto flex gap-1"><button class="jys-btn jys-btn-ghost jys-btn-sm">↑</button><button class="jys-btn jys-btn-ghost jys-btn-sm">↓</button><button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button></div>
+        </div>
+        <div class="jys-sunken p-4 flex items-center gap-3">
+          <b>🙋 求助问答</b><span class="jys-badge jys-badge-neutral">公开</span><span class="text-xs" style="color:var(--jys-text-3)">排序 6 · 756 帖</span>
+          <div class="ml-auto flex gap-1"><button class="jys-btn jys-btn-ghost jys-btn-sm">↑</button><button class="jys-btn jys-btn-ghost jys-btn-sm">↓</button><button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-when="validation" class="jys-error-banner">
+      <span>⚠️</span><div><p class="font-bold">无法删除版块「桌游面杀」</p><p class="text-xs mt-1">该版块下仍有 967 个帖子。删除前需先<b>迁移或归档帖子</b>（FR-E7），或选择"归档全部帖子"继续。</p>
+      <div class="flex gap-2 mt-2"><button class="jys-btn jys-btn-outline jys-btn-sm">迁移帖子至…</button><button class="jys-btn jys-btn-danger jys-btn-sm">归档全部帖子并删除</button><button class="jys-btn jys-btn-ghost jys-btn-sm">取消</button></div></div>
+    </div>
+  </div>
+</div>
+</main>
+</body>
+</html>

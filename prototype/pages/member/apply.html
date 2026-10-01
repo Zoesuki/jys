@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>入会申请 · 吉悠社成员中心</title>
+<!-- M1 入会申请 | 注册用户 | ← PRD 5.1 A4、6.1 / SRS FR-A4、状态机 4.2
+     交互：申请表（游戏经历/自我介绍 30–500 字）、敏感词校验、提交成功→待审核态；被拒 7 天间隔口径提示 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="入会申请" data-page-group="member" data-trace="PRD 5.1 A4、6.1 / SRS FR-A4、状态机 4.2" data-states="normal,validation">
+<main class="max-w-2xl mx-auto px-4 pb-16">
+
+  <div data-when="normal" class="jys-card p-7">
+    <div class="flex items-center gap-2 mb-1"><h2 class="text-xl font-bold">加入吉悠社</h2><span class="jys-badge jys-badge-warning jys-badge-dot">待管理员审核</span></div>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">审核通过后解锁：发帖互动、活动报名、成员专属版块、@提及、附件上传（PRD Q7 权益清单）</p>
+    <form class="space-y-5">
+      <div>
+        <label class="jys-label jys-required">游戏经历</label>
+        <textarea class="jys-input" rows="4" placeholder="玩过哪些游戏、大致游戏年限、是否有组织/公会经验…">PC 端 8 年，主玩原神与 CS2；桌游最近一年迷上血染钟楼，玩过 20+ 车次。大学时曾担任动漫社游戏部部长，有组织线下联机活动的经验。</textarea>
+        <p class="text-xs mt-1 text-right" style="color:var(--jys-text-3)">86 / 500 字</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">自我介绍</label>
+        <textarea class="jys-input" rows="4" placeholder="聊聊你的游戏习惯、期望的社群氛围、常在线的时间段…">上班族，工作日晚 8 点后在线，周末全天。性格温和，能接受语音开黑，希望找到固定周末面杀的搭子。</textarea>
+        <p class="text-xs mt-1 text-right" style="color:var(--jys-text-3)">62 / 500 字</p>
+      </div>
+      <div class="jys-sunken p-3 text-xs" style="color:var(--jys-text-2)">
+        提示：申请内容将经过敏感词校验（SRS FR-B5）；若被拒绝可填写理由收到通知，<b>7 天后可重新申请</b>（运营参数，可配置）。
+      </div>
+      <div class="flex gap-2">
+        <button type="button" class="jys-btn jys-btn-primary flex-1 justify-center">提交申请</button>
+        <a class="jys-btn jys-btn-ghost" href="../guest/home.html">暂不加入</a>
+      </div>
+    </form>
+  </div>
+
+  <div data-when="validation" class="jys-card p-7">
+    <h2 class="text-xl font-bold mb-1">加入吉悠社</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">以下为表单校验与敏感词拦截演示</p>
+    <form class="space-y-5">
+      <div>
+        <label class="jys-label jys-required">游戏经历</label>
+        <textarea class="jys-input" rows="2">只玩过一点点</textarea>
+        <p class="jys-field-msg-error">⚠ 游戏经历至少 30 字，当前 6 字</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">自我介绍</label>
+        <textarea class="jys-input jys-input-error" rows="2">加个微信卖装备的来 xxx 号，代练打金优惠</textarea>
+        <p class="jys-field-msg-error">⚠ 内容命中敏感词（疑似垃圾广告），已转人工审核（SRS FR-B5/Q7），请修改后重新提交</p>
+      </div>
+      <button class="jys-btn jys-btn-primary w-full justify-center" disabled>提交申请</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>

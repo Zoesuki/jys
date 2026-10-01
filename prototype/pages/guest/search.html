@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜索 · 吉悠社成员中心</title>
+<!-- G8 搜索结果 | 游客 | ← PRD 5.2 B10 / SRS FR-B10
+     交互：关键词搜索（默认覆盖标题+正文+回帖，Q8-③）、版块/时间筛选、空结果态；结果受可见范围限制 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="搜索" data-page-group="guest" data-trace="PRD 5.2 B10 / SRS FR-B10" data-page-note="覆盖标题+正文+回帖（Q8-③）" data-states="normal,empty,loading,error">
+<main class="max-w-4xl mx-auto px-4 pb-10">
+
+  <div class="jys-card p-4 mb-5">
+    <div class="flex gap-2">
+      <input class="jys-input" value="血染钟楼 新手" placeholder="搜索帖子标题、正文、回帖内容…">
+      <button class="jys-btn jys-btn-primary shrink-0">搜索</button>
+    </div>
+    <div class="flex items-center gap-2 mt-3 flex-wrap text-sm">
+      <span class="text-xs" style="color:var(--jys-text-2)">筛选：</span>
+      <select class="jys-select" style="width:auto;padding:5px 10px"><option>全部版块</option><option>桌游面杀</option><option>游戏分区</option><option>求助问答</option></select>
+      <select class="jys-select" style="width:auto;padding:5px 10px"><option>全部时间</option><option>近 7 天</option><option>近 30 天</option><option>近一年</option></select>
+      <span class="text-xs ml-auto" style="color:var(--jys-text-3)">找到 23 条与「血染钟楼 新手」相关的结果（用时 0.08 秒）</span>
+    </div>
+  </div>
+
+  <div data-when="normal" class="space-y-3">
+    <article class="jys-card p-4 jys-card-hover">
+      <a href="post-view.html" class="font-semibold hover:underline">血染钟楼<mark style="background:var(--jys-primary-light);color:var(--jys-primary-active)">新手</mark>入坑指南（暗流涌动版）</a>
+      <p class="text-xs mt-1 leading-6" style="color:var(--jys-text-2)">这篇写给完全没玩过的朋友。<mark style="background:var(--jys-primary-light);color:var(--jys-primary-active)">血染钟楼</mark>和狼人杀最大的区别是"死了也能玩"，说书人节奏…</p>
+      <p class="text-xs mt-1" style="color:var(--jys-text-3)">北漠 · 桌游面杀 · 10 月 2 日 · 👍 52 · 💬 17</p>
+    </article>
+    <article class="jys-card p-4 jys-card-hover">
+      <a href="post-view.html" class="font-semibold hover:underline">问一下：<mark style="background:var(--jys-primary-light);color:var(--jys-primary-active)">新手</mark>第一次参加面杀会不会被嫌弃？</a>
+      <p class="text-xs mt-1 leading-6" style="color:var(--jys-text-2)">完全不会！我们每次都留新手位，说书人会把<mark style="background:var(--jys-primary-light);color:var(--jys-primary-active)">血染钟楼</mark>的剧本难度调低…（回帖内容命中）</p>
+      <p class="text-xs mt-1" style="color:var(--jys-text-3)">夜风 · 回帖命中 · 桌游面杀 · 9 月 30 日</p>
+    </article>
+    <article class="jys-card p-4 jys-card-hover">
+      <a href="post-view.html" class="font-semibold hover:underline">10 月 12 日面杀第 15 期招募：<mark style="background:var(--jys-primary-light);color:var(--jys-primary-active)">血染钟楼</mark>专属场</a>
+      <p class="text-xs mt-1 leading-6" style="color:var(--jys-text-2)">预留 2 个<mark style="background:var(--jys-primary-light);color:var(--jys-primary-active)">新手</mark>位，有老玩家全程带教，报名从速…</p>
+      <p class="text-xs mt-1" style="color:var(--jys-text-3)">南栀 · 线下活动 · 9 月 28 日 · 👍 29</p>
+    </article>
+  </div>
+
+  <div data-when="loading" class="space-y-3"><div class="jys-skeleton h-24"></div><div class="jys-skeleton h-24"></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🔍</div><p class="font-bold" style="color:var(--jys-text-1)">未找到与「喵喵喵叫的飞机」相关的结果</p><p class="text-xs mt-1">试试更换关键词，或去掉筛选条件</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="board.html">去论坛逛逛</a></div></div></div>
+  <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">搜索服务暂时不可用</p><p class="text-xs mt-1">错误码 SEARCH-500，请稍后重试</p></div></div></div>
+</main>
+</body>
+</html>

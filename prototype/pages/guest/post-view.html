@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帖子详情 · 吉悠社成员中心</title>
+<!-- G3 帖子详情·游客态 | 游客 | ← PRD 5.1 A2（Q7）/ SRS FR-A2
+     交互：只读浏览；点赞/收藏/回帖/@ 均弹出登录引导（Q7：游客仅可浏览） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="帖子详情（游客态）" data-page-group="guest" data-trace="PRD 5.1 A2（Q7） / SRS FR-A2" data-page-note="游客仅可浏览，互动引导注册" data-states="normal,loading,error">
+<main class="max-w-4xl mx-auto px-4 pb-10">
+
+  <div class="jys-card p-6 mb-4">
+    <div class="flex items-center gap-2 mb-2 flex-wrap">
+      <a class="jys-link text-xs" href="board.html">游戏分区 / 原神</a>
+      <span class="jys-badge jys-badge-success jys-badge-dot">已发布</span>
+      <span class="jys-badge jys-badge-primary">精华</span>
+    </div>
+    <h2 style="font-size:22px;line-height:1.35">纳西妲满命了，求一套深渊 12 层的配队思路</h2>
+    <div class="flex items-center gap-3 mt-3 text-xs flex-wrap" style="color:var(--jys-text-2)">
+      <span class="flex items-center gap-1.5"><span class="jys-avatar" style="width:26px;height:26px;font-size:11px">提</span><b style="color:var(--jys-text-1)">提瓦特钉子户</b><span class="jys-lv jys-lv3"><span class="lv-num">3</span></span></span>
+      <span>· 今天 09:12</span><span>· 浏览 1,204</span>
+    </div>
+  </div>
+
+  <!-- 正文（正常态） -->
+  <div data-when="normal">
+    <article class="jys-card p-6 mb-4 leading-7 text-[15px]">
+      <p>如题，box：纳西妲 2 命、雷电将军 0 命、班尼特 5 命、香菱 6 命，钟离 1 命。还缺个站场主 C，草神配谁比较稳？</p>
+      <p class="mt-3">目前试过「纳行久激化」和「雷国」两队，12 层上半能过但下半输出总是差一点，第三间满血BOSS压线失败 3 次 😭</p>
+      <figure class="my-4 text-center">
+        <img src="https://placehold.co/640x320/FFF1E4/C2410C?text=%E6%B7%B1%E6%B8%8A12%E5%B1%82%E9%85%8D%E9%98%9F%E6%88%AA%E5%9B%BE" alt="深渊配队截图" class="rounded-xl inline-block" onerror="this.onerror=null;this.src='https://placehold.co/640x320/F3F4F6/9CA3AF?text=%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5'">
+        <figcaption class="text-xs mt-2" style="color:var(--jys-text-3)">图：当前 12-3 通关记录（还差 14 秒）</figcaption>
+      </figure>
+      <p>求各位大佬指点一下第四人怎么选，练度优先级该怎么排 🙏</p>
+      <div class="flex items-center gap-2 mt-5 pt-4" style="border-top:1px solid var(--jys-border)">
+        <span class="jys-badge jys-badge-primary">深渊配队</span><span class="jys-badge jys-badge-neutral">攻略求证</span>
+      </div>
+    </article>
+
+    <!-- 互动条（游客态 → 登录引导） -->
+    <div class="jys-card p-4 mb-4 flex items-center gap-3 flex-wrap">
+      <a class="jys-btn jys-btn-outline" href="login.html">👍 点赞 64</a>
+      <a class="jys-btn jys-btn-outline" href="login.html">⭐ 收藏</a>
+      <a class="jys-btn jys-btn-outline" href="login.html">🚩 举报</a>
+      <a class="jys-btn jys-btn-primary ml-auto" href="login.html">登录后回帖</a>
+    </div>
+    <div class="jys-card p-4 mb-4 flex items-center gap-3" style="background:var(--jys-primary-soft);border-color:var(--jys-border-primary)">
+      <span style="font-size:22px">🔒</span>
+      <p class="text-sm" style="color:var(--jys-text-1)">游客仅可浏览公开内容。注册并通过入会审核后即可回帖、点赞、收藏、@成员（PRD Q7 已确认）。</p>
+      <a class="jys-btn jys-btn-primary jys-btn-sm ml-auto shrink-0" href="register.html">去注册</a>
+    </div>
+
+    <!-- 回帖列表（只读） -->
+    <section class="jys-card p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold">回帖（38）</h3>
+        <span class="text-xs" style="color:var(--jys-text-3)">按时间正序</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex gap-3">
+          <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">漠</span>
+          <div class="flex-1">
+            <div class="text-xs" style="color:var(--jys-text-2)"><b style="color:var(--jys-text-1)">北漠</b> <span class="jys-lv jys-lv5"><span class="lv-num">5</span></span> · 今天 09:40 · <span style="color:var(--jys-text-3)">#1 楼</span></div>
+            <p class="text-sm mt-1">第四人上「行秋」，打「纳行久+雷国双保险」。练度优先把香菱充能堆到 220%，你下半差的就是能量循环。</p>
+            <div class="flex gap-3 mt-1 text-xs" style="color:var(--jys-text-3)"><span>👍 21</span><span>引用回复</span><span>举报</span></div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">茶</span>
+          <div class="flex-1">
+            <div class="text-xs" style="color:var(--jys-text-2)"><b style="color:var(--jys-text-1)">阿茶</b> <span class="jys-badge jys-badge-primary text-[10px]">版主</span> <span class="jys-lv jys-lv4"><span class="lv-num">4</span></span> · 今天 10:05 · <span style="color:var(--jys-text-3)">#2 楼</span></div>
+            <p class="text-sm mt-1"><span class="jys-badge jys-badge-neutral text-[10px]">引用 #1</span> 补充：草神记得带「千夜浮梦」毕业武器词条优先精通，12 层草抗不高，激化收益其实很够。</p>
+            <div class="flex gap-3 mt-1 text-xs" style="color:var(--jys-text-3)"><span>👍 9</span><span>引用回复</span><span>举报</span></div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">星</span>
+          <div class="flex-1">
+            <div class="text-xs" style="color:var(--jys-text-2)"><b style="color:var(--jys-text-1)">星野子</b> · 今天 11:22 · <span style="color:var(--jys-text-3)">#3 楼</span></div>
+            <p class="text-sm mt-1">缺主 C 直接练「嘉明」呗，四星里站场最舒服的，配草神扩散烧融真的快 😆</p>
+            <div class="flex gap-3 mt-1 text-xs" style="color:var(--jys-text-3)"><span>👍 6</span><span>引用回复</span><span>举报</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-xs mt-5" style="color:var(--jys-text-3)">仅显示前 3 条 · 登录后查看全部 38 条回帖</p>
+    </section>
+  </div>
+
+  <div data-when="loading" class="space-y-4"><div class="jys-skeleton h-40"></div><div class="jys-skeleton h-24"></div><div class="jys-skeleton h-64"></div></div>
+  <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">帖子加载失败</p><p class="text-xs mt-1">该帖子可能已被删除或您暂无访问权限（错误 404 / 403）</p><a class="jys-btn jys-btn-outline jys-btn-sm mt-2" href="board.html">返回版块</a></div></div></div>
+</main>
+</body>
+</html>

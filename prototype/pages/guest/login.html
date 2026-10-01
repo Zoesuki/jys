@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 · 吉悠社成员中心</title>
+<!-- G9 登录 | 游客 | ← PRD 5.1 A1（Q2）/ SRS FR-A1/NFR-06
+     交互：表单校验、图形验证码、连续失败 5 次锁定 15 分钟（错误态演示） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="登录" data-page-group="guest" data-trace="PRD 5.1 A1（Q2） / SRS FR-A1、NFR-06" data-states="normal,validation,error">
+<main class="max-w-md mx-auto px-4 pb-16" style="max-width:420px">
+
+  <div data-when="normal" class="jys-card p-7 mt-2">
+    <h2 class="text-xl font-bold mb-1">欢迎回来 👋</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">登录吉悠社成员中心</p>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">邮箱</label>
+        <input class="jys-input" type="email" placeholder="name@example.com" value="yefeng@jyouclub.cn">
+      </div>
+      <div>
+        <label class="jys-label jys-required">密码</label>
+        <input class="jys-input" type="password" placeholder="请输入密码" value="............">
+      </div>
+      <div>
+        <label class="jys-label jys-required">图形验证码</label>
+        <div class="flex gap-2">
+          <input class="jys-input" placeholder="输入右侧字符">
+          <div class="shrink-0 select-none flex items-center justify-center px-3 rounded-lg font-bold tracking-widest" style="width:110px;background:linear-gradient(120deg,#FFEDD5,#FED7AA);color:#C2410C;font-family:var(--jys-font-display);font-style:italic;text-decoration:line-through">K7p2m</div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <label class="flex items-center gap-2" style="color:var(--jys-text-2)"><input type="checkbox" checked class="accent-orange-500">记住我</label>
+        <a class="jys-link" href="reset.html">忘记密码？</a>
+      </div>
+      <button type="button" class="jys-btn jys-btn-primary w-full justify-center">登 录</button>
+    </form>
+    <p class="text-sm text-center mt-5" style="color:var(--jys-text-2)">还没有账号？<a class="jys-link" href="register.html">立即注册</a></p>
+  </div>
+
+  <!-- 校验态 -->
+  <div data-when="validation" class="jys-card p-7 mt-2">
+    <h2 class="text-xl font-bold mb-1">欢迎回来 👋</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">登录吉悠社成员中心</p>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">邮箱</label>
+        <input class="jys-input" value="yefeng#jyouclub">
+        <p class="jys-field-msg-error">⚠ 请输入有效的邮箱地址</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">密码</label>
+        <input class="jys-input" type="password" value="123">
+        <p class="jys-field-msg-error">⚠ 密码长度至少 8 位</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">图形验证码</label>
+        <div class="flex gap-2">
+          <input class="jys-input" value="">
+          <div class="shrink-0 select-none flex items-center justify-center px-3 rounded-lg font-bold tracking-widest" style="width:110px;background:linear-gradient(120deg,#FFEDD5,#FED7AA);color:#C2410C;font-style:italic;text-decoration:line-through">Xq41n</div>
+        </div>
+        <p class="jys-field-msg-error">⚠ 验证码不能为空</p>
+      </div>
+      <button type="button" class="jys-btn jys-btn-primary w-full justify-center" disabled>登 录</button>
+      <p class="text-xs text-center" style="color:var(--jys-text-3)">表单校验失败时按钮禁用（SRS FR-A1 异常分支）</p>
+    </form>
+  </div>
+
+  <!-- 错误态：登录锁定 -->
+  <div data-when="error" class="jys-card p-7 mt-2">
+    <h2 class="text-xl font-bold mb-1">欢迎回来 👋</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">登录吉悠社成员中心</p>
+    <div class="jys-error-banner mb-4">
+      <span>🔒</span>
+      <div>
+        <p class="font-bold">账号已临时锁定</p>
+        <p class="text-xs mt-1">连续登录失败 5 次，账号已锁定 15 分钟（NFR-06，可配置）。剩余 <b>12 分 36 秒</b>。如非本人操作，请尽快通过邮箱找回密码。</p>
+      </div>
+    </div>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label">邮箱</label>
+        <input class="jys-input" value="yefeng@jyouclub.cn" disabled>
+      </div>
+      <div>
+        <label class="jys-label">密码</label>
+        <input class="jys-input" type="password" value="............" disabled>
+      </div>
+      <button class="jys-btn jys-btn-primary w-full justify-center" disabled>已锁定 · 12:36</button>
+    </form>
+    <p class="text-sm text-center mt-5" style="color:var(--jys-text-2)"><a class="jys-link" href="reset.html">通过邮箱找回密码</a></p>
+  </div>
+</main>
+</body>
+</html>

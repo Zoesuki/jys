@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的报名与出勤 · 吉悠社成员中心</title>
+<!-- M8 我的报名与出勤 | 普通成员 | ← PRD 5.4 D2/D3/D6/D10、3.2 / SRS FR-D2/D3/D6、状态机 4.6
+     交互：报名记录（含候补位次/递补确认）、取消报名（触发候补递补）、出勤统计 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="我的报名与出勤" data-page-group="member" data-trace="PRD 5.4 D2/D3/D6 / SRS FR-D2/D3/D6、状态机 4.6" data-states="normal,empty">
+<main class="max-w-4xl mx-auto px-4 pb-10">
+
+  <div class="grid grid-cols-3 gap-3 mb-5">
+    <div class="jys-card p-4 text-center"><p style="font-size:22px;font-weight:800;color:var(--jys-primary)">23</p><p class="text-xs" style="color:var(--jys-text-2)">累计报名</p></div>
+    <div class="jys-card p-4 text-center"><p style="font-size:22px;font-weight:800;color:var(--jys-primary)">19</p><p class="text-xs" style="color:var(--jys-text-2)">已出席</p></div>
+    <div class="jys-card p-4 text-center"><p style="font-size:22px;font-weight:800;color:var(--jys-primary)">82.6%</p><p class="text-xs" style="color:var(--jys-text-2)">出席率（扣活动前取消）</p></div>
+  </div>
+
+  <div data-when="normal" class="space-y-3">
+    <div class="jys-card p-4">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="jys-badge jys-badge-warning jys-badge-dot">候补中 #1</span>
+        <b class="text-sm">金铲铲社区赛 S3</b>
+        <span class="text-xs" style="color:var(--jys-text-2)">10 月 19 日 19:30 · 线上 · 满员 32/32</span>
+        <div class="ml-auto flex gap-2">
+          <button class="jys-btn jys-btn-primary jys-btn-sm">确认递补</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm">放弃候补</button>
+        </div>
+      </div>
+      <p class="text-xs mt-2" style="color:var(--jys-text-2)">⏳ 有成员释放名额后按顺序递补，递补通知后 <b>12 小时内确认</b>，超时顺延下一位（D3/Q8-⑧）。确认截止：10 月 14 日 21:00</p>
+    </div>
+
+    <div class="jys-card p-4">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="jys-badge jys-badge-info jys-badge-dot">已报名</span>
+        <b class="text-sm">周六桌游面杀 · 第 15 期</b>
+        <span class="text-xs" style="color:var(--jys-text-2)">10 月 12 日 14:00 · 漫卷桌游吧 · 名额 12/16</span>
+        <div class="ml-auto flex gap-2">
+          <a class="jys-btn jys-btn-outline jys-btn-sm" href="../guest/event-view.html">详情</a>
+          <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">取消报名</button>
+        </div>
+      </div>
+      <p class="text-xs mt-2" style="color:var(--jys-text-2)">将于明天 14:00 开始（已提前 24h 提醒，Q8-⑩）· 开始前 2 小时后不可取消</p>
+    </div>
+
+    <div class="jys-card p-4">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="jys-badge jys-badge-success jys-badge-dot">已出席 · 奖励已发放</span>
+        <b class="text-sm">周六桌游面杀 · 第 14 期</b>
+        <span class="text-xs" style="color:var(--jys-text-2)">9 月 21 日 · 扫码签到 14:07</span>
+        <span class="ml-auto text-xs font-bold" style="color:var(--jys-success)">经验 +50 · 积分 +20</span>
+      </div>
+      <p class="text-xs mt-2" style="color:var(--jys-text-3)">活动结束后按出勤记录自动发放（P9-18）；修正走调整流水</p>
+    </div>
+
+    <div class="jys-card p-4" style="opacity:.8">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="jys-badge jys-badge-error jys-badge-dot">已取消</span>
+        <b class="text-sm">线上联机之夜 · 9 月场</b>
+        <span class="text-xs" style="color:var(--jys-text-2)">9 月 7 日 · 你在活动开始前取消</span>
+      </div>
+      <p class="text-xs mt-2" style="color:var(--jys-text-3)">活动前取消不计入出席率分母（PRD 9.2 口径）</p>
+    </div>
+  </div>
+
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📅</div><p class="font-bold" style="color:var(--jys-text-1)">还没有报名任何活动</p><p class="text-xs mt-1">去活动日历看看最近的安排</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="../guest/activity-calendar.html">查看活动日历</a></div></div></div>
+</main>
+</body>
+</html>

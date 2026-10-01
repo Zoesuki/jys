@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>发布活动 · 吉悠社成员中心</title>
+<!-- O1 活动发布/编辑 | 活动组织者 | ← PRD 5.4 D1 / SRS FR-D1、状态机 4.5
+     交互：表单校验（开始时间不可早于当前）、人数上限、开始前2h停止编辑口径、取消活动须通知（R6） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="发布活动" data-page-group="organizer" data-trace="PRD 5.4 D1 / SRS FR-D1、状态机 4.5（R6）" data-states="normal,validation">
+<main class="max-w-2xl mx-auto px-4 pb-16">
+
+  <div data-when="normal" class="jys-card p-7">
+    <h2 class="text-xl font-bold mb-1">发布新活动</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">发布后自动推送公告与站内触达（F3 群机器人 P2）</p>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">活动标题</label>
+        <input class="jys-input" value="周六桌游面杀 · 第 16 期">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="jys-label jys-required">类型</label>
+          <select class="jys-select"><option>线下</option><option>线上</option></select>
+        </div>
+        <div>
+          <label class="jys-label jys-required">人数上限</label>
+          <input class="jys-input" type="number" value="16" min="2">
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="jys-label jys-required">开始时间</label>
+          <input class="jys-input" type="datetime-local" value="2026-10-26T14:00">
+        </div>
+        <div>
+          <label class="jys-label jys-required">结束时间</label>
+          <input class="jys-input" type="datetime-local" value="2026-10-26T18:00">
+        </div>
+      </div>
+      <div>
+        <label class="jys-label jys-required">地点</label>
+        <input class="jys-input" value="漫卷桌游吧 · 2 楼包间（高新区锦业路）">
+      </div>
+      <div>
+        <label class="jys-label">活动说明</label>
+        <textarea class="jys-input" rows="4">主推血染钟楼（暗流涌动），可开 2 桌；备选狼人杀、卡坦岛。新手友好，现场有老玩家带教。AA 制场地 35 元/人。</textarea>
+      </div>
+      <div class="jys-sunken p-3 text-xs" style="color:var(--jys-text-2)">
+        发布后规则：<b>活动开始前 2 小时停止编辑与报名</b>（Q8-⑦，可配置）；活动结束后系统按出勤记录自动发放奖励（P9-18）；取消活动须通知全部已报名/候补成员（R6）。
+      </div>
+      <div class="flex gap-2">
+        <a class="jys-btn jys-btn-primary flex-1 justify-center" href="event-manage.html">发布活动</a>
+        <a class="jys-btn jys-btn-ghost" href="../guest/event-view.html">预览</a>
+      </div>
+    </form>
+  </div>
+
+  <div data-when="validation" class="jys-card p-7">
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">活动标题</label>
+        <input class="jys-input" value="">
+        <p class="jys-field-msg-error">⚠ 标题不能为空</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="jys-label jys-required">开始时间</label>
+          <input class="jys-input jys-input-error" type="datetime-local" value="2026-10-01T09:00">
+          <p class="jys-field-msg-error">⚠ 开始时间不能早于当前时间</p>
+        </div>
+        <div>
+          <label class="jys-label jys-required">结束时间</label>
+          <input class="jys-input jys-input-error" type="datetime-local" value="2026-09-30T18:00">
+          <p class="jys-field-msg-error">⚠ 结束时间须晚于开始时间</p>
+        </div>
+      </div>
+      <div>
+        <label class="jys-label jys-required">人数上限</label>
+        <input class="jys-input jys-input-error" type="number" value="1">
+        <p class="jys-field-msg-error">⚠ 人数上限至少 2 人</p>
+      </div>
+      <button class="jys-btn jys-btn-primary w-full justify-center" disabled>发布活动</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>发帖 · 吉悠社成员中心</title>
+<!-- M2 发帖/编辑器 | 普通成员 | ← PRD 5.2 B2/B9/B15 / SRS FR-B2/B9/B15
+     交互：富文本工具条、版块选择、图片上传（进度/失败重试）、敏感词命中→审核中提示、草稿自动保存 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="发布新帖" data-page-group="member" data-trace="PRD 5.2 B2/B9/B15 / SRS FR-B2/B9/B15" data-states="normal,validation">
+<main class="max-w-3xl mx-auto px-4 pb-10">
+
+  <div data-when="normal" class="space-y-4">
+    <div class="jys-card p-6">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="jys-avatar" style="width:36px;height:36px;font-size:14px">夜</span>
+        <div><b class="text-sm">夜风</b><p class="text-xs" style="color:var(--jys-text-3)">草稿已自动保存 · 刚刚</p></div>
+        <span class="jys-badge jys-badge-neutral ml-auto">存草稿</span>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="jys-label jys-required">选择版块</label>
+          <select class="jys-select">
+            <option>游戏分区 / 原神</option><option>游戏分区 / 金铲铲之战</option><option>桌游面杀</option>
+            <option>综合闲聊</option><option>求助问答</option><option>线下活动</option>
+          </select>
+        </div>
+        <div>
+          <label class="jys-label jys-required">标题（≤100 字）</label>
+          <input class="jys-input jys-input-success" value="10 月 19 日金铲铲社区赛 S3 报名帖：32 强双败赛制">
+          <p class="jys-field-msg-ok">✓ 标题可用</p>
+        </div>
+        <div>
+          <label class="jys-label jys-required">正文</label>
+          <!-- 富文本工具条 -->
+          <div class="rounded-t-lg px-3 py-2 flex flex-wrap gap-1 text-sm" style="background:var(--jys-bg-sunken);border:1px solid var(--jys-border-strong);border-bottom:0;color:var(--jys-text-2)">
+            <button class="px-2 rounded hover:bg-white" title="加粗"><b>B</b></button>
+            <button class="px-2 rounded hover:bg-white" title="斜体"><i>I</i></button>
+            <button class="px-2 rounded hover:bg-white" title="下划线"><u>U</u></button>
+            <span style="border-left:1px solid var(--jys-border);margin:2px 4px"></span>
+            <button class="px-2 rounded hover:bg-white">H2</button><button class="px-2 rounded hover:bg-white">引用</button>
+            <button class="px-2 rounded hover:bg-white">链接</button><button class="px-2 rounded hover:bg-white">😊</button>
+            <button class="px-2 rounded hover:bg-white">@成员</button>
+            <button class="px-2 rounded hover:bg-white">🖼️ 图片</button>
+            <span class="ml-auto text-[10px] text-right" style="color:var(--jys-text-3)">富文本白名单过滤（NFR-10）</span>
+          </div>
+          <textarea class="jys-textarea" rows="9" style="border-radius:0 0 8px 8px;font-family:inherit">S3 赛季来啦！本次赛制：32 强双败，胜场积分 +30、参与积分 +10（积分累积为贡献值，不解锁权限）。
+
+时间：10 月 19 日（周六）19:30
+平台：金铲铲之战 App 内自定义房
+
+报名方式：本帖下方评论"1"即可占位，满 32 人后进入候补（D3 递补规则）。</textarea>
+          <p class="text-xs mt-1 text-right" style="color:var(--jys-text-3)">218 / 20000 字</p>
+        </div>
+        <!-- 附件 -->
+        <div>
+          <label class="jys-label">图片附件（≤10MB，jpg/png/gif/webp，Q8-②）</label>
+          <div class="flex gap-3 flex-wrap">
+            <div class="jys-sunken p-2 text-center" style="width:120px">
+              <img src="https://placehold.co/104x60/FFF1E4/C2410C?text=%E8%B5%9B%E5%88%B6%E5%9B%BE" alt="附件1" class="rounded" onerror="this.onerror=null;this.src='https://placehold.co/104x60/F3F4F6/9CA3AF?text=%E5%9B%BE%E7%89%87'">
+              <p class="text-[10px] mt-1" style="color:var(--jys-text-2)">s3-rule.png · 248KB</p>
+            </div>
+            <div class="jys-sunken p-2" style="width:120px">
+              <div class="jys-progress mt-4"><div style="width:64%"></div></div>
+              <p class="text-[10px] mt-2 text-center" style="color:var(--jys-text-2)">上传中 64%</p>
+            </div>
+            <button class="jys-btn jys-btn-outline" style="width:120px;height:84px">＋ 添加</button>
+          </div>
+        </div>
+        <div class="flex gap-2 pt-2">
+          <a class="jys-btn jys-btn-primary" href="post-view-member.html">发布</a>
+          <button class="jys-btn jys-btn-outline">存草稿</button>
+          <button class="jys-btn jys-btn-ghost">预览</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-when="validation" class="space-y-4">
+    <div class="jys-card p-6">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="jys-avatar" style="width:36px;height:36px;font-size:14px">夜</span><b class="text-sm">夜风</b>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="jys-label jys-required">选择版块</label>
+          <select class="jys-select" style="border-color:var(--jys-error)"><option>请选择版块…</option></select>
+          <p class="jys-field-msg-error">⚠ 请选择发布版块</p>
+        </div>
+        <div>
+          <label class="jys-label jys-required">标题</label>
+          <input class="jys-input jys-input-error" value="代练接单加V">
+          <p class="jys-field-msg-error">⚠ 标题命中敏感词（垃圾广告类），已转人工审核（Q7/R4），请修改后重试</p>
+        </div>
+        <div>
+          <label class="jys-label jys-required">正文</label>
+          <textarea class="jys-textarea" rows="4">低价代练，加V秒回，全服全能代练工作室…</textarea>
+          <p class="jys-field-msg-error">⚠ 正文命中敏感词 2 处（垃圾广告类），发布被拦截</p>
+        </div>
+        <div class="jys-sunken p-3 text-xs" style="color:var(--jys-text-2)">说明：命中敏感词的内容进入人工审核队列（时效默认 72h，P9-03），未命中则直接发布（先发后审，Q7）。</div>
+        <button class="jys-btn jys-btn-primary" disabled>发布</button>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据看板 · 吉悠社管理后台</title>
+<!-- A2 数据看板 | 管理员 | ← PRD 第 9 章、5.5 E9（Q3 只定口径不定目标）/ SRS 第 7 章、FR-E9
+     交互：时间筛选、活跃度/活动/增长/治理四类指标图表（ECharts）、举报超时标记 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="数据看板" data-page-group="admin" data-trace="PRD 第 9 章、5.5 E9 / SRS 第 7 章、FR-E9（Q3）" data-states="normal,loading,error">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+
+  <!-- 侧边栏 -->
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单 <span class="jys-badge jys-badge-error text-[10px]">3</span></a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <!-- 内容区 -->
+  <div class="flex-1 space-y-5">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex gap-2">
+        <button class="jys-btn jys-btn-primary jys-btn-sm">近 30 天</button>
+        <button class="jys-btn jys-btn-ghost jys-btn-sm">近 7 天</button>
+        <button class="jys-btn jys-btn-ghost jys-btn-sm">本季度</button>
+        <button class="jys-btn jys-btn-ghost jys-btn-sm">自定义</button>
+      </div>
+      <span class="text-xs" style="color:var(--jys-text-3)">数据更新于 09:41 · 目标值由运营方按季度校准（Q3）</span>
+    </div>
+
+    <!-- KPI 卡 -->
+    <div data-when="normal" class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="jys-card p-4"><p class="text-xs" style="color:var(--jys-text-2)">DAU</p><p style="font-size:24px;font-weight:800">486</p><p class="text-xs" style="color:var(--jys-success)">▲ 12.4% 环比</p></div>
+      <div class="jys-card p-4"><p class="text-xs" style="color:var(--jys-text-2)">MAU / 粘性</p><p style="font-size:24px;font-weight:800">2,914</p><p class="text-xs" style="color:var(--jys-text-2)">DAU/MAU 16.7%</p></div>
+      <div class="jys-card p-4"><p class="text-xs" style="color:var(--jys-text-2)">活动报名率</p><p style="font-size:24px;font-weight:800">31.8%</p><p class="text-xs" style="color:var(--jys-success)">▲ 4.1pt</p></div>
+      <div class="jys-card p-4"><p class="text-xs" style="color:var(--jys-text-2)">游客→成员转化率</p><p style="font-size:24px;font-weight:800">23.5%</p><p class="text-xs" style="color:var(--jys-error)">▼ 1.9pt</p></div>
+    </div>
+
+    <!-- 图表 -->
+    <div data-when="normal" class="grid lg:grid-cols-2 gap-5">
+      <div class="jys-card p-5"><h3 class="font-bold text-sm mb-2">活跃度趋势（DAU / 发帖量 / 互动量）</h3><div id="chart-activity" style="height:260px"></div></div>
+      <div class="jys-card p-5"><h3 class="font-bold text-sm mb-2">活动参与（报名率 / 出席率 / 候补转化率 %）</h3><div id="chart-event" style="height:260px"></div></div>
+      <div class="jys-card p-5"><h3 class="font-bold text-sm mb-2">成员增长漏斗（当月）</h3><div id="chart-funnel" style="height:260px"></div></div>
+      <div class="jys-card p-5">
+        <h3 class="font-bold text-sm mb-2">治理指标</h3>
+        <div class="grid grid-cols-3 gap-3 text-center mt-2">
+          <div class="jys-sunken p-4"><p style="font-size:20px;font-weight:800;color:var(--jys-warning)">14.2h</p><p class="text-xs" style="color:var(--jys-text-2)">平均举报处理时长</p></div>
+          <div class="jys-sunken p-4"><p style="font-size:20px;font-weight:800;color:var(--jys-error)">23</p><p class="text-xs" style="color:var(--jys-text-2)">当期违规处置量</p></div>
+          <div class="jys-sunken p-4"><p style="font-size:20px;font-weight:800;color:var(--jys-info)">41</p><p class="text-xs" style="color:var(--jys-text-2)">敏感词拦截量</p></div>
+        </div>
+        <div class="jys-error-banner mt-4" style="background:var(--jys-warning-light);border-color:#FDE68A;color:#B45309">
+          <span>⏰</span><div><p class="font-bold text-sm">2 张举报工单超时预警</p><p class="text-xs mt-1">JB-20261001-014 已用时 71h / 72h · <a class="jys-link" href="reports.html">立即处理</a>（P9-14：标记+提醒，不自动改派）</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-when="loading" class="grid grid-cols-2 gap-5"><div class="jys-skeleton h-72"></div><div class="jys-skeleton h-72"></div><div class="jys-skeleton h-72"></div><div class="jys-skeleton h-72"></div></div>
+    <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">看板数据加载失败</p><p class="text-xs mt-1">统计服务不可用（错误码 BI-500），请稍后重试</p></div></div></div>
+  </div>
+</div>
+</main>
+
+<script>
+window.addEventListener('load', function () {
+  var AX = { axisLabel:{color:'#6B7280',fontSize:11}, axisLine:{lineStyle:{color:'#E5E7EB'}} };
+  var c1 = echarts.init(document.getElementById('chart-activity'));
+  c1.setOption({ color:['#F97316','#0EA5E9','#A855F7'], tooltip:{trigger:'axis'},
+    legend:{data:['DAU','发帖量','互动量'],textStyle:{fontSize:11},top:0},
+    grid:{left:36,right:8,top:28,bottom:24},
+    xAxis:{type:'category',data:['9-01','9-05','9-09','9-13','9-17','9-21','9-25','9-29','10-01'],axisLabel:AX.axisLabel,axisLine:AX.axisLine},
+    yAxis:{type:'value',axisLabel:AX.axisLabel,splitLine:{lineStyle:{color:'#F3F4F6'}}},
+    series:[
+      {name:'DAU',type:'line',smooth:true,data:[302,318,345,401,392,442,465,478,486]},
+      {name:'发帖量',type:'bar',data:[42,51,47,66,58,72,81,76,83],barWidth:10},
+      {name:'互动量',type:'line',smooth:true,data:[380,412,455,520,498,561,604,640,672]}]});
+  var c2 = echarts.init(document.getElementById('chart-event'));
+  c2.setOption({ color:['#F97316','#22C55E','#0EA5E9'], tooltip:{trigger:'axis'},
+    legend:{data:['报名率%','出席率%','候补转化率%'],textStyle:{fontSize:11},top:0},
+    grid:{left:36,right:8,top:28,bottom:24},
+    xAxis:{type:'category',data:['6月','7月','8月','9月','10月'],axisLabel:AX.axisLabel,axisLine:AX.axisLine},
+    yAxis:{type:'value',max:100,axisLabel:AX.axisLabel,splitLine:{lineStyle:{color:'#F3F4F6'}}},
+    series:[
+      {name:'报名率%',type:'line',smooth:true,data:[22,25,24,28,31.8]},
+      {name:'出席率%',type:'line',smooth:true,data:[74,79,81,83,85.7]},
+      {name:'候补转化率%',type:'line',smooth:true,data:[41,44,46,48,52]}]});
+  var c3 = echarts.init(document.getElementById('chart-funnel'));
+  c3.setOption({ color:['#FDBA74','#FB923C','#F97316','#EA580C'],
+    tooltip:{trigger:'item'},series:[{type:'funnel',left:'10%',width:'80%',top:10,bottom:10,
+    label:{fontSize:11},data:[
+      {value:8420,name:'平台 UV 8,420'},{value:1978,name:'完成注册 1,978（23.5%）'},
+      {value:1512,name:'提交入会申请 1,512'},{value:1086,name:'审核通过 · 新晋成员 1,086（通过率 71.8%）'}]}]});
+  window.addEventListener('resize', function(){c1.resize();c2.resize();c3.resize();});
+});
+</script>
+</body>
+</html>

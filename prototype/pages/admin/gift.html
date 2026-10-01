@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赠送经验值/积分 · 吉悠社管理后台</title>
+<!-- A11 赠送经验值/积分 | 管理员 | ← 需求方变更 N3 / SRS FR-G3、账务 4.9（P9-16 上限 1000）
+     交互：选成员、类型/数量校验（上限/负数）、备注、站内通知说明、留痕提示 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="赠送经验值 / 积分" data-page-group="admin" data-trace="需求方变更 N3 / SRS FR-G3、账务模型 4.9" data-states="normal,validation">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1 space-y-5">
+    <div data-when="normal" class="jys-card p-6">
+      <h3 class="font-bold mb-1">🎁 向成员赠送经验值 / 积分</h3>
+      <p class="text-sm mb-5" style="color:var(--jys-text-2)">赠送后：<b>站内通知成员</b>（FR-F1）；操作留痕至审计日志（R8）；账务只增不减（4.9）。</p>
+      <form class="space-y-4">
+        <div>
+          <label class="jys-label jys-required">目标成员</label>
+          <input class="jys-input" placeholder="输入昵称搜索" value="夜风（yefeng@***）· Lv4 · 经验 1,864">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="jys-label jys-required">赠送类型</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" class="jys-btn jys-btn-primary">经验值（等级依据）</button>
+              <button type="button" class="jys-btn jys-btn-outline">积分（贡献值）</button>
+            </div>
+          </div>
+          <div>
+            <label class="jys-label jys-required">数量（单次上限 1000，P9-16）</label>
+            <input class="jys-input" type="number" value="100">
+          </div>
+        </div>
+        <div>
+          <label class="jys-label">备注（将随通知展示给成员）</label>
+          <input class="jys-input" value="中秋活动奖励，感谢你在面杀场的组织工作！">
+        </div>
+        <div class="jys-sunken p-3 text-xs" style="color:var(--jys-text-2)">
+          校验规则：数量须为正数且 ≤1000（FR-G3 异常分支）；目标已注销/不存在→拒绝；入账成功通知失败→通知重试、入账不回滚并告警（FR-G3）。
+        </div>
+        <button class="jys-btn jys-btn-primary">确认赠送</button>
+      </form>
+    </div>
+
+    <div data-when="validation" class="jys-card p-6">
+      <h3 class="font-bold mb-4">校验态演示</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="jys-label jys-required">目标成员</label>
+          <input class="jys-input jys-input-error" value="已注销成员_0032">
+          <p class="jys-field-msg-error">⚠ 目标成员不存在或已注销（FR-G3）</p>
+        </div>
+        <div>
+          <label class="jys-label jys-required">数量</label>
+          <input class="jys-input jys-input-error" type="number" value="1500">
+          <p class="jys-field-msg-error">⚠ 单次赠送数量不可超过上限 1000（P9-16，后台可配置）</p>
+        </div>
+        <div>
+          <label class="jys-label">备注</label>
+          <input class="jys-input" value="">
+        </div>
+        <button class="jys-btn jys-btn-primary" disabled>确认赠送</button>
+      </div>
+    </div>
+
+    <!-- 最近赠送记录 -->
+    <div class="jys-card overflow-hidden">
+      <div class="p-4 text-sm font-bold" style="border-bottom:1px solid var(--jys-border-warm)">最近赠送记录</div>
+      <table class="jys-table">
+        <thead><tr><th>时间</th><th>成员</th><th>类型</th><th>数量</th><th>备注</th><th>通知</th></tr></thead>
+        <tbody>
+          <tr><td class="text-xs">10-01 09:41</td><td>夜风</td><td><span class="jys-badge jys-badge-primary">经验值</span></td><td><b>+100</b></td><td class="text-xs">中秋活动奖励</td><td><span class="jys-badge jys-badge-success">已通知</span></td></tr>
+          <tr><td class="text-xs">09-28 20:15</td><td>阿茶</td><td><span class="jys-badge jys-badge-info">积分</span></td><td><b>+50</b></td><td class="text-xs">群活动出题贡献</td><td><span class="jys-badge jys-badge-success">已通知</span></td></tr>
+          <tr><td class="text-xs">09-21 18:30</td><td>星野子</td><td><span class="jys-badge jys-badge-primary">经验值</span></td><td><b>+200</b></td><td class="text-xs">赛季冠军额外奖励</td><td><span class="jys-badge jys-badge-success">已通知</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</main>
+</body>
+</html>

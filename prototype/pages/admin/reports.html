@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>举报工单 · 吉悠社管理后台</title>
+<!-- A6 举报工单 | 管理员/版主 | ← PRD 5.5 E6、6.6 / SRS FR-E6、状态机 4.4（Q8-⑬㉔、P9-14）
+     交互：工单流转（受理→处置→反馈）、72h 时效与超时标记、处置通知口径说明 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="举报工单" data-page-group="admin" data-trace="PRD 5.5 E6、6.6 / SRS FR-E6、状态机 4.4" data-states="normal,empty">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="reports.html">🚩 举报工单 <span class="jys-badge jys-badge-error text-[10px]">3</span></a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1">
+    <div data-when="normal" class="space-y-4">
+      <!-- 超时预警 -->
+      <div class="jys-error-banner" style="background:var(--jys-warning-light);border-color:#FDE68A;color:#B45309">
+        <span>⏰</span><div><p class="font-bold">超时预警：2 张工单即将到达 72h 时效</p><p class="text-xs mt-1">JB-20261001-014（剩余 1h）· JB-20260930-009（剩余 3h）。已提醒处理人（P9-14），请尽快处置。</p></div>
+      </div>
+
+      <div class="flex gap-2">
+        <button class="jys-btn jys-btn-primary jys-btn-sm">待受理（1）</button>
+        <button class="jys-btn jys-btn-ghost jys-btn-sm">处理中（2）</button>
+        <button class="jys-btn jys-btn-ghost jys-btn-sm">已办结（87）</button>
+      </div>
+
+      <div class="jys-card p-5">
+        <div class="flex items-center gap-2 mb-2 flex-wrap">
+          <b class="text-sm">工单 JB-20261001-014</b>
+          <span class="jys-badge jys-badge-error jys-badge-dot">剩余 1h 超时预警</span>
+          <span class="ml-auto text-xs" style="color:var(--jys-text-3)">举报人：夜风 · 今天 08:12</span>
+        </div>
+        <p class="text-sm">对象：<a class="jys-link" href="posts.html">回帖 #3 楼（咸鱼要翻身）</a> · 理由：<span class="jys-badge jys-badge-outline">人身攻击</span></p>
+        <p class="text-sm mt-2 jys-sunken p-3">补充说明：#3 楼回复中对我进行了人身攻击，措辞不当。</p>
+        <div class="flex items-center gap-2 mt-3 flex-wrap">
+          <b class="text-xs" style="color:var(--jys-text-2)">处置：</b>
+          <button class="jys-btn jys-btn-danger jys-btn-sm">删帖</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm">隐藏内容</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm">禁言当事人</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm">封禁当事人</button>
+          <button class="jys-btn jys-btn-ghost jys-btn-sm">驳回（不属实）</button>
+        </div>
+        <p class="text-xs mt-2" style="color:var(--jys-text-3)">办结后：通知举报人处置结果；被举报人默认不通知（可配置，Q8-㉔）。全程留痕（R8）。</p>
+      </div>
+
+      <div class="jys-card p-5" style="opacity:.9">
+        <div class="flex items-center gap-2 mb-2 flex-wrap">
+          <b class="text-sm">工单 JB-20260930-009</b>
+          <span class="jys-badge jys-badge-warning jys-badge-dot">处理中 · 已用 69h</span>
+          <span class="ml-auto text-xs" style="color:var(--jys-text-3)">举报人：匿名 · 昨天 15:40</span>
+        </div>
+        <p class="text-sm">对象：<a class="jys-link" href="posts.html">帖子（低价代练广告，已拦截转审）</a> · 理由：<span class="jys-badge jys-badge-outline">垃圾广告</span></p>
+        <p class="text-xs mt-2" style="color:var(--jys-text-3)">处理人：阿茶（版主，桌游面杀）· 受理于 16:02</p>
+      </div>
+    </div>
+
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🎉</div><p class="font-bold" style="color:var(--jys-text-1)">全部工单已办结</p><p class="text-xs mt-1">平均处理时长 14.2h（时效 72h）</p></div></div></div>
+  </div>
+</div>
+</main>
+</body>
+</html>

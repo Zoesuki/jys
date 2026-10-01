@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>后台二次验证 · 吉悠社成员中心</title>
+<!-- A1 后台二次验证 | 管理员 | ← PRD 8.2 NF7 / SRS NFR-07（Q8-⑳：默认邮箱验证码，可升级 TOTP）
+     交互：邮箱验证码输入、错误/过期态 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="后台二次验证" data-page-group="admin" data-trace="PRD 8.2 NF7 / SRS NFR-07（Q8-⑳）" data-states="normal,error">
+<main class="max-w-md mx-auto px-4 pb-16" style="max-width:420px">
+
+  <div data-when="normal" class="jys-card p-7 mt-4 text-center">
+    <span style="font-size:40px">🛡️</span>
+    <h2 class="text-xl font-bold mt-2">管理后台二次验证</h2>
+    <p class="text-sm mt-1 mb-6" style="color:var(--jys-text-2)">验证码已发送至管理员邮箱 ad***@jyouclub.cn（默认邮箱验证码方式，可升级 TOTP）</p>
+    <div class="flex justify-center gap-2 mb-5">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="4">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="8">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="3">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="9">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="2">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="0">
+    </div>
+    <button class="jys-btn jys-btn-primary w-full justify-center">验证并进入后台</button>
+    <p class="text-xs mt-4" style="color:var(--jys-text-3)">验证码 10 分钟内有效 · <a class="jys-link" href="#">重新发送</a></p>
+  </div>
+
+  <div data-when="error" class="jys-card p-7 mt-4 text-center">
+    <span style="font-size:40px">🛡️</span>
+    <h2 class="text-xl font-bold mt-2">管理后台二次验证</h2>
+    <div class="jys-error-banner mt-4 mb-4" style="text-align:left">
+      <span>⚠️</span><div><p class="font-bold">验证码错误或已过期</p><p class="text-xs mt-1">已自动重发新验证码，请查收最新邮件（连续错误 5 次将锁定后台访问 15 分钟）。</p></div>
+    </div>
+    <div class="flex justify-center gap-2 mb-5">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">
+      <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">
+    </div>
+    <button class="jys-btn jys-btn-primary w-full justify-center">验证并进入后台</button>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成员管理 · 吉悠社管理后台</title>
+<!-- A4 成员管理 | 管理员 | ← PRD 5.5 E2/E3/E4 / SRS FR-E2/E3/E4、状态机 4.1（Q8-⑪⑫、P9-13）
+     交互：成员表、禁言（1/7/30 天档位）/封禁确认弹层、角色分配（版主/组织者）、管理员互处置禁止（P9-13） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="成员管理" data-page-group="admin" data-trace="PRD 5.5 E2/E3/E4 / SRS FR-E2/E3/E4、状态机 4.1" data-states="normal,empty">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1">
+    <div data-when="normal">
+    <div class="jys-card p-4 mb-4 flex items-center gap-2 flex-wrap">
+      <input class="jys-input" style="width:220px" placeholder="搜索昵称 / 邮箱">
+      <select class="jys-select" style="width:auto;padding:8px 12px"><option>全部状态</option><option>正常</option><option>禁言中</option><option>已封禁</option><option>注销冷静期</option></select>
+      <select class="jys-select" style="width:auto;padding:8px 12px"><option>全部角色</option><option>版主</option><option>活动组织者</option><option>管理员</option></select>
+      <span class="ml-auto text-xs" style="color:var(--jys-text-3)">共 3,462 名成员 · 峰值在线 486（NFR-02）</span>
+    </div>
+
+    <div class="jys-card overflow-hidden">
+      <table class="jys-table">
+        <thead><tr><th>成员</th><th>等级 / 经验</th><th>角色</th><th>账号状态</th><th>注册时间</th><th style="width:190px">操作</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">漠</span><div><b>北漠</b><p class="text-[11px]" style="color:var(--jys-text-3)">bmo@jyouclub.cn</p></div></td>
+            <td><span class="jys-lv jys-lv5"><span class="lv-num">5</span></span> 1,864</td>
+            <td><span class="jys-role jys-role-moderator">版主</span> <span class="jys-role jys-role-organizer">组织者</span></td>
+            <td><span class="jys-badge jys-badge-success">正常</span></td><td class="text-xs">2025-03-14</td>
+            <td><button class="jys-btn jys-btn-outline jys-btn-sm" onclick="document.getElementById('mute-modal').classList.remove('hidden')">禁言</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">角色</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">封禁</button></td>
+          </tr>
+          <tr style="background:var(--jys-warning-light)">
+            <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">鱼</span><div><b>咸鱼要翻身</b><p class="text-[11px]" style="color:var(--jys-text-3)">xianyu@qq.com</p></div></td>
+            <td><span class="jys-lv jys-lv2"><span class="lv-num">2</span></span> 286</td>
+            <td><span class="jys-role jys-role-member">成员</span></td>
+            <td><span class="jys-badge jys-badge-warning jys-badge-dot">禁言剩 2 天</span></td><td class="text-xs">2026-04-02</td>
+            <td><button class="jys-btn jys-btn-ghost jys-btn-sm">解除禁言</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">角色</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">封禁</button></td>
+          </tr>
+          <tr>
+            <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">茶</span><div><b>阿茶</b><p class="text-[11px]" style="color:var(--jys-text-3)">acha@jyouclub.cn</p></div></td>
+            <td><span class="jys-lv jys-lv4"><span class="lv-num">4</span></span> 1,023</td>
+            <td><span class="jys-role jys-role-moderator">版主</span></td>
+            <td><span class="jys-badge jys-badge-success">正常</span></td><td class="text-xs">2025-01-08</td>
+            <td><button class="jys-btn jys-btn-outline jys-btn-sm">禁言</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">角色</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">封禁</button></td>
+          </tr>
+          <tr>
+            <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">社</span><div><b>吉悠社运营 01</b><p class="text-[11px]" style="color:var(--jys-text-3)">admin01@jyouclub.cn</p></div></td>
+            <td>—</td>
+            <td><span class="jys-role jys-role-admin">管理员</span></td>
+            <td><span class="jys-badge jys-badge-success">正常</span></td><td class="text-xs">2024-11-01</td>
+            <td class="text-xs" style="color:var(--jys-text-3)">不允许处置管理员（P9-13）</td>
+          </tr>
+          <tr style="opacity:.75">
+            <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">灰</span><div><b>已注销成员</b><p class="text-[11px]" style="color:var(--jys-text-3)">（已匿名化）</p></div></td>
+            <td>—</td><td>—</td>
+            <td><span class="jys-badge jys-badge-neutral">已注销</span></td><td class="text-xs">2025-08-19</td>
+            <td class="text-xs" style="color:var(--jys-text-3)">冷静期满 · 数据已处理</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <nav class="flex items-center justify-center gap-1 pt-4">
+      <button class="jys-btn jys-btn-ghost jys-btn-sm" disabled>‹</button>
+      <button class="jys-btn jys-btn-primary jys-btn-sm">1</button><button class="jys-btn jys-btn-ghost jys-btn-sm">2</button><button class="jys-btn jys-btn-ghost jys-btn-sm">3</button>
+      <span class="px-2 text-xs" style="color:var(--jys-text-3)">…</span><button class="jys-btn jys-btn-ghost jys-btn-sm">347</button><button class="jys-btn jys-btn-ghost jys-btn-sm">›</button>
+    </nav>
+    </div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">👥</div><p class="font-bold" style="color:var(--jys-text-1)">没有符合条件的成员</p></div></div></div>
+  </div>
+</div>
+</main>
+
+<!-- 禁言弹层 -->
+<div id="mute-modal" class="jys-modal-mask hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+  <div class="jys-modal p-6 jys-fade-in">
+    <h3 class="font-bold text-lg mb-2">禁言成员 · 北漠</h3>
+    <p class="text-sm mb-4" style="color:var(--jys-text-2)">禁言期间禁止发帖与回帖，浏览不受影响（FR-E3）。既有内容默认保留，违规内容由你单独删除（Q8-⑫）。</p>
+    <label class="jys-label jys-required">禁言时长（档位可配置，Q8-⑪）</label>
+    <div class="grid grid-cols-3 gap-2 mb-3">
+      <button class="jys-btn jys-btn-outline">1 天</button>
+      <button class="jys-btn jys-btn-primary">7 天</button>
+      <button class="jys-btn jys-btn-outline">30 天</button>
+    </div>
+    <label class="jys-label jys-required">原因</label>
+    <select class="jys-select mb-3"><option>人身攻击（Q8-⑪ 枚举）</option><option>垃圾广告</option><option>违规内容</option><option>其他</option></select>
+    <p class="text-xs" style="color:var(--jys-text-3)">操作将留痕并通知成员（R8 / FR-E3）。</p>
+    <div class="flex justify-end gap-2 mt-4">
+      <button class="jys-btn jys-btn-ghost" onclick="document.getElementById('mute-modal').classList.add('hidden')">取消</button>
+      <button class="jys-btn jys-btn-danger" onclick="document.getElementById('mute-modal').classList.add('hidden')">确认禁言 7 天</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

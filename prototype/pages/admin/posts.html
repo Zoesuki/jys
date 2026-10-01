@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帖子管理 · 吉悠社管理后台</title>
+<!-- A5 帖子管理 | 管理员 | ← PRD 5.5 E5 / SRS FR-E5（Q8-㉓）
+     交互：按版块/状态筛选、删除/隐藏（弹层确认）、删除占位预览 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="帖子管理" data-page-group="admin" data-trace="PRD 5.5 E5 / SRS FR-E5（Q8-㉓）、状态机 4.3" data-states="normal,empty">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1">
+    <div data-when="normal">
+    <div class="jys-card p-4 mb-4 flex items-center gap-2 flex-wrap">
+      <input class="jys-input" style="width:220px" placeholder="搜索标题关键词">
+      <select class="jys-select" style="width:auto;padding:8px 12px"><option>全部版块</option><option>游戏分区 / 原神</option><option>综合闲聊</option><option>桌游面杀</option></select>
+      <select class="jys-select" style="width:auto;padding:8px 12px"><option>全部状态</option><option>已发布</option><option>审核中</option><option>已隐藏</option><option>已删除</option></select>
+    </div>
+
+    <div class="jys-card overflow-hidden">
+      <table class="jys-table">
+        <thead><tr><th>标题</th><th>作者 / 版块</th><th>状态</th><th>发布时间</th><th style="width:150px">操作</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="max-w-[320px] truncate"><b>纳西妲满命了，求一套深渊 12 层的配队思路</b></td>
+            <td class="text-xs">提瓦特钉子户 · 游戏分区/原神</td>
+            <td><span class="jys-badge jys-badge-success">已发布</span> <span class="jys-badge jys-badge-primary">精华</span></td>
+            <td class="text-xs">10-01 09:12</td>
+            <td><button class="jys-btn jys-btn-outline jys-btn-sm">隐藏</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">删除</button></td>
+          </tr>
+          <tr>
+            <td class="max-w-[320px] truncate"><b>【求置换】出全新未拆封 Switch2 港版</b></td>
+            <td class="text-xs">路过的猫 · 综合闲聊</td>
+            <td><span class="jys-badge jys-badge-warning jys-badge-dot">审核中</span></td>
+            <td class="text-xs">10-01 08:44</td>
+            <td><button class="jys-btn jys-btn-primary jys-btn-sm">审核通过</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">驳回</button></td>
+          </tr>
+          <tr style="background:var(--jys-neutral-badge)">
+            <td class="max-w-[320px] truncate"><b style="color:var(--jys-text-3)">该内容已被删除</b><p class="text-[11px]" style="color:var(--jys-text-3)">原帖：低价出各种游戏币（违规，已删除）</p></td>
+            <td class="text-xs">已匿名 · 综合闲聊</td>
+            <td><span class="jys-badge jys-badge-error">已删除</span></td>
+            <td class="text-xs">09-30 21:18</td>
+            <td class="text-xs" style="color:var(--jys-text-3)">占位展示（Q8-㉓，可配置）</td>
+          </tr>
+          <tr>
+            <td class="max-w-[320px] truncate"><b>阿瓦隆 8 人局如何防梅林速死</b></td>
+            <td class="text-xs">北漠 · 求助问答</td>
+            <td><span class="jys-badge jys-badge-success">已发布</span></td>
+            <td class="text-xs">09-28 20:31</td>
+            <td><button class="jys-btn jys-btn-outline jys-btn-sm">隐藏</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">删除</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <nav class="flex items-center justify-center gap-1 pt-4">
+      <button class="jys-btn jys-btn-primary jys-btn-sm">1</button><button class="jys-btn jys-btn-ghost jys-btn-sm">2</button><button class="jys-btn jys-btn-ghost jys-btn-sm">3</button>
+      <span class="px-2 text-xs" style="color:var(--jys-text-3)">…</span><button class="jys-btn jys-btn-ghost jys-btn-sm">128</button>
+    </nav>
+    </div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📝</div><p class="font-bold" style="color:var(--jys-text-1)">没有符合条件的帖子</p></div></div></div>
+  </div>
+</div>
+</main>
+</body>
+</html>

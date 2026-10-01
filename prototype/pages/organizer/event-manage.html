@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活动管理 · 吉悠社成员中心</title>
+<!-- O2 活动管理·组织者视角 | 活动组织者 | ← PRD 5.4 D2、5.5 E8 / SRS FR-D2/E8
+     交互：报名/候补名单、CSV 导出（留痕）、取消活动（须通知 R6）、催促递补确认 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="活动管理 · 我的活动" data-page-group="organizer" data-trace="PRD 5.4 D2、5.5 E8 / SRS FR-D2/E8" data-states="normal,empty">
+<main class="max-w-5xl mx-auto px-4 pb-10">
+
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex gap-2"><button class="jys-btn jys-btn-primary jys-btn-sm">进行中（2）</button><button class="jys-btn jys-btn-ghost jys-btn-sm">已结束（9）</button><button class="jys-btn jys-btn-ghost jys-btn-sm">已取消（1）</button></div>
+    <a class="jys-btn jys-btn-primary" href="event-form.html">＋ 发布活动</a>
+  </div>
+
+  <div data-when="normal" class="jys-card overflow-hidden mb-5">
+    <div class="p-5" style="border-bottom:1px solid var(--jys-border-warm);background:var(--jys-bg-sunken)">
+      <div class="flex items-center gap-2 flex-wrap">
+        <b>金铲铲社区赛 S3</b><span class="jys-badge jys-badge-info jys-badge-dot">报名截止 · 已满员</span>
+        <span class="text-xs" style="color:var(--jys-text-2)">10 月 19 日 19:30 · 线上 · 32/32 · 候补 5 人</span>
+        <div class="ml-auto flex gap-2">
+          <a class="jys-btn jys-btn-outline jys-btn-sm" href="event-form.html">编辑（截止前）</a>
+          <button class="jys-btn jys-btn-outline jys-btn-sm">⬇ 导出 CSV</button>
+          <button class="jys-btn jys-btn-danger jys-btn-sm">取消活动</button>
+        </div>
+      </div>
+    </div>
+    <table class="jys-table">
+      <thead><tr><th>类型</th><th>成员</th><th>时间</th><th>状态</th><th>操作</th></tr></thead>
+      <tbody>
+        <tr><td><span class="jys-badge jys-badge-success">报名</span></td><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:10px">漠</span>北漠</td><td>10-02 09:12</td><td><span class="jys-badge jys-badge-success">有效</span></td><td class="text-xs" style="color:var(--jys-text-3)">—</td></tr>
+        <tr><td><span class="jys-badge jys-badge-success">报名</span></td><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:10px">茶</span>阿茶</td><td>10-02 10:05</td><td><span class="jys-badge jys-badge-success">有效</span></td><td class="text-xs" style="color:var(--jys-text-3)">—</td></tr>
+        <tr><td><span class="jys-badge jys-badge-warning">候补</span></td><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:10px">夜</span>夜风</td><td>10-03 20:41</td><td><span class="jys-badge jys-badge-warning">候补 #1 · 待确认（剩 4h）</span></td><td><button class="jys-btn jys-btn-ghost jys-btn-sm">催促确认</button></td></tr>
+        <tr><td><span class="jys-badge jys-badge-warning">候补</span></td><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:10px">鱼</span>咸鱼要翻身</td><td>10-04 11:02</td><td><span class="jys-badge jys-badge-error">递补超时 · 已顺延</span></td><td class="text-xs" style="color:var(--jys-text-3)">12h 未确认（Q8-⑧）</td></tr>
+      </tbody>
+    </table>
+    <div class="p-4 text-xs" style="color:var(--jys-text-3);border-top:1px solid var(--jys-border)">
+      导出含报名与出勤字段，操作留痕（E8/R8）；取消活动将通知全部 32 名已报名与 5 名候补成员（R6）。
+    </div>
+  </div>
+
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🗂️</div><p class="font-bold" style="color:var(--jys-text-1)">还没有发布过活动</p><p class="text-xs mt-1">从发布第一个活动开始组织吧</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="event-form.html">＋ 发布活动</a></div></div></div>
+</main>
+</body>
+</html>

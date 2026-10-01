@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社区首页 · 吉悠社成员中心</title>
+<!-- G1 社区首页 | 游客 | ← PRD 4.1 旅程一 / SRS FR-A2 游客浏览公开内容
+     交互：公开版块聚合入口、注册引导横幅（游客态）、热门帖、近期活动预告 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="社区首页" data-page-group="guest" data-trace="PRD 4.1 / SRS FR-A2" data-page-note="游客态：互动引导注册（Q7）" data-states="normal,empty,loading,error">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+
+  <!-- 注册引导横幅（游客态核心转化位） -->
+  <section class="jys-card p-6 mb-6 jys-fade-in" style="background:linear-gradient(120deg,#FFEDD5,#FFE8CC 60%,#FED7AA);border-color:var(--jys-border-warm)">
+    <div class="flex items-center gap-5 flex-wrap">
+      <div class="flex-1 min-w-[280px]">
+        <h2 style="font-size:22px;">欢迎来到吉悠社 🎮</h2>
+        <p class="text-sm mt-1" style="color:var(--jys-text-2)">综合游戏兴趣社群 · 电子游戏 / 桌游 / 线下面杀，每周活动不断。注册并通过入会审核后即可发帖互动、报名活动、进入成员专属版块。</p>
+      </div>
+      <div class="flex gap-2">
+        <a class="jys-btn jys-btn-primary jys-btn-lg" href="register.html">立即注册</a>
+        <a class="jys-btn jys-btn-outline jys-btn-lg" href="login.html">登录</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid lg:grid-cols-3 gap-6">
+    <!-- 左：版块 + 热门帖 -->
+    <div class="lg:col-span-2 space-y-6">
+      <!-- 版块 -->
+      <section class="jys-card p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-base">版块</h3>
+          <a class="jys-link text-xs" href="board.html">全部版块 →</a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <a href="board.html" class="jys-card jys-card-hover p-4 block" style="border-radius:12px">
+            <div class="flex items-center gap-2 mb-1"><b>📢 公告栏</b><span class="jys-badge jys-badge-primary">成员专属</span></div>
+            <p class="text-xs" style="color:var(--jys-text-2)">社务公告 / 活动公示 · 加入后可见 128 帖</p>
+          </a>
+          <a href="board.html" class="jys-card jys-card-hover p-4 block" style="border-radius:12px">
+            <div class="flex items-center gap-2 mb-1"><b>💬 综合闲聊</b><span class="jys-badge jys-badge-neutral">公开</span></div>
+            <p class="text-xs" style="color:var(--jys-text-2)">今天你开黑了吗 · 1,842 帖</p>
+          </a>
+          <a href="board.html" class="jys-card jys-card-hover p-4 block" style="border-radius:12px">
+            <div class="flex items-center gap-2 mb-1"><b>🎮 游戏分区</b><span class="jys-badge jys-badge-neutral">公开</span></div>
+            <p class="text-xs" style="color:var(--jys-text-2)">原神 / 金铲铲 / 永劫无间 / CS2 · 3,215 帖</p>
+          </a>
+          <a href="board.html" class="jys-card jys-card-hover p-4 block" style="border-radius:12px">
+            <div class="flex items-center gap-2 mb-1"><b>🎲 桌游面杀</b><span class="jys-badge jys-badge-neutral">公开</span></div>
+            <p class="text-xs" style="color:var(--jys-text-2)">血染钟楼 / 狼人杀 / 卡坦岛 · 967 帖</p>
+          </a>
+          <a href="board.html" class="jys-card jys-card-hover p-4 block" style="border-radius:12px">
+            <div class="flex items-center gap-2 mb-1"><b>🍕 线下活动</b><span class="jys-badge jys-badge-neutral">公开</span></div>
+            <p class="text-xs" style="color:var(--jys-text-2)">聚会回顾与照片墙 · 423 帖</p>
+          </a>
+          <a href="board.html" class="jys-card jys-card-hover p-4 block" style="border-radius:12px">
+            <div class="flex items-center gap-2 mb-1"><b>🙋 求助问答</b><span class="jys-badge jys-badge-neutral">公开</span></div>
+            <p class="text-xs" style="color:var(--jys-text-2)">游戏攻略 / 设备推荐 · 756 帖</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- 热门帖（正常态） -->
+      <section class="jys-card p-5">
+        <div data-when="normal">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-base">🔥 本周热门</h3>
+            <span class="text-xs" style="color:var(--jys-text-3)">热门度 = 点赞×2 + 回帖×1 · 近 7 天</span>
+          </div>
+          <div class="space-y-3">
+            <a href="post-view.html" class="block p-3 rounded-xl jys-card-hover" style="border:1px solid var(--jys-border)">
+              <div class="flex items-center gap-2 mb-1"><span class="jys-badge jys-badge-error">置顶</span><span class="jys-badge jys-badge-warning">审核中</span></div>
+              <p class="font-semibold">【公告】10 月线下聚会场地投票结果公示</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">阿茶 · 综合闲聊 · 👍 86 · 💬 43</p>
+            </a>
+            <a href="post-view.html" class="block p-3 rounded-xl jys-card-hover" style="border:1px solid var(--jys-border)">
+              <p class="font-semibold">纳西妲满命了，求一套深渊 12 层的配队思路</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">提瓦特钉子户 · 游戏分区 · 👍 64 · 💬 38</p>
+            </a>
+            <a href="post-view.html" class="block p-3 rounded-xl jys-card-hover" style="border:1px solid var(--jys-border)">
+              <p class="font-semibold">血染钟楼新手入坑指南（暗流涌动版）</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">北漠 · 桌游面杀 · 👍 52 · 💬 17</p>
+            </a>
+            <a href="post-view.html" class="block p-3 rounded-xl jys-card-hover" style="border:1px solid var(--jys-border)">
+              <p class="font-semibold">周六面杀第 14 期回顾：12 人车踏平钟楼村</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">夜风 · 线下活动 · 👍 47 · 💬 25</p>
+            </a>
+          </div>
+        </div>
+        <div data-when="loading">
+          <div class="space-y-3 py-2"><div class="jys-skeleton h-5 w-2/3"></div><div class="jys-skeleton h-4 w-full"></div><div class="jys-skeleton h-4 w-5/6"></div><div class="jys-skeleton h-4 w-4/6"></div></div>
+        </div>
+        <div data-when="empty">
+          <div class="jys-empty"><div class="jys-empty-icon">🔥</div><p class="font-bold" style="color:var(--jys-text-1)">本周还没有热门内容</p><p class="text-xs mt-1">快去发帖抢个头彩</p></div>
+        </div>
+        <div data-when="error">
+          <div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">热门榜单加载失败</p><p class="text-xs mt-1">服务暂不可用（错误码 NET-1004）</p><button class="jys-btn jys-btn-outline jys-btn-sm mt-2">重新加载</button></div></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 右：近期活动 + 社群数据 -->
+    <div class="space-y-6">
+      <section class="jys-card p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-base">📅 近期活动</h3>
+          <a class="jys-link text-xs" href="activity-calendar.html">日历 →</a>
+        </div>
+        <div class="space-y-3">
+          <a href="event-view.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+            <div class="flex items-center justify-between"><b class="text-sm">周六桌游面杀 · 第 15 期</b><span class="jys-badge jys-badge-primary">线下</span></div>
+            <p class="text-xs mt-1" style="color:var(--jys-text-2)">10 月 12 日（周六）14:00 · 漫卷桌游吧 · 名额 12/16</p>
+            <div class="jys-progress mt-2"><div style="width:75%"></div></div>
+          </a>
+          <a href="event-view.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+            <div class="flex items-center justify-between"><b class="text-sm">金铲铲社区赛 S3</b><span class="jys-badge jys-badge-info">线上</span></div>
+            <p class="text-xs mt-1" style="color:var(--jys-text-2)">10 月 19 日（周六）19:30 · 名额 32/32 · 可候补</p>
+            <div class="jys-progress mt-2"><div style="width:100%"></div></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="jys-card p-5">
+        <h3 class="font-bold text-base mb-4">社群数据</h3>
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div class="jys-sunken p-3"><p style="font-size:20px;font-weight:800;color:var(--jys-primary)">3,462</p><p class="text-xs" style="color:var(--jys-text-2)">注册成员</p></div>
+          <div class="jys-sunken p-3"><p style="font-size:20px;font-weight:800;color:var(--jys-primary)">7,205</p><p class="text-xs" style="color:var(--jys-text-2)">帖子总数</p></div>
+          <div class="jys-sunken p-3"><p style="font-size:20px;font-weight:800;color:var(--jys-primary)">142</p><p class="text-xs" style="color:var(--jys-text-2)">已办活动</p></div>
+        </div>
+        <p class="text-xs mt-3" style="color:var(--jys-text-3)">来源：PRD 2.4 / SRS 第 7 章指标口径（不预设目标值）</p>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>

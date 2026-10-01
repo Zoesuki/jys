@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>注册 · 吉悠社成员中心</title>
+<!-- G10 注册 | 游客 | ← PRD 5.1 A1（Q2：邮箱验证码激活）/ SRS FR-A1
+     交互：邮箱验证码发送（60s 重发倒计时）、密码强度、注册成功→入会申请 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="注册" data-page-group="guest" data-trace="PRD 5.1 A1（Q2） / SRS FR-A1" data-states="normal,validation">
+<main class="max-w-md mx-auto px-4 pb-16" style="max-width:440px">
+
+  <div data-when="normal" class="jys-card p-7 mt-2">
+    <h2 class="text-xl font-bold mb-1">创建账号 🎮</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">注册后需提交入会申请，审核通过即可解锁全部成员权益</p>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">邮箱</label>
+        <input class="jys-input" type="email" placeholder="name@example.com" value="xingye@163.com">
+        <p class="jys-field-msg-ok">✓ 该邮箱未被注册</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">邮箱验证码</label>
+        <div class="flex gap-2">
+          <input class="jys-input" placeholder="6 位数字验证码" value="483920">
+          <button type="button" class="jys-btn jys-btn-outline shrink-0" disabled>58s 后重发</button>
+        </div>
+        <p class="text-xs mt-1" style="color:var(--jys-text-3)">验证码已发送至邮箱，10 分钟内有效（P9-23，后台可配置）</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">设置密码</label>
+        <input class="jys-input jys-input-success" type="password" value="............">
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex gap-1 flex-1">
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-success)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-success)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-success)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+          </div>
+          <span class="text-xs" style="color:var(--jys-success)">强</span>
+        </div>
+        <p class="text-xs mt-1" style="color:var(--jys-text-3)">8 位以上，含字母、数字与符号；密码加盐哈希存储（NFR-05）</p>
+      </div>
+      <label class="flex items-start gap-2 text-xs" style="color:var(--jys-text-2)">
+        <input type="checkbox" checked class="accent-orange-500 mt-0.5">
+        <span>我已阅读并同意《隐私政策》：平台仅收集邮箱、昵称及必要社群资料（NFR-11 个人信息保护）</span>
+      </label>
+      <a class="jys-btn jys-btn-primary w-full justify-center" href="../member/apply.html">注册并激活账号</a>
+    </form>
+    <p class="text-sm text-center mt-5" style="color:var(--jys-text-2)">已有账号？<a class="jys-link" href="login.html">直接登录</a></p>
+  </div>
+
+  <div data-when="validation" class="jys-card p-7 mt-2">
+    <h2 class="text-xl font-bold mb-1">创建账号 🎮</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">注册后需提交入会申请，审核通过即可解锁全部成员权益</p>
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">邮箱</label>
+        <input class="jys-input jys-input-error" value="yefeng@jyouclub.cn">
+        <p class="jys-field-msg-error">⚠ 该邮箱已被注册（邮箱全局唯一，FR-A1）</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">邮箱验证码</label>
+        <div class="flex gap-2">
+          <input class="jys-input jys-input-error" value="483921">
+          <button type="button" class="jys-btn jys-btn-outline shrink-0">重新发送</button>
+        </div>
+        <p class="jys-field-msg-error">⚠ 验证码错误或已过期，请重新获取</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">设置密码</label>
+        <input class="jys-input jys-input-error" type="password" value="jy123">
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex gap-1 flex-1">
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-error)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+          </div>
+          <span class="text-xs" style="color:var(--jys-error)">弱</span>
+        </div>
+        <p class="jys-field-msg-error">⚠ 密码需 8 位以上，且包含字母、数字与符号</p>
+      </div>
+      <label class="flex items-start gap-2 text-xs" style="color:var(--jys-text-2)">
+        <input type="checkbox" class="accent-orange-500 mt-0.5">
+        <span>我已阅读并同意《隐私政策》</span>
+      </label>
+      <button class="jys-btn jys-btn-primary w-full justify-center" disabled>注册并激活账号</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>

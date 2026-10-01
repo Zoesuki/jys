@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的收藏 · 吉悠社成员中心</title>
+<!-- M9 我的收藏 | 普通成员 | ← PRD 5.2 B4 / SRS FR-B4
+     交互：收藏列表、取消收藏；对象被删除时占位展示 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="我的收藏" data-page-group="member" data-trace="PRD 5.2 B4 / SRS FR-B4" data-states="normal,empty">
+<main class="max-w-3xl mx-auto px-4 pb-10">
+
+  <div data-when="normal" class="space-y-3">
+    <article class="jys-card p-4 flex items-center gap-3">
+      <div class="flex-1">
+        <a href="post-view-member.html" class="font-semibold text-sm hover:underline">血染钟楼新手入坑指南（暗流涌动版）</a>
+        <p class="text-xs mt-1" style="color:var(--jys-text-2)">北漠 · 桌游面杀 · 10 月 2 日 · 👍 52 · 💬 17</p>
+      </div>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">取消收藏</button>
+    </article>
+    <article class="jys-card p-4 flex items-center gap-3">
+      <div class="flex-1">
+        <a href="post-view-member.html" class="font-semibold text-sm hover:underline">5.2 版本抽卡规划：林尼池子值得等吗？（含保底计算器）</a>
+        <p class="text-xs mt-1" style="color:var(--jys-text-2)">星野子 · 游戏分区 · 10 月 3 日 · 👍 89 · 💬 55</p>
+      </div>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">取消收藏</button>
+    </article>
+    <article class="jys-card p-4 flex items-center gap-3" style="opacity:.7">
+      <div class="flex-1">
+        <p class="font-semibold text-sm" style="color:var(--jys-text-3)">该内容已被删除</p>
+        <p class="text-xs mt-1" style="color:var(--jys-text-3)">原帖已被作者删除（占位展示 Q8-㉓）· 可移除收藏</p>
+      </div>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm">移除</button>
+    </article>
+  </div>
+
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">⭐</div><p class="font-bold" style="color:var(--jys-text-1)">还没有收藏任何帖子</p><p class="text-xs mt-1">看到好帖点个收藏，随时回来看</p></div></div></div>
+</main>
+</body>
+</html>

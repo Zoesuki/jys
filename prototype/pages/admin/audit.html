@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审计日志 · 吉悠社管理后台</title>
+<!-- A10 审计日志 | 管理员 | ← PRD 5.5 E11 / SRS FR-E11（Q8-⑮、R8）
+     交互：全部敏感操作留痕查询（≥1 年）、操作人/动作筛选 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="审计日志" data-page-group="admin" data-trace="PRD 5.5 E11 / SRS FR-E11（Q8-⑮、R8）" data-states="normal,empty">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1">
+    <div data-when="normal">
+    <div class="jys-card p-4 mb-4 flex items-center gap-2 flex-wrap">
+      <input class="jys-input" style="width:200px" placeholder="操作人">
+      <select class="jys-select" style="width:auto;padding:8px 12px"><option>全部动作</option><option>入会审核</option><option>删帖/隐藏</option><option>禁言/封禁</option><option>角色变更</option><option>参数修改</option><option>赠送经验/积分</option></select>
+      <input class="jys-input" type="date" style="width:160px" value="2026-10-01">
+      <button class="jys-btn jys-btn-primary jys-btn-sm">查询</button>
+      <span class="ml-auto text-xs" style="color:var(--jys-text-3)">保存时长 ≥1 年（Q8-⑮，可配置）</span>
+    </div>
+
+    <div class="jys-card overflow-hidden">
+      <table class="jys-table">
+        <thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>对象</th><th>详情</th></tr></thead>
+        <tbody>
+          <tr><td class="text-xs whitespace-nowrap">10-01 09:41:22</td><td>吉悠社运营 01</td><td><span class="jys-badge jys-badge-primary">赠送经验值</span></td><td class="text-xs">夜风</td><td class="text-xs">+100 经验 · 备注：中秋活动奖励</td></tr>
+          <tr><td class="text-xs whitespace-nowrap">10-01 09:30:07</td><td>吉悠社运营 01</td><td><span class="jys-badge jys-badge-primary">参数修改</span></td><td class="text-xs">运营参数 · 每日签到经验</td><td class="text-xs">8 → 10（P9-16 默认值）</td></tr>
+          <tr><td class="text-xs whitespace-nowrap">09-30 21:18:45</td><td>阿茶（版主）</td><td><span class="jys-badge jys-badge-error">删除帖子</span></td><td class="text-xs">综合闲聊 · 帖子 #T-72164</td><td class="text-xs">违规：垃圾广告 · 对应工单 JB-20260930-003</td></tr>
+          <tr><td class="text-xs whitespace-nowrap">09-30 18:05:11</td><td>吉悠社运营 01</td><td><span class="jys-badge jys-badge-warning">禁言 7 天</span></td><td class="text-xs">咸鱼要翻身</td><td class="text-xs">原因：人身攻击（工单 JB-20260930-001）</td></tr>
+          <tr><td class="text-xs whitespace-nowrap">09-30 16:40:33</td><td>吉悠社运营 01</td><td><span class="jys-badge jys-badge-primary">角色变更</span></td><td class="text-xs">夜风</td><td class="text-xs">授予「活动组织者」</td></tr>
+          <tr><td class="text-xs whitespace-nowrap">09-30 09:12:56</td><td>系统（自动）</td><td><span class="jys-badge jys-badge-success">奖励发放</span></td><td class="text-xs">面杀第 14 期 · 12 名成员</td><td class="text-xs">按出勤自动发放：经验 +50 / 积分 +20（P9-18）</td></tr>
+          <tr><td class="text-xs whitespace-nowrap">09-29 14:22:08</td><td>吉悠社运营 01</td><td><span class="jys-badge jys-badge-primary">入会审核</span></td><td class="text-xs">星野子</td><td class="text-xs">通过 · 解锁成员权益</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <nav class="flex items-center justify-center gap-1 pt-4">
+      <button class="jys-btn jys-btn-ghost jys-btn-sm" disabled>‹</button>
+      <button class="jys-btn jys-btn-primary jys-btn-sm">1</button><button class="jys-btn jys-btn-ghost jys-btn-sm">2</button>
+      <span class="px-2 text-xs" style="color:var(--jys-text-3)">…</span><button class="jys-btn jys-btn-ghost jys-btn-sm">86</button><button class="jys-btn jys-btn-ghost jys-btn-sm">›</button>
+    </nav>
+    </div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📜</div><p class="font-bold" style="color:var(--jys-text-1)">没有符合筛选条件的日志</p></div></div></div>
+  </div>
+</div>
+</main>
+</body>
+</html>

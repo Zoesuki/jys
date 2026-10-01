@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帖子详情 · 吉悠社成员中心</title>
+<!-- M3 帖子详情·成员态 | 普通成员（含版主操作演示） | ← PRD 5.2 B2–B8、B12 / SRS FR-B2–B8/B12
+     交互：回帖（楼层/引用）、点赞收藏（幂等）、@提及、举报；版主操作区（置顶/加精/删除/隐藏） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="帖子详情（成员态）" data-page-group="member" data-trace="PRD 5.2 B2–B8、B12 / SRS FR-B2–B8、B12、E5" data-page-note="右上含版主操作演示（FR-B12/E5）" data-states="normal,loading,error">
+<main class="max-w-4xl mx-auto px-4 pb-10">
+
+  <!-- 版主操作条（版主视角演示，FR-B12/E5：本版块权限） -->
+  <div class="jys-card p-3 mb-4 flex items-center gap-2 flex-wrap" style="border-color:var(--jys-info-light);background:var(--jys-info-light)">
+    <span class="jys-role jys-role-moderator">版主操作</span>
+    <button class="jys-btn jys-btn-outline jys-btn-sm">📌 置顶（5/5）</button>
+    <button class="jys-btn jys-btn-outline jys-btn-sm">⭐ 加精</button>
+    <button class="jys-btn jys-btn-outline jys-btn-sm">🙈 隐藏</button>
+    <button class="jys-btn jys-btn-danger jys-btn-sm">删除</button>
+    <span class="ml-auto text-[11px]" style="color:var(--jys-text-3)">操作留痕（R8）· 删除后保留"该内容已被删除"占位（Q8-㉓）</span>
+  </div>
+
+  <div data-when="normal">
+  <div class="jys-card p-6 mb-4">
+    <div class="flex items-center gap-2 mb-2 flex-wrap">
+      <a class="jys-link text-xs" href="../guest/board.html">游戏分区 / 原神</a>
+      <span class="jys-badge jys-badge-success jys-badge-dot">已发布</span><span class="jys-badge jys-badge-primary">精华</span>
+    </div>
+    <h2 style="font-size:22px;line-height:1.35">纳西妲满命了，求一套深渊 12 层的配队思路</h2>
+    <div class="flex items-center gap-3 mt-3 text-xs flex-wrap" style="color:var(--jys-text-2)">
+      <span class="flex items-center gap-1.5"><span class="jys-avatar" style="width:26px;height:26px;font-size:11px">提</span><b style="color:var(--jys-text-1)">提瓦特钉子户</b><span class="jys-lv jys-lv3"><span class="lv-num">3</span></span></span>
+      <span>· 今天 09:12</span><span>· 浏览 1,204</span>
+      <a class="jys-link ml-auto" href="report.html">🚩 举报</a>
+    </div>
+  </div>
+
+  <article class="jys-card p-6 mb-4 leading-7 text-[15px]">
+    <p>如题，box：纳西妲 2 命、雷电将军 0 命、班尼特 5 命、香菱 6 命，钟离 1 命。还缺个站场主 C，草神配谁比较稳？</p>
+    <p class="mt-3">目前试过「纳行久激化」和「雷国」两队，12 层上半能过但下半输出总是差一点，第三间满血 BOSS 压线失败 3 次 😭</p>
+    <figure class="my-4 text-center">
+      <img src="https://placehold.co/640x320/FFF1E4/C2410C?text=%E6%B7%B1%E6%B8%8A12%E5%B1%82%E9%85%8D%E9%98%9F%E6%88%AA%E5%9B%BE" alt="深渊配队截图" class="rounded-xl inline-block" onerror="this.onerror=null;this.src='https://placehold.co/640x320/F3F4F6/9CA3AF?text=%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5'">
+    </figure>
+    <p>求各位大佬指点一下第四人怎么选，练度优先级该怎么排 🙏</p>
+  </article>
+
+  <!-- 互动条 -->
+  <div class="jys-card p-4 mb-4 flex items-center gap-3 flex-wrap">
+    <button class="jys-btn jys-btn-primary">👍 已赞 65</button>
+    <button class="jys-btn jys-btn-outline">⭐ 收藏</button>
+    <button class="jys-btn jys-btn-outline">🔗 分享</button>
+    <span class="ml-auto text-xs" style="color:var(--jys-text-3)">同一用户对同一对象仅一次有效点赞（FR-B4）</span>
+  </div>
+
+  <!-- 回帖编辑器 -->
+  <div class="jys-card p-5 mb-4">
+    <div class="flex gap-3">
+      <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">夜</span>
+      <div class="flex-1">
+        <textarea class="jys-textarea" rows="3" placeholder="友善回帖，回帖内容也会过敏感词校验（R4）。输入 @ 可提及成员…">建议上 @北漠 的"纳行久"，他上周刚用这套满星</textarea>
+        <div class="flex items-center gap-2 mt-2">
+          <button class="jys-btn jys-btn-primary jys-btn-sm">发布回帖</button>
+          <span class="text-xs" style="color:var(--jys-text-3)">回帖将按时间序展示并生成楼层号（FR-B3/B7）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 回帖列表 -->
+  <section class="jys-card p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="font-bold">回帖（38）</h3>
+      <select class="jys-select" style="width:auto;padding:4px 8px;font-size:12px"><option>按时间正序</option><option>按时间倒序</option></select>
+    </div>
+    <div class="space-y-5">
+      <div class="flex gap-3">
+        <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">漠</span>
+        <div class="flex-1">
+          <div class="text-xs" style="color:var(--jys-text-2)"><b style="color:var(--jys-text-1)">北漠</b> <span class="jys-lv jys-lv5"><span class="lv-num">5</span></span> <span class="jys-role jys-role-organizer">组织者</span> · 今天 09:40 · <span style="color:var(--jys-text-3)">#1 楼</span></div>
+          <p class="text-sm mt-1">第四人上「行秋」，打"纳行久 + 雷国双保险"。练度优先把香菱充能堆到 220%，你下半差的就是能量循环。</p>
+          <div class="flex gap-3 mt-1.5 text-xs">
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">👍 21</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">引用回复</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">🚩 举报</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">茶</span>
+        <div class="flex-1">
+          <div class="text-xs" style="color:var(--jys-text-2)"><b style="color:var(--jys-text-1)">阿茶</b> <span class="jys-badge jys-badge-primary text-[10px]">版主</span> · 今天 10:05 · <span style="color:var(--jys-text-3)">#2 楼</span></div>
+          <p class="text-sm mt-1"><a class="jys-link text-xs" href="#f1">引用 #1 楼</a><br>补充：草神武器词条优先精通，12 层草抗不高，激化收益很够。</p>
+          <div class="flex gap-3 mt-1.5 text-xs">
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">👍 9</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">引用回复</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">🚩 举报</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <span class="jys-avatar shrink-0" style="width:36px;height:36px;font-size:14px">🐟</span>
+        <div class="flex-1">
+          <div class="text-xs" style="color:var(--jys-text-2)"><b style="color:var(--jys-text-1)">咸鱼要翻身</b> · 今天 11:22 · <span style="color:var(--jys-text-3)">#3 楼</span></div>
+          <p class="text-sm mt-1">缺主 C 直接练嘉明呗，四星站场最舒服的 😆</p>
+          <div class="flex gap-3 mt-1.5 text-xs">
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">👍 6</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">引用回复</button>
+            <button class="jys-btn jys-btn-ghost jys-btn-sm">🚩 举报</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="jys-btn jys-btn-outline w-full justify-center mt-5">查看更多回帖（35）</button>
+  </section>
+  </div>
+
+  <div data-when="loading" class="space-y-4"><div class="jys-skeleton h-40"></div><div class="jys-skeleton h-24"></div><div class="jys-skeleton h-64"></div></div>
+  <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">帖子加载失败</p><p class="text-xs mt-1">该帖子可能已被删除（404）或你无权访问成员专属版块（403）</p><a class="jys-btn jys-btn-outline jys-btn-sm mt-2" href="../guest/board.html">返回版块</a></div></div></div>
+</main>
+</body>
+</html>

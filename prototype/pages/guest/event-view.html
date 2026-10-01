@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活动详情 · 吉悠社成员中心</title>
+<!-- G5 活动详情·游客态 | 游客 | ← PRD 5.4 D1/D2、6.3 / SRS FR-D1/D2/D3
+     交互：活动信息展示、名额进度、报名→登录引导；含候补递补说明（12h 口径） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="活动详情（游客态）" data-page-group="guest" data-trace="PRD 5.4 D1/D2/D3 / SRS FR-D1/D2/D3" data-states="normal,loading,error">
+<main class="max-w-6xl mx-auto px-4 pb-10">
+<div class="grid lg:grid-cols-3 gap-6">
+
+  <div class="lg:col-span-2 space-y-4">
+    <div class="jys-card overflow-hidden">
+      <div class="h-40" style="background:linear-gradient(120deg,#FB923C,#F59E0B 55%,#F97316)"></div>
+      <div class="p-6">
+        <div class="flex items-center gap-2 mb-2 flex-wrap">
+          <span class="jys-badge jys-badge-primary">线下</span>
+          <span class="jys-badge jys-badge-info jys-badge-dot">报名中</span>
+          <span class="jys-badge jys-badge-neutral">第 15 期</span>
+        </div>
+        <h2 style="font-size:22px">周六桌游面杀 · 第 15 期</h2>
+        <div class="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
+          <div class="jys-sunken p-3"><p class="text-xs" style="color:var(--jys-text-2)">时间</p><b>10 月 12 日（周六）14:00 – 18:00</b></div>
+          <div class="jys-sunken p-3"><p class="text-xs" style="color:var(--jys-text-2)">地点</p><b>漫卷桌游吧 · 2 楼包间（高新区锦业路）</b></div>
+          <div class="jys-sunken p-3"><p class="text-xs" style="color:var(--jys-text-2)">组织者</p><b class="flex items-center gap-1.5"><span class="jys-avatar" style="width:22px;height:22px;font-size:10px">夜</span>夜风 <span class="jys-role jys-role-organizer">组织者</span></b></div>
+          <div class="jys-sunken p-3"><p class="text-xs" style="color:var(--jys-text-2)">费用说明</p><b>AA 制（场地 35 元/人）</b></div>
+        </div>
+        <div class="mt-5 leading-7 text-[15px]">
+          <p>本月常规面杀局！主推<b>血染钟楼（暗流涌动）</b>，可开 2 桌；备选：狼人杀、卡坦岛、阿瓦隆。</p>
+          <p class="mt-2">新手友好，现场有老玩家带教。请尽量准时到场，迟到 30 分钟以上视为爽约（影响出席率统计，SRS FR-D6）。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="jys-card p-6">
+      <h3 class="font-bold mb-3">活动流程</h3>
+      <ol class="text-sm space-y-2 list-decimal ml-5" style="color:var(--jys-text-2)">
+        <li>报名成功后站内 + 邮件通知（活动开始前 24h / 1h 再各提醒一次，D10）</li>
+        <li>满员后进入候补队列，有名额释放按顺序递补，<b>递补通知后 12 小时内确认</b>，超时顺延下一位（D3）</li>
+        <li>活动开始前 2 小时停止编辑与报名（运营参数，可配置）</li>
+        <li>现场扫码签到（默认方式，口令签到备选，D5）</li>
+        <li>活动结束后按出勤记录自动发放经验值 + 积分奖励（G 模块）</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    <div class="jys-card p-5">
+      <h3 class="font-bold mb-3">报名情况</h3>
+      <div class="flex items-end justify-between mb-1"><b style="font-size:24px;color:var(--jys-primary)">12<span class="text-base" style="color:var(--jys-text-3)"> / 16</span></b><span class="text-xs" style="color:var(--jys-text-2)">候补 2 人</span></div>
+      <div class="jys-progress mb-4"><div style="width:75%"></div></div>
+      <a class="jys-btn jys-btn-primary w-full justify-center" href="login.html">登录后报名</a>
+      <p class="text-xs text-center mt-2" style="color:var(--jys-text-3)">报名截止：10 月 12 日 12:00（开始前 2 小时）</p>
+    </div>
+
+    <div class="jys-card p-5">
+      <h3 class="font-bold mb-3">已报名（12）</h3>
+      <div class="grid grid-cols-4 gap-3">
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">漠</span><p class="text-xs mt-1 truncate">北漠</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">茶</span><p class="text-xs mt-1 truncate">阿茶</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">星</span><p class="text-xs mt-1 truncate">星野子</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">鱼</span><p class="text-xs mt-1 truncate">咸鱼要翻身</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">南</span><p class="text-xs mt-1 truncate">南栀</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">屿</span><p class="text-xs mt-1 truncate">孤屿</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">森</span><p class="text-xs mt-1 truncate">森林邮递员</p></div>
+        <div class="text-center"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">月</span><p class="text-xs mt-1 truncate">月见黑</p></div>
+        <div class="text-center opacity-40"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">…</span><p class="text-xs mt-1">登录查看</p></div>
+        <div class="text-center opacity-40"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">…</span><p class="text-xs mt-1">登录查看</p></div>
+        <div class="text-center opacity-40"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">…</span><p class="text-xs mt-1">登录查看</p></div>
+        <div class="text-center opacity-40"><span class="jys-avatar" style="width:40px;height:40px;font-size:14px">…</span><p class="text-xs mt-1">登录查看</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+</body>
+</html>

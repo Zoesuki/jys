@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活动日历 · 吉悠社成员中心</title>
+<!-- G4 活动日历 | 游客 | ← PRD 5.4 D4 / SRS FR-D4
+     交互：月历视图、活动标记（线下橙/线上蓝）、点击跳详情、月份切换 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="活动日历" data-page-group="guest" data-trace="PRD 5.4 D4 / SRS FR-D4" data-states="normal,empty,loading">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+
+  <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+    <div class="flex items-center gap-2">
+      <button class="jys-btn jys-btn-outline jys-btn-sm">‹</button>
+      <h2 class="font-bold text-xl">2026 年 10 月</h2>
+      <button class="jys-btn jys-btn-outline jys-btn-sm">›</button>
+      <button class="jys-btn jys-btn-ghost jys-btn-sm">回到本月</button>
+    </div>
+    <div class="flex items-center gap-3 text-xs" style="color:var(--jys-text-2)">
+      <span class="flex items-center gap-1"><span style="width:10px;height:10px;border-radius:3px;background:var(--jys-primary);display:inline-block"></span>线下</span>
+      <span class="flex items-center gap-1"><span style="width:10px;height:10px;border-radius:3px;background:var(--jys-secondary);display:inline-block"></span>线上</span>
+      <span class="flex items-center gap-1"><span style="width:10px;height:10px;border-radius:3px;background:var(--jys-warning);display:inline-block"></span>进行中</span>
+    </div>
+  </div>
+
+  <div data-when="normal">
+  <div class="jys-card p-4 mb-4">
+    <div class="grid grid-cols-7 text-center text-xs font-bold" style="color:var(--jys-text-2)">
+      <div class="py-2">一</div><div class="py-2">二</div><div class="py-2">三</div><div class="py-2">四</div><div class="py-2">五</div><div class="py-2">六</div><div class="py-2">日</div>
+    </div>
+    <div class="grid grid-cols-7 gap-1 text-sm">
+      <!-- 周格：仅 10 月示例，活动日高亮 -->
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">28</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">29</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">30</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">1</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">2</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">3</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">4</span></div>
+
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">5</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">6</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">7</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">8</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">9</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5 cursor-pointer" style="background:var(--jys-primary-soft);border:1.5px solid var(--jys-border-primary)">
+        <span class="text-xs font-bold" style="color:var(--jys-primary-hover)">10</span>
+        <a href="event-view.html" class="block mt-1 text-[11px] leading-tight p-1 rounded" style="background:var(--jys-primary);color:#fff">14:00 桌游面杀 第15期</a>
+      </div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">11</span></div>
+
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">12</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">13</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5 cursor-pointer" style="background:var(--jys-secondary-light);border:1.5px solid #7DD3FC">
+        <span class="text-xs font-bold" style="color:var(--jys-secondary-hover)">14</span>
+        <a href="event-view.html" class="block mt-1 text-[11px] leading-tight p-1 rounded" style="background:var(--jys-secondary);color:#fff">20:00 金铲铲 S3 赛前教学</a>
+      </div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">15</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">16</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">17</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">18</span></div>
+
+      <div class="min-h-[92px] rounded-lg p-1.5 cursor-pointer" style="background:var(--jys-secondary-light);border:1.5px solid #7DD3FC">
+        <span class="text-xs font-bold" style="color:var(--jys-secondary-hover)">19</span>
+        <a href="event-view.html" class="block mt-1 text-[11px] leading-tight p-1 rounded" style="background:var(--jys-secondary);color:#fff">19:30 金铲铲社区赛 S3</a>
+      </div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">20</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">21</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">22</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">23</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">24</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">25</span></div>
+
+      <div class="min-h-[92px] rounded-lg p-1.5 cursor-pointer" style="background:var(--jys-warning-light);border:1.5px solid #FDE68A">
+        <span class="text-xs font-bold" style="color:#B45309">26</span>
+        <a href="event-view.html" class="block mt-1 text-[11px] leading-tight p-1 rounded" style="background:var(--jys-warning);color:#fff">14:00 桌游面杀 第16期 · 报名中</a>
+      </div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">27</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">28</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">29</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">30</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">31</span></div>
+      <div class="min-h-[92px] rounded-lg p-1.5" style="background:var(--jys-bg-sunken)"><span class="text-xs" style="color:var(--jys-text-3)">1</span></div>
+    </div>
+  </div>
+
+  <div class="jys-card p-5">
+    <h3 class="font-bold mb-3">本月活动（3 场）</h3>
+    <div class="space-y-2">
+      <a href="event-view.html" class="flex items-center gap-3 p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+        <span class="jys-badge jys-badge-primary">10-12</span><b class="text-sm flex-1">周六桌游面杀 · 第 15 期</b><span class="text-xs" style="color:var(--jys-text-2)">漫卷桌游吧 · 名额 12/16</span><span class="jys-badge jys-badge-info">报名中</span>
+      </a>
+      <a href="event-view.html" class="flex items-center gap-3 p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+        <span class="jys-badge jys-badge-info">10-14</span><b class="text-sm flex-1">金铲铲 S3 赛前教学</b><span class="text-xs" style="color:var(--jys-text-2)">线上 · 腾讯会议</span><span class="jys-badge jys-badge-info">报名中</span>
+      </a>
+      <a href="event-view.html" class="flex items-center gap-3 p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+        <span class="jys-badge jys-badge-warning">10-26</span><b class="text-sm flex-1">周六桌游面杀 · 第 16 期</b><span class="text-xs" style="color:var(--jys-text-2)">漫卷桌游吧 · 名额 4/16</span><span class="jys-badge jys-badge-info">报名中</span>
+      </a>
+    </div>
+  </div>
+  </div>
+
+  <div data-when="loading"><div class="jys-skeleton h-96"></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📅</div><p class="font-bold" style="color:var(--jys-text-1)">本月暂无活动</p><p class="text-xs mt-1">去上个月看看，或关注群公告</p></div></div></div>
+</main>
+</body>
+</html>

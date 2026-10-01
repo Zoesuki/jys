@@ -1,0 +1,211 @@
+/* ============================================================
+   吉悠社成员中心 · 原型设计令牌（UI 契约 v1.0，已冻结）
+   方案 C「暖橙休闲 · 亮色」
+   来源：PRD v1.1 / SRS v1.0 · 状态色语义对齐 SRS 状态机
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* 品牌色 */
+  --jys-primary: #F97316;
+  --jys-primary-hover: #EA580C;
+  --jys-primary-active: #C2410C;
+  --jys-primary-light: #FFEDD5;
+  --jys-primary-soft: #FFF1E4;
+
+  /* 辅助色 */
+  --jys-secondary: #0EA5E9;
+  --jys-secondary-hover: #0284C7;
+  --jys-secondary-light: #E0F2FE;
+
+  /* 背景与表面 */
+  --jys-bg-page: #FFF7ED;
+  --jys-bg-card: #FFFFFF;
+  --jys-bg-sunken: #FFFBF5;
+  --jys-bg-inverse: #1F2937;
+
+  /* 文字 */
+  --jys-text-1: #1F2937;
+  --jys-text-2: #6B7280;
+  --jys-text-3: #9CA3AF;
+  --jys-text-inverse: #FFFFFF;
+  --jys-text-on-primary: #FFFFFF;
+
+  /* 边框 */
+  --jys-border: #E5E7EB;
+  --jys-border-strong: #D1D5DB;
+  --jys-border-warm: #FED7AA;
+  --jys-border-primary: #FDBA74;
+
+  /* 功能色（按 SRS 状态机语义着色） */
+  --jys-success: #22C55E;       /* 已发布/审核通过/已出席 */
+  --jys-success-light: #DCFCE7;
+  --jys-warning: #F59E0B;       /* 审核中/候补/禁言中 */
+  --jys-warning-light: #FEF3C7;
+  --jys-error: #EF4444;         /* 已拒绝/已封禁/驳回/删除 */
+  --jys-error-light: #FEE2E2;
+  --jys-info: #0EA5E9;          /* 报名截止提醒/通知 */
+  --jys-info-light: #E0F2FE;
+  --jys-neutral-badge: #F3F4F6; /* 草稿/已隐藏 */
+
+  /* 等级色（FR-G2 等级档位） */
+  --jys-lv1: #9CA3AF; --jys-lv2: #22C55E; --jys-lv3: #0EA5E9;
+  --jys-lv4: #A855F7; --jys-lv5: #F59E0B;
+
+  /* 字体 */
+  --jys-font-display: 'Plus Jakarta Sans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --jys-font-body: 'Plus Jakarta Sans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', -apple-system, sans-serif;
+
+  /* 圆角 */
+  --jys-radius-sm: 8px;
+  --jys-radius-md: 12px;
+  --jys-radius-lg: 16px;
+  --jys-radius-full: 9999px;
+
+  /* 阴影（暖调） */
+  --jys-shadow-sm: 0 1px 2px rgba(194, 65, 12, 0.06), 0 1px 3px rgba(249, 115, 22, 0.08);
+  --jys-shadow-md: 0 4px 12px rgba(194, 65, 12, 0.10), 0 2px 4px rgba(249, 115, 22, 0.06);
+  --jys-shadow-lg: 0 12px 32px rgba(194, 65, 12, 0.14), 0 4px 8px rgba(249, 115, 22, 0.08);
+
+  /* 间距 */
+  --jys-space-1: 4px;  --jys-space-2: 8px;  --jys-space-3: 12px;
+  --jys-space-4: 16px; --jys-space-5: 24px; --jys-space-6: 32px;
+  --jys-space-7: 48px; --jys-space-8: 64px;
+}
+
+/* ---------- 基础 ---------- */
+html { scroll-behavior: smooth; }
+body.jys {
+  font-family: var(--jys-font-body);
+  background: var(--jys-bg-page);
+  color: var(--jys-text-1);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 { font-family: var(--jys-font-display); font-weight: 700; }
+
+/* ---------- 卡片与容器 ---------- */
+.jys-card {
+  background: var(--jys-bg-card);
+  border: 1px solid var(--jys-border-warm);
+  border-radius: var(--jys-radius-lg);
+  box-shadow: var(--jys-shadow-sm);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.jys-card-hover:hover { box-shadow: var(--jys-shadow-md); transform: translateY(-2px); }
+.jys-sunken { background: var(--jys-bg-sunken); border-radius: var(--jys-radius-md); }
+
+/* ---------- 按钮 ---------- */
+.jys-btn { display:inline-flex; align-items:center; gap:6px; font-weight:600; border-radius: var(--jys-radius-sm); padding: 8px 16px; font-size:14px; cursor:pointer; transition: all .15s ease; border:1px solid transparent; }
+.jys-btn:disabled { opacity:.5; cursor:not-allowed; }
+.jys-btn-primary { background: var(--jys-primary); color: var(--jys-text-on-primary); box-shadow: 0 2px 8px rgba(249,115,22,.3); }
+.jys-btn-primary:hover:not(:disabled) { background: var(--jys-primary-hover); transform: translateY(-1px); }
+.jys-btn-secondary { background: var(--jys-secondary); color:#fff; }
+.jys-btn-secondary:hover:not(:disabled) { background: var(--jys-secondary-hover); }
+.jys-btn-outline { background:#fff; border-color: var(--jys-border-primary); color: var(--jys-primary-hover); }
+.jys-btn-outline:hover:not(:disabled) { background: var(--jys-primary-soft); }
+.jys-btn-ghost { background:transparent; color: var(--jys-text-2); }
+.jys-btn-ghost:hover:not(:disabled) { background: var(--jys-primary-soft); color: var(--jys-primary-hover); }
+.jys-btn-danger { background: var(--jys-error); color:#fff; }
+.jys-btn-danger:hover:not(:disabled) { background:#DC2626; }
+.jys-btn-sm { padding:4px 10px; font-size:12px; }
+.jys-btn-lg { padding:12px 24px; font-size:16px; }
+
+/* ---------- 表单 ---------- */
+.jys-label { display:block; font-size:13px; font-weight:600; color: var(--jys-text-1); margin-bottom:6px; }
+.jys-input, .jys-select, .jys-textarea {
+  width:100%; border:1px solid var(--jys-border-strong); border-radius: var(--jys-radius-sm);
+  padding:9px 12px; font-size:14px; background:#fff; color: var(--jys-text-1);
+  transition: border-color .15s, box-shadow .15s; outline:none;
+}
+.jys-input:focus, .jys-select:focus, .jys-textarea:focus { border-color: var(--jys-primary); box-shadow: 0 0 0 3px rgba(249,115,22,.15); }
+.jys-input-error { border-color: var(--jys-error) !important; box-shadow: 0 0 0 3px rgba(239,68,68,.12) !important; }
+.jys-input-success { border-color: var(--jys-success) !important; }
+.jys-field-msg-error { color: var(--jys-error); font-size:12px; margin-top:4px; display:flex; align-items:center; gap:4px; }
+.jys-field-msg-ok { color: var(--jys-success); font-size:12px; margin-top:4px; }
+.jys-required::after { content:' *'; color: var(--jys-error); }
+
+/* ---------- 徽章/标签（状态机语义） ---------- */
+.jys-badge { display:inline-flex; align-items:center; gap:4px; padding:2px 10px; border-radius: var(--jys-radius-full); font-size:12px; font-weight:600; line-height:20px; }
+.jys-badge-dot::before { content:''; width:6px; height:6px; border-radius:50%; background: currentColor; }
+.jys-badge-success { background: var(--jys-success-light); color:#15803D; }
+.jys-badge-warning { background: var(--jys-warning-light); color:#B45309; }
+.jys-badge-error   { background: var(--jys-error-light); color:#B91C1C; }
+.jys-badge-info    { background: var(--jys-info-light); color:#0369A1; }
+.jys-badge-primary { background: var(--jys-primary-light); color:#C2410C; }
+.jys-badge-neutral { background: var(--jys-neutral-badge); color: var(--jys-text-2); }
+.jys-badge-outline { background:#fff; border:1px solid var(--jys-border); color: var(--jys-text-2); }
+
+/* 角色徽章 */
+.jys-role { font-size:11px; padding:1px 8px; border-radius: var(--jys-radius-full); font-weight:700; }
+.jys-role-admin { background:#1F2937; color:#FDE68A; }
+.jys-role-moderator { background: var(--jys-info-light); color:#0369A1; }
+.jys-role-organizer { background: var(--jys-success-light); color:#15803D; }
+.jys-role-member { background: var(--jys-primary-light); color:#C2410C; }
+.jys-role-guest { background: var(--jys-neutral-badge); color: var(--jys-text-2); }
+
+/* 等级徽章（Lv1–Lv5） */
+.jys-lv { display:inline-flex; align-items:center; gap:4px; font-weight:800; font-size:12px; }
+.jys-lv .lv-num { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:6px; color:#fff; font-size:11px; }
+.jys-lv1 .lv-num { background: var(--jys-lv1); } .jys-lv2 .lv-num { background: var(--jys-lv2); }
+.jys-lv3 .lv-num { background: var(--jys-lv3); } .jys-lv4 .lv-num { background: var(--jys-lv4); }
+.jys-lv5 .lv-num { background: var(--jys-lv5); }
+
+/* ---------- 表格 ---------- */
+.jys-table { width:100%; border-collapse:collapse; font-size:13px; }
+.jys-table th { text-align:left; padding:10px 14px; background: var(--jys-bg-sunken); color: var(--jys-text-2); font-weight:600; border-bottom:1px solid var(--jys-border-warm); white-space:nowrap; }
+.jys-table td { padding:12px 14px; border-bottom:1px solid var(--jys-border); vertical-align:middle; }
+.jys-table tbody tr { transition: background .1s; }
+.jys-table tbody tr:hover { background: var(--jys-primary-soft); }
+
+/* ---------- 导航 ---------- */
+.jys-topbar { background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom:1px solid var(--jys-border-warm); position:sticky; top:0; z-index:40; }
+.jys-nav-link { padding:6px 12px; border-radius: var(--jys-radius-sm); font-weight:600; color: var(--jys-text-2); transition: all .15s; }
+.jys-nav-link:hover { color: var(--jys-primary-hover); background: var(--jys-primary-soft); }
+.jys-nav-link.active { color: var(--jys-primary-hover); background: var(--jys-primary-light); }
+
+/* ---------- 需求追溯条 & 状态切换器（prototype.js 注入） ---------- */
+#jys-trace-bar { position:fixed; left:12px; bottom:12px; z-index:50; background: var(--jys-bg-inverse); color:#FDE68A; font-size:11px; padding:5px 12px; border-radius: var(--jys-radius-full); box-shadow: var(--jys-shadow-md); opacity:.92; }
+#jys-trace-bar a { color:#FDBA74; text-decoration:underline; }
+#jys-state-switcher { position:fixed; right:12px; bottom:12px; z-index:50; display:flex; gap:2px; background: var(--jys-bg-inverse); padding:4px; border-radius: var(--jys-radius-full); box-shadow: var(--jys-shadow-md); }
+#jys-state-switcher button { border:0; background:transparent; color:#D1D5DB; font-size:11px; padding:4px 10px; border-radius: var(--jys-radius-full); cursor:pointer; font-weight:600; }
+#jys-state-switcher button.active { background: var(--jys-primary); color:#fff; }
+
+/* ---------- 状态演示区块 ---------- */
+[data-when] { display:none !important; }
+.jys-state-normal [data-when="normal"],
+.jys-state-empty [data-when="empty"],
+.jys-state-loading [data-when="loading"],
+.jys-state-error [data-when="error"],
+.jys-state-validation [data-when="validation"] { display: revert !important; }
+.jys-state-validation [data-when="normal"].hide-when-validation { display:none !important; }
+
+/* ---------- 空状态/骨架屏/错误 ---------- */
+.jys-empty { text-align:center; padding:56px 24px; color: var(--jys-text-2); }
+.jys-empty .jys-empty-icon { font-size:44px; margin-bottom:12px; opacity:.85; }
+.jys-skeleton { background: linear-gradient(90deg,#F3F4F6 25%,#E5E7EB 50%,#F3F4F6 75%); background-size:200% 100%; animation: jys-shimmer 1.4s infinite; border-radius: var(--jys-radius-sm); }
+@keyframes jys-shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.jys-error-banner { background: var(--jys-error-light); border:1px solid #FECACA; color:#B91C1C; border-radius: var(--jys-radius-md); padding:16px; display:flex; gap:12px; align-items:flex-start; }
+
+/* ---------- 弹层 ---------- */
+.jys-modal-mask { position:fixed; inset:0; background:rgba(31,41,55,.45); z-index:60; display:flex; align-items:center; justify-content:center; padding:16px; }
+.jys-modal { background:#fff; border-radius: var(--jys-radius-lg); box-shadow: var(--jys-shadow-lg); max-width:520px; width:100%; }
+
+/* ---------- 进度条（签到/经验/活动名额） ---------- */
+.jys-progress { height:10px; border-radius: var(--jys-radius-full); background: var(--jys-primary-light); overflow:hidden; }
+.jys-progress > div { height:100%; border-radius: var(--jys-radius-full); background: linear-gradient(90deg, var(--jys-primary), #FB923C); transition: width .4s ease; }
+
+/* ---------- 头像 ---------- */
+.jys-avatar { border-radius:50%; object-fit:cover; background: var(--jys-primary-light); display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:#C2410C; }
+.jys-avatar-ring { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--jys-primary); }
+
+/* ---------- 通知未读点 ---------- */
+.jys-dot { position:absolute; top:-2px; right:-4px; min-width:16px; height:16px; border-radius:8px; background: var(--jys-error); color:#fff; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; padding:0 4px; }
+
+/* ---------- 微动效 ---------- */
+.jys-fade-in { animation: jys-fade .3s ease; }
+@keyframes jys-fade { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
+.jys-link { color: var(--jys-primary-hover); font-weight:600; text-decoration:none; }
+.jys-link:hover { text-decoration:underline; }

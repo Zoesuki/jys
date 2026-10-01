@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活动管理 · 吉悠社管理后台</title>
+<!-- A8 活动管理 | 管理员 | ← PRD 5.5 E8 / SRS FR-E8
+     交互：全部活动列表、代创建/编辑/取消（留痕）、CSV 导出 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="活动管理" data-page-group="admin" data-trace="PRD 5.5 E8 / SRS FR-E8" data-states="normal,empty">
+<main class="max-w-7xl mx-auto px-4 pb-10">
+<div class="flex gap-5">
+  <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
+    <nav class="space-y-0.5 text-sm">
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="events.html">📅 活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1">
+    <div data-when="normal">
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-sm" style="color:var(--jys-text-2)">全部活动（142 场已办）· 代操作视为管理员操作并留痕（R8）</span>
+      <a class="jys-btn jys-btn-primary jys-btn-sm" href="../organizer/event-form.html">＋ 代创建活动</a>
+    </div>
+    <div class="jys-card overflow-hidden">
+      <table class="jys-table">
+        <thead><tr><th>活动</th><th>组织者</th><th>时间</th><th>报名/出席</th><th>状态</th><th style="width:200px">操作</th></tr></thead>
+        <tbody>
+          <tr><td><b>金铲铲社区赛 S3</b><p class="text-[11px]" style="color:var(--jys-text-3)">线上</p></td><td>夜风 <span class="jys-role jys-role-organizer">组织者</span></td><td class="text-xs">10-19 19:30</td><td class="text-xs">32/32 · 候补 5</td><td><span class="jys-badge jys-badge-info jys-badge-dot">报名截止</span></td><td><button class="jys-btn jys-btn-outline jys-btn-sm">编辑</button> <button class="jys-btn jys-btn-outline jys-btn-sm">名单</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">取消</button></td></tr>
+          <tr><td><b>周六桌游面杀 · 第 15 期</b><p class="text-[11px]" style="color:var(--jys-text-3)">线下 · 漫卷桌游吧</p></td><td>夜风</td><td class="text-xs">10-12 14:00</td><td class="text-xs">12/16 · 已签 9</td><td><span class="jys-badge jys-badge-warning jys-badge-dot">进行中</span></td><td><button class="jys-btn jys-btn-outline jys-btn-sm">核销台</button> <button class="jys-btn jys-btn-outline jys-btn-sm">名单</button></td></tr>
+          <tr><td><b>周六桌游面杀 · 第 14 期</b></td><td>北漠</td><td class="text-xs">09-21 14:00</td><td class="text-xs">14 报名 · 12 出席（85.7%）</td><td><span class="jys-badge jys-badge-success">已结束 · 奖励已发放</span></td><td><button class="jys-btn jys-btn-outline jys-btn-sm">名单</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">回顾</button></td></tr>
+          <tr style="opacity:.75"><td><b>中秋线上联机夜</b></td><td>阿茶</td><td class="text-xs">09-28 20:00</td><td class="text-xs">18 报名</td><td><span class="jys-badge jys-badge-error">已取消（通知已发送 R6）</span></td><td class="text-xs" style="color:var(--jys-text-3)">留痕：管理员 01 · 09-27</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="jys-card p-4 mt-4 text-xs" style="color:var(--jys-text-3)">
+      ⬇ CSV 导出含：成员昵称、报名/候补状态、签到时间、出席结果（不含邮箱等隐私字段——NFR-11；导出操作留痕）。
+    </div>
+    </div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📅</div><p class="font-bold" style="color:var(--jys-text-1)">暂无活动记录</p></div></div></div>
+  </div>
+</div>
+</main>
+</body>
+</html>

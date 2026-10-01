@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>找回密码 · 吉悠社成员中心</title>
+<!-- G11 找回密码 | 游客 | ← PRD 5.1 A1（Q2：找回走邮箱）/ SRS FR-A1
+     交互：邮箱验证码 → 设置新密码 → 成功态；短信通道不纳入（X1） -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="找回密码" data-page-group="guest" data-trace="PRD 5.1 A1（Q2、X1） / SRS FR-A1" data-states="normal">
+<main class="max-w-md mx-auto px-4 pb-16" style="max-width:420px">
+
+  <div class="jys-card p-7 mt-2">
+    <h2 class="text-xl font-bold mb-1">找回密码 🔑</h2>
+    <p class="text-sm mb-6" style="color:var(--jys-text-2)">通过注册邮箱验证码重置密码（短信通道不纳入，X1）</p>
+
+    <!-- 步骤条 -->
+    <div class="flex items-center gap-0 mb-6 text-xs">
+      <div class="flex items-center gap-1.5" style="color:var(--jys-primary-hover)"><span style="width:22px;height:22px;border-radius:50%;background:var(--jys-primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700">1</span>验证邮箱</div>
+      <div style="flex:1;height:2px;background:var(--jys-primary);margin:0 6px"></div>
+      <div class="flex items-center gap-1.5" style="color:var(--jys-primary-hover)"><span style="width:22px;height:22px;border-radius:50%;background:var(--jys-primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700">2</span>设置新密码</div>
+      <div style="flex:1;height:2px;background:var(--jys-border);margin:0 6px"></div>
+      <div class="flex items-center gap-1.5" style="color:var(--jys-text-3)"><span style="width:22px;height:22px;border-radius:50%;background:var(--jys-border);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700">3</span>完成</div>
+    </div>
+
+    <form class="space-y-4">
+      <div>
+        <label class="jys-label jys-required">注册邮箱</label>
+        <input class="jys-input jys-input-success" type="email" value="yefeng@jyouclub.cn">
+        <p class="jys-field-msg-ok">✓ 账号存在，验证码已发送（安全类邮件不受订阅开关限制，P9-15）</p>
+      </div>
+      <div>
+        <label class="jys-label jys-required">邮箱验证码</label>
+        <div class="flex gap-2">
+          <input class="jys-input" placeholder="6 位数字验证码" value="726104">
+          <button type="button" class="jys-btn jys-btn-outline shrink-0">重新发送</button>
+        </div>
+      </div>
+      <div>
+        <label class="jys-label jys-required">新密码</label>
+        <input class="jys-input" type="password" placeholder="8 位以上，含字母、数字与符号">
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex gap-1 flex-1">
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+            <span style="height:4px;flex:1;border-radius:2px;background:var(--jys-border)"></span>
+          </div>
+          <span class="text-xs" style="color:var(--jys-text-3)">强度提示</span>
+        </div>
+      </div>
+      <div>
+        <label class="jys-label jys-required">确认新密码</label>
+        <input class="jys-input" type="password" placeholder="再次输入新密码">
+      </div>
+      <button type="button" class="jys-btn jys-btn-primary w-full justify-center">重置密码</button>
+    </form>
+    <p class="text-sm text-center mt-5" style="color:var(--jys-text-2)"><a class="jys-link" href="login.html">返回登录</a></p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的主页 · 吉悠社成员中心</title>
+<!-- M5 个人主页·自己 | 普通成员 | ← PRD 5.1 A6、5.3 C3/C5 / SRS FR-C3/C5、FR-G2
+     交互：我的资料、等级/经验进度、贡献值、出勤统计、我的内容聚合 -->
+<link rel="stylesheet" href="../../assets/tokens.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/prototype.js"></script>
+</head>
+<body class="jys" data-page-title="我的主页" data-page-group="member" data-trace="PRD 5.1 A6、5.3 C3/C5 / SRS FR-C3/C5、FR-G2" data-states="normal">
+<main class="max-w-6xl mx-auto px-4 pb-10">
+
+  <div class="jys-card p-6 mb-5" style="background:linear-gradient(120deg,#FFF1E4,#FFF 70%)">
+    <div class="flex items-center gap-5 flex-wrap">
+      <span class="jys-avatar jys-avatar-ring" style="width:80px;height:80px;font-size:30px">夜</span>
+      <div class="flex-1 min-w-[220px]">
+        <div class="flex items-center gap-2 flex-wrap">
+          <h2 style="font-size:22px">夜风</h2>
+          <span class="jys-lv jys-lv4"><span class="lv-num">4</span>元老社员</span>
+          <span class="jys-role jys-role-organizer">活动组织者</span>
+        </div>
+        <p class="text-sm mt-1" style="color:var(--jys-text-2)">面杀组织担当 · 每周六漫卷桌游吧见 · 邮箱不公开（NFR-11）</p>
+        <div class="flex flex-wrap gap-1.5 mt-2">
+          <span class="jys-badge jys-badge-primary">血染钟楼</span><span class="jys-badge jys-badge-primary">桌游主持</span><span class="jys-badge jys-badge-primary">原神</span>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <a class="jys-btn jys-btn-outline" href="profile-edit.html">编辑资料</a>
+        <a class="jys-btn jys-btn-primary" href="checkin.html">去签到</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-5">
+    <div class="lg:col-span-2 space-y-5">
+      <section class="jys-card p-5">
+        <h3 class="font-bold mb-3">我的发帖（128）</h3>
+        <div class="space-y-2.5">
+          <a href="post-view-member.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)"><p class="font-semibold text-sm">10 月 19 日金铲铲社区赛 S3 报名帖：32 强双败赛制</p><p class="text-xs mt-1" style="color:var(--jys-text-2)">游戏分区 · 今天 · 👍 31 · 💬 44</p></a>
+          <a href="post-view-member.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)"><p class="font-semibold text-sm">周六面杀第 14 期回顾：12 人车踏平钟楼村</p><p class="text-xs mt-1" style="color:var(--jys-text-2)">线下活动 · 9 月 21 日 · 👍 47 · 💬 25</p></a>
+        </div>
+      </section>
+      <section class="jys-card p-5">
+        <h3 class="font-bold mb-3">我的活动（23 次报名 · 19 次出席）</h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center gap-3 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-badge jys-badge-success">已出席</span><b>面杀第 14 期</b><span class="ml-auto text-xs" style="color:var(--jys-success)">+50 经验 +20 积分</span></div>
+          <div class="flex items-center gap-3 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-badge jys-badge-warning">候补中 #1</span><b>金铲铲社区赛 S3</b><span class="ml-auto text-xs" style="color:var(--jys-text-3)">待递补确认</span></div>
+        </div>
+        <a class="jys-link text-xs inline-block mt-3" href="my-events.html">全部报名与出勤 →</a>
+      </section>
+    </div>
+
+    <div class="space-y-5">
+      <section class="jys-card p-5 text-center">
+        <span class="jys-lv jys-lv4" style="font-size:14px"><span class="lv-num" style="width:30px;height:30px;font-size:14px">4</span>元老社员</span>
+        <p style="font-size:26px;font-weight:800;margin-top:8px;color:var(--jys-primary)">1,864</p>
+        <p class="text-xs" style="color:var(--jys-text-2)">经验值 · 距 Lv5 还差 136</p>
+        <div class="jys-progress mt-3"><div style="width:73%"></div></div>
+      </section>
+      <section class="jys-card p-5">
+        <h3 class="font-bold text-sm mb-2">贡献值</h3>
+        <p style="font-size:22px;font-weight:800">340</p>
+        <p class="text-[11px] mt-1" style="color:var(--jys-text-3)">赛事积分累积 + 管理员赠送 · 仅展示不解锁权限（Q5）</p>
+      </section>
+      <section class="jys-card p-5">
+        <h3 class="font-bold text-sm mb-2">出勤统计</h3>
+        <p class="text-sm">出席率 <b style="color:var(--jys-primary)">82.6%</b> · 对全员可见</p>
+        <a class="jys-link text-xs inline-block mt-2" href="profile-edit.html">调整可见性 →</a>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>
