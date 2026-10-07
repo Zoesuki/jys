@@ -7,6 +7,8 @@ export enum Role {
   Admin = 'admin',
 }
 
+export * from './contracts/index';
+
 /** 错误码分段表（延续原型 NET-1004 风格；完整表随模块实施扩充） */
 export const ERROR_CODES = {
   AUTH_INVALID_CREDENTIALS: 'AUTH-1001',
