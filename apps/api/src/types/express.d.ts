@@ -1,13 +1,15 @@
 import type { Request } from 'express';
+import type { JwtPayload } from '../modules/auth/jwt.payload';
 
 declare global {
   namespace Express {
     interface Request {
       /** 由 RequestIdMiddleware 注入（优先 Nginx X-Request-Id） */
       requestId?: string;
+      /** 由 JwtAuthGuard 注入的 JWT 载荷 */
+      user?: JwtPayload;
     }
   }
 }
 
-// 仅为触发 express 类型扩展导入
-export type _ExpressRequest = Request;
+export type _Keep = Request;

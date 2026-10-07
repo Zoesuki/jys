@@ -1,0 +1,77 @@
+// 吉悠社成员中心 · Prisma Schema
+// 表结构依据 docs/数据库设计.md。当前仅 auth 模块范围（user/user_role）；
+// 其余模块表由各模块实施时按所有权规则追加（迁移编号主控统一发放）。
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// 用户账号（SRS 4.1 状态机；隐私字段永不外泄 NFR-11）
+model User {
+  id                 BigInt     @id @default(autoincrement())
+  email              String     @unique @db.VarChar(254)
+  passwordHash       String     @map("password_hash") @db.VarChar(100)
+  nickname           String     @db.VarChar(24)
+  avatarFileId       BigInt?    @map("avatar_file_id")
+  signature          String?    @db.VarChar(200)
+  attendanceVisible  Boolean    @default(true) @map("attendance_visible")
+  status             UserStatus @default(pending_activation)
+  statusReason       String?    @map("status_reason") @db.VarChar(200)
+  mutedUntil         DateTime?  @map("muted_until") @db.DateTime(3)
+  xpTotal            Int        @default(0) @map("xp_total")
+  pointTotal         Int        @default(0) @map("point_total")
+  makeupCards        Int        @default(0) @map("makeup_cards")
+  rankText           String?    @map("rank_text") @db.VarChar(30)
+  admin2faPassedAt   DateTime?  @map("admin_2fa_passed_at") @db.DateTime(3)
+  deactivatedAt      DateTime?  @map("deactivated_at") @db.DateTime(3)
+  anonymizedAt       DateTime?  @map("anonymized_at") @db.DateTime(3)
+  emailVerifiedAt    DateTime?  @map("email_verified_at") @db.DateTime(3)
+  extJson            Json?      @map("ext_json")
+  createdAt          DateTime   @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt          DateTime   @default(now()) @updatedAt @map("updated_at") @db.DateTime(3)
+
+  roles UserRole[]
+
+  @@index([status])
+  @@index([nickname])
+  @@map("user")
+}
+
+/// 叠加角色（R1：角色不改变账号状态；版主作用域=board_id）
+model UserRole {
+  id        BigInt   @id @default(autoincrement())
+  userId    BigInt   @map("user_id")
+  role      UserRoleName
+  boardId   BigInt?  @map("board_id")
+  grantedBy BigInt?  @map("granted_by")
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, role, boardId])
+  @@index([role, boardId])
+  @@map("user_role")
+}
+
+/// 账号状态（SRS 状态机 4.1）
+enum UserStatus {
+  pending_activation
+  active_no_member
+  normal
+  muted
+  banned
+  deactivation_cooling
+  deactivated
+}
+
+/// 叠加角色枚举
+enum UserRoleName {
+  moderator
+  organizer
+  admin
+}
