@@ -8,6 +8,7 @@
      交互：申请表（游戏经历/自我介绍 30–500 字）、敏感词校验、提交成功→待审核态；被拒 7 天间隔口径提示 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="入会申请" data-page-group="member" data-trace="PRD 5.1 A4、6.1 / SRS FR-A4、状态机 4.2" data-states="normal,validation">
@@ -44,12 +45,12 @@
       <div>
         <label class="jys-label jys-required">游戏经历</label>
         <textarea class="jys-input" rows="2">只玩过一点点</textarea>
-        <p class="jys-field-msg-error">⚠ 游戏经历至少 30 字，当前 6 字</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>游戏经历至少 30 字，当前 6 字</p>
       </div>
       <div>
         <label class="jys-label jys-required">自我介绍</label>
         <textarea class="jys-input jys-input-error" rows="2">加个微信卖装备的来 xxx 号，代练打金优惠</textarea>
-        <p class="jys-field-msg-error">⚠ 内容命中敏感词（疑似垃圾广告），已转人工审核（SRS FR-B5/Q7），请修改后重新提交</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>内容命中敏感词（疑似垃圾广告），已转人工审核（SRS FR-B5/Q7），请修改后重新提交</p>
       </div>
       <button class="jys-btn jys-btn-primary w-full justify-center" disabled>提交申请</button>
     </form>

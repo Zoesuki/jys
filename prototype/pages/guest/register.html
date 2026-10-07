@@ -8,13 +8,14 @@
      交互：邮箱验证码发送（60s 重发倒计时）、密码强度、注册成功→入会申请 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="注册" data-page-group="guest" data-trace="PRD 5.1 A1（Q2） / SRS FR-A1" data-states="normal,validation">
 <main class="max-w-md mx-auto px-4 pb-16" style="max-width:440px">
 
   <div data-when="normal" class="jys-card p-7 mt-2">
-    <h2 class="text-xl font-bold mb-1">创建账号 🎮</h2>
+    <h2 class="text-xl font-bold mb-1 flex items-center gap-2"><span data-jys-icon="person-add" style="width:20px;height:20px"></span>创建账号</h2>
     <p class="text-sm mb-6" style="color:var(--jys-text-2)">注册后需提交入会申请，审核通过即可解锁全部成员权益</p>
     <form class="space-y-4">
       <div>
@@ -54,13 +55,13 @@
   </div>
 
   <div data-when="validation" class="jys-card p-7 mt-2">
-    <h2 class="text-xl font-bold mb-1">创建账号 🎮</h2>
+    <h2 class="text-xl font-bold mb-1 flex items-center gap-2"><span data-jys-icon="person-add" style="width:20px;height:20px"></span>创建账号</h2>
     <p class="text-sm mb-6" style="color:var(--jys-text-2)">注册后需提交入会申请，审核通过即可解锁全部成员权益</p>
     <form class="space-y-4">
       <div>
         <label class="jys-label jys-required">邮箱</label>
         <input class="jys-input jys-input-error" value="yefeng@jyouclub.cn">
-        <p class="jys-field-msg-error">⚠ 该邮箱已被注册（邮箱全局唯一，FR-A1）</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>该邮箱已被注册（邮箱全局唯一，FR-A1）</p>
       </div>
       <div>
         <label class="jys-label jys-required">邮箱验证码</label>
@@ -68,7 +69,7 @@
           <input class="jys-input jys-input-error" value="483921">
           <button type="button" class="jys-btn jys-btn-outline shrink-0">重新发送</button>
         </div>
-        <p class="jys-field-msg-error">⚠ 验证码错误或已过期，请重新获取</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>验证码错误或已过期，请重新获取</p>
       </div>
       <div>
         <label class="jys-label jys-required">设置密码</label>
@@ -82,7 +83,7 @@
           </div>
           <span class="text-xs" style="color:var(--jys-error)">弱</span>
         </div>
-        <p class="jys-field-msg-error">⚠ 密码需 8 位以上，且包含字母、数字与符号</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>密码需 8 位以上，且包含字母、数字与符号</p>
       </div>
       <label class="flex items-start gap-2 text-xs" style="color:var(--jys-text-2)">
         <input type="checkbox" class="accent-orange-500 mt-0.5">

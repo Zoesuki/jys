@@ -8,6 +8,7 @@
      交互：组队卡（游戏/时间/人数/状态）、发起组队；状态口径 P9-22（无"已完成"态） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="组队开黑" data-page-group="member" data-trace="PRD 5.4 D8、6.5 / SRS FR-D8、状态机 4.7" data-states="normal,empty">
@@ -55,7 +56,7 @@
     </div>
   </div>
 
-  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🎮</div><p class="font-bold" style="color:var(--jys-text-1)">还没有组队</p><p class="text-xs mt-1">发起一个组队帖，找同好开黑</p><button class="jys-btn jys-btn-primary jys-btn-sm mt-3">＋ 发起组队</button></div></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="gamepad-2" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">还没有组队</p><p class="text-xs mt-1">发起一个组队帖，找同好开黑</p><button class="jys-btn jys-btn-primary jys-btn-sm mt-3">＋ 发起组队</button></div></div></div>
 
   <!-- 发起组队弹层 -->
   <div id="team-modal" class="jys-modal-mask hidden" onclick="if(event.target===this)this.classList.add('hidden')">

@@ -8,6 +8,7 @@
      交互：注销须知、30 天冷静期、撤销说明、危险确认弹层；在审内容不阻塞注销（P9-05） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="账号注销" data-page-group="member" data-trace="PRD 5.1 A7、8.3 NF12 / SRS FR-A7、NFR-12、状态机 4.1" data-states="normal">
@@ -19,15 +20,15 @@
 
     <div class="space-y-3 text-sm">
       <div class="jys-sunken p-4">
-        <b>⏳ 30 天冷静期</b>
+        <b><span data-jys-icon="hourglass"></span>30 天冷静期</b>
         <p class="text-xs mt-1" style="color:var(--jys-text-2)">提交后进入冷静期（运营参数，可配置），期间登录即可撤销注销；期满后个人信息删除或匿名化（NFR-12）。</p>
       </div>
       <div class="jys-sunken p-4">
-        <b>🗑️ 数据处理</b>
+        <b><span data-jys-icon="trash-2"></span>数据处理</b>
         <p class="text-xs mt-1" style="color:var(--jys-text-2)">你发布的帖子与回帖默认保留但匿名化展示；存在进行中的举报工单/在审内容不阻塞注销，将统一随匿名化处理（P9-05）。</p>
       </div>
       <div class="jys-sunken p-4">
-        <b>💠 经验值与积分</b>
+        <b class="inline-flex items-center gap-1.5"><span data-jys-icon="coin-multiple"></span>经验值与积分</b>
         <p class="text-xs mt-1" style="color:var(--jys-text-2)">注销后经验值（1,864）与贡献值（340）随账号一并失效，不可恢复。</p>
       </div>
     </div>
@@ -43,7 +44,7 @@
   <!-- 危险确认弹层 -->
   <div id="close-modal" class="jys-modal-mask hidden" onclick="if(event.target===this)this.classList.add('hidden')">
     <div class="jys-modal p-6 jys-fade-in">
-      <h3 class="font-bold text-lg mb-2" style="color:var(--jys-error)">⚠ 确认申请注销？</h3>
+      <h3 class="font-bold text-lg mb-2" style="color:var(--jys-error)"><span data-jys-icon="alert-triangle"></span>确认申请注销？</h3>
       <p class="text-sm" style="color:var(--jys-text-2)">提交后账号进入 <b>30 天冷静期</b>（至 10 月 31 日）。冷静期内登录可撤销；期满后个人信息删除或匿名化，等级与贡献值失效。</p>
       <div class="flex justify-end gap-2 mt-5">
         <button class="jys-btn jys-btn-ghost" onclick="document.getElementById('close-modal').classList.add('hidden')">再想想</button>

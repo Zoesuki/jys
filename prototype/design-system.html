@@ -8,14 +8,33 @@
      来源：PRD v1.1 全局 / SRS v1.0 2.3 状态机着色语义 -->
 <link rel="stylesheet" href="assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/jys-icons.js"></script>
 <script src="assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="设计系统 · UI 契约样例" data-page-group="guest" data-trace="PRD 全局 / SRS 2.3 状态机着色" data-page-note="方案 C 暖橙休闲亮色 · 已冻结" data-states="normal">
 <main class="max-w-7xl mx-auto px-4 pb-10">
 
   <div class="jys-card p-6 mb-6">
-    <h2 class="text-xl font-bold mb-1">暖橙休闲 · 亮色 <span class="jys-badge jys-badge-primary">已冻结 UI 契约</span></h2>
+    <h2 class="text-xl font-bold mb-1">暖橙休闲 · 亮色 <span class="jys-badge jys-badge-primary">已冻结 UI 契约</span> <span class="jys-badge jys-badge-neutral">v1.1 修订 · 2026-10-07 已冻结</span></h2>
     <p style="color:var(--jys-text-2)">前台与管理后台统一设计系统；后台同色系、密度更高。任何改动需走变更确认。</p>
+  </div>
+
+  <!-- 契约修订 v1.1 -->
+  <div class="jys-card p-6 mb-6" style="border-color:var(--jys-border-warm)">
+    <h3 class="font-bold text-lg mb-2">0. 契约修订 v1.1（2026-10-07 · 方案 C 减法精致化 + 彩色图标选定，用户确认）</h3>
+    <p class="text-sm mb-3" style="color:var(--jys-text-2)">保持暖橙基调与信息结构不变，仅降低装饰强度、去除「AI 生成感」。本节为 v1.0 之上的增量契约：</p>
+    <ul class="text-sm space-y-1.5" style="color:var(--jys-text-2)">
+      <li>· <b style="color:var(--jys-text-1)">彩色图标规范（同日用户选定）</b>：图标统一使用 <code class="font-mono" style="color:var(--jys-primary-hover)">jysIcon(name)</code> 渲染本地化彩色 SVG——来源微软 <b>Fluent Color Icons</b>（MIT，assets/jys-icons.js，24 viewBox 自带配色）。静态 HTML 放占位 <code class="font-mono">&lt;span data-jys-icon="calendar"&gt;&lt;/span&gt;</code>，脚本自动填充；个别 Fluent Color 未覆盖的语义（游戏/骰子/火焰/敏感词等）以同集合近似图标替代；原删除 emoji 的位置（版块名/栏目标题/CTA 按钮）均恢复对应图标；唯一特例：编辑器表情按钮取同厂 Fluent Emoji Flat 笑脸（其语义即 emoji）；「欢迎回来」标题无同风格挥手图标，保留纯文字。</li>
+      <li>· <b style="color:var(--jys-text-1)">渐变改纯色</b>：Hero/封面/卡片头部等一律使用纯色或极淡单色块；主按钮实色。例外：骨架屏 shimmer 为功能性动效，保留灰阶渐变。</li>
+      <li>· <b style="color:var(--jys-text-1)">圆角收敛</b>：卡片 10px（--jys-radius-lg）、容器/下沉块 8px、按钮/输入 6px；Tailwind rounded-xl 一律不用（以 rounded-lg 为上限）。</li>
+      <li>· <b style="color:var(--jys-text-1)">阴影收敛</b>：全部改为微投影（--jys-shadow-sm/md/lg 已减弱），卡片悬停位移 ≤1px，主按钮去除悬浮位移。</li>
+      <li>· <b style="color:var(--jys-text-1)">徽章降噪</b>：常规态徽章（已发布/已报名/已出席/提醒等）统一灰底深灰字；彩色仅保留异常态——审核中/候补/禁言（琥珀）、删除/封禁/驳回（红）。角色与等级徽章语义保留。</li>
+      <li>· <b style="color:var(--jys-text-1)">头像去描边环</b>：移除 .jys-avatar-ring 双环描边，头像回归纯色底 + 首字。</li>
+    </ul>
+    <div class="flex flex-wrap gap-2 mt-4">
+      <span data-jys-icon="search"></span><span data-jys-icon="bell"></span><span data-jys-icon="calendar"></span><span data-jys-icon="users"></span><span data-jys-icon="file-text"></span><span data-jys-icon="flag"></span><span data-jys-icon="layers"></span><span data-jys-icon="settings"></span><span data-jys-icon="scroll"></span><span data-jys-icon="gift"></span><span data-jys-icon="layout-dashboard"></span><span data-jys-icon="clipboard-check"></span><span data-jys-icon="alert-triangle"></span><span data-jys-icon="circle-check"></span><span data-jys-icon="message-circle"></span><span data-jys-icon="star"></span><span data-jys-icon="inbox"></span><span data-jys-icon="party-popper"></span><span data-jys-icon="clock"></span><span data-jys-icon="gamepad-2"></span><span data-jys-icon="dice-5"></span><span data-jys-icon="flame"></span><span data-jys-icon="lock"></span><span data-jys-icon="shield"></span><span data-jys-icon="tags"></span><span data-jys-icon="trophy"></span><span data-jys-icon="info"></span><span data-jys-icon="hourglass"></span><span data-jys-icon="trash-2"></span><span data-jys-icon="ticket"></span><span data-jys-icon="scan-line"></span><span data-jys-icon="key-round"></span><span data-jys-icon="image"></span><span data-jys-icon="pencil"></span><span data-jys-icon="sparkles"></span><span data-jys-icon="bar-chart-3"></span><span data-jys-icon="like"></span><span data-jys-icon="megaphone"></span><span data-jys-icon="help-question"></span><span data-jys-icon="food"></span><span data-jys-icon="paint-brush"></span><span data-jys-icon="apps-list"></span><span data-jys-icon="send"></span><span data-jys-icon="book-open"></span><span data-jys-icon="coin-multiple"></span><span data-jys-icon="person-add"></span><span data-jys-icon="mail"></span><span data-jys-icon="calendar-checkmark"></span><span data-jys-icon="share"></span><span data-jys-icon="lock-shield"></span><span data-jys-icon="game-chat"></span><span data-jys-icon="smile"></span>
+    </div>
+    <p class="text-xs mt-2" style="color:var(--jys-text-3)">↑ 全站图标集（Fluent Color 彩色 SVG，默认 16px，可经 style/width 调整；语义缺口以同集合近似图标替代）</p>
   </div>
 
   <!-- 配色 -->
@@ -33,7 +52,7 @@
       <div><div class="h-14 rounded-lg" style="background:#EF4444"></div><p class="mt-1 font-mono">error #EF4444</p></div>
       <div><div class="h-14 rounded-lg" style="background:#0EA5E9"></div><p class="mt-1 font-mono">info #0EA5E9</p></div>
     </div>
-    <p class="text-xs mt-3" style="color:var(--jys-text-2)">功能色语义（SRS 状态机）：已发布/通过/出席=绿；审核中/候补/禁言=琥珀；拒绝/封禁/删除=红；截止提醒/通知=蓝。</p>
+    <p class="text-xs mt-3" style="color:var(--jys-text-2)">功能色语义（SRS 状态机）：已发布/通过/出席=绿；审核中/候补/禁言=琥珀；拒绝/封禁/删除=红；截止提醒/通知=蓝。v1.1 修订：功能色仅用于<b style="color:var(--jys-text-1)">异常态徽章与语义图标</b>，常规态徽章一律灰色（见第 4 节）。</p>
   </div>
 
   <!-- 字体 -->
@@ -53,6 +72,7 @@
   <div class="grid md:grid-cols-2 gap-6 mb-6">
     <div class="jys-card p-6">
       <h3 class="font-bold text-lg mb-4">3. 按钮</h3>
+      <p class="text-xs mb-3" style="color:var(--jys-text-2)">强调层级：实色 → 描边 → <b style="color:var(--jys-text-1)">ghost 软底</b>（静息浅灰底、悬停浅橙——用于分页/行内操作/弹层取消等最低强调场景）→ 禁用。</p>
       <div class="flex flex-wrap gap-2 items-center">
         <button class="jys-btn jys-btn-primary">发帖</button>
         <button class="jys-btn jys-btn-secondary">报名活动</button>
@@ -67,7 +87,8 @@
       </div>
     </div>
     <div class="jys-card p-6">
-      <h3 class="font-bold text-lg mb-4">4. 状态徽章（SRS 状态机语义）</h3>
+      <h3 class="font-bold text-lg mb-1">4. 状态徽章（SRS 状态机语义 × v1.1 降噪）</h3>
+      <p class="text-xs mb-3" style="color:var(--jys-text-2)">v1.1：常规态统一灰底深灰字，彩色仅保留异常态（琥珀=审核中/候补/禁言，红=驳回/删除/封禁）。</p>
       <div class="flex flex-wrap gap-2">
         <span class="jys-badge jys-badge-success jys-badge-dot">已发布</span>
         <span class="jys-badge jys-badge-warning jys-badge-dot">审核中</span>
@@ -90,13 +111,15 @@
         <span class="jys-role jys-role-member">普通成员</span>
         <span class="jys-role jys-role-guest">游客</span>
       </div>
-      <h4 class="font-bold mt-4 mb-2">等级徽章（FR-G2 档位表）</h4>
-      <div class="flex flex-wrap gap-3">
-        <span class="jys-lv jys-lv1"><span class="lv-num">1</span>见习社员</span>
-        <span class="jys-lv jys-lv2"><span class="lv-num">2</span>常驻社员</span>
-        <span class="jys-lv jys-lv3"><span class="lv-num">3</span>活跃社员</span>
-        <span class="jys-lv jys-lv4"><span class="lv-num">4</span>元老社员</span>
-        <span class="jys-lv jys-lv5"><span class="lv-num">5</span>传奇社员</span>
+      <h4 class="font-bold mt-4 mb-2">等级徽章（FR-G2 档位表 · Lv1–20 / 5 段位，段位框样式）</h4>
+      <p class="text-xs mb-2" style="color:var(--jys-text-2)">Lv n→n+1 需 100×n 经验（累计 50×n(n−1)，Lv20 需 19,000）；楼层展示段位名，个人主页/签到附升级进度微条。每段位 4 级，展示各级代表：</p>
+      <div class="flex flex-wrap gap-3 items-center">
+        <span class="jys-lv jys-lv2"><span class="lv-num">2</span><span class="lv-name">见习社员</span></span>
+        <span class="jys-lv jys-lv6"><span class="lv-num">6</span><span class="lv-name">常驻社员</span></span>
+        <span class="jys-lv jys-lv10"><span class="lv-num">10</span><span class="lv-name">活跃社员</span></span>
+        <span class="jys-lv jys-lv14"><span class="lv-num">14</span><span class="lv-name">元老社员</span></span>
+        <span class="jys-lv jys-lv18"><span class="lv-num">18</span><span class="lv-name">传奇社员</span></span>
+        <span class="jys-lv jys-lv6"><span class="lv-num">6</span></span><span class="jys-lv-bar"><i style="width:61%;background:#22C55E"></i></span><span class="text-[11px]" style="color:var(--jys-text-3)">距下一级 61%</span>
       </div>
     </div>
   </div>
@@ -114,7 +137,7 @@
         <div>
           <label class="jys-label jys-required">邮箱</label>
           <input class="jys-input jys-input-error" value="jyou#qq.com">
-          <p class="jys-field-msg-error">⚠ 邮箱格式不正确，应为 name@example.com</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>邮箱格式不正确，应为 name@example.com</p>
         </div>
         <div>
           <label class="jys-label jys-required">自我介绍</label>
@@ -130,7 +153,7 @@
       <h3 class="font-bold text-lg mb-4">6. 空状态 / 加载 / 错误</h3>
       <div class="jys-sunken p-4 mb-3">
         <div class="jys-empty" style="padding:24px">
-          <div class="jys-empty-icon">🎲</div>
+          <div class="jys-empty-icon"><span data-jys-icon="dice-5" style="width:36px;height:36px"></span></div>
           <p class="font-bold" style="color:var(--jys-text-1)">还没有帖子</p>
           <p class="text-xs mt-1">成为第一个发帖的人，聊聊你最近在玩的游戏</p>
           <button class="jys-btn jys-btn-primary jys-btn-sm mt-3">去发帖</button>
@@ -142,7 +165,7 @@
         <div class="jys-skeleton h-4 w-5/6"></div>
       </div>
       <div class="jys-error-banner">
-        <span>⚠️</span>
+        <span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span>
         <div><p class="font-bold">加载失败</p><p class="text-xs mt-1">网络连接超时（错误码 NET-1004），请检查网络后重试。</p><button class="jys-btn jys-btn-outline jys-btn-sm mt-2">重新加载</button></div>
       </div>
     </div>
@@ -155,9 +178,9 @@
       <table class="jys-table">
         <thead><tr><th>成员</th><th>等级</th><th>出席率</th><th>状态</th></tr></thead>
         <tbody>
-          <tr><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:11px">夜</span>夜风</td><td><span class="jys-lv jys-lv4"><span class="lv-num">4</span></span></td><td>92.3%</td><td><span class="jys-badge jys-badge-success">正常</span></td></tr>
-          <tr><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:11px">茶</span>阿茶</td><td><span class="jys-lv jys-lv3"><span class="lv-num">3</span></span></td><td>78.6%</td><td><span class="jys-badge jys-badge-warning">禁言剩 2 天</span></td></tr>
-          <tr><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:11px">漠</span>北漠</td><td><span class="jys-lv jys-lv5"><span class="lv-num">5</span></span></td><td>88.1%</td><td><span class="jys-badge jys-badge-success">正常</span></td></tr>
+          <tr><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:11px">夜</span>夜风</td><td><span class="jys-lv jys-lv6"><span class="lv-num">6</span></span></td><td>92.3%</td><td><span class="jys-badge jys-badge-success">正常</span></td></tr>
+          <tr><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:11px">茶</span>阿茶</td><td><span class="jys-lv jys-lv14"><span class="lv-num">14</span></span></td><td>78.6%</td><td><span class="jys-badge jys-badge-warning">禁言剩 2 天</span></td></tr>
+          <tr><td class="flex items-center gap-2"><span class="jys-avatar" style="width:24px;height:24px;font-size:11px">漠</span>北漠</td><td><span class="jys-lv jys-lv18"><span class="lv-num">18</span></span></td><td>88.1%</td><td><span class="jys-badge jys-badge-success">正常</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -179,7 +202,7 @@
 <!-- 危险操作确认弹层样例 -->
 <div id="demo-modal" class="jys-modal-mask hidden" onclick="if(event.target===this){this.classList.add('hidden');document.querySelector('.jys-sunken').classList.remove('hidden')}">
   <div class="jys-modal p-6 jys-fade-in">
-    <h3 class="font-bold text-lg mb-2" style="color:var(--jys-error)">⚠ 确认封禁成员</h3>
+    <h3 class="font-bold text-lg mb-2" style="color:var(--jys-error)"><span data-jys-icon="alert-triangle"></span>确认封禁成员</h3>
     <p class="text-sm" style="color:var(--jys-text-2)">即将封禁 <b>摸鱼大师兄</b>（永久）。被处置成员既有内容默认保留，违规内容由你单独删除（SRS FR-E3）。该操作将记入审计日志（R8）。</p>
     <div class="flex justify-end gap-2 mt-5">
       <button class="jys-btn jys-btn-ghost" onclick="this.closest('.jys-modal-mask').classList.add('hidden');document.querySelector('.jys-sunken').classList.remove('hidden')">取消</button>

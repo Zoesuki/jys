@@ -8,6 +8,7 @@
      交互：头像上传（合规校验）、昵称、自我介绍（过敏感词）、预设+自定义标签（敏感词校验，≤10 个 P9-09）、出勤可见开关（Q8-⑰） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="编辑资料" data-page-group="member" data-trace="PRD 5.1 A6、5.3 C2 / SRS FR-A6/C2" data-states="normal,validation">
@@ -56,7 +57,7 @@
     <div>
       <label class="jys-label jys-required">昵称</label>
       <input class="jys-input jys-input-error" value="夜">
-      <p class="jys-field-msg-error">⚠ 昵称至少 2 个字符</p>
+      <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>昵称至少 2 个字符</p>
     </div>
     <div>
       <label class="jys-label">自定义标签</label>
@@ -64,7 +65,7 @@
         <input class="jys-input jys-input-error" value="免费代练">
         <button class="jys-btn jys-btn-outline shrink-0">添加</button>
       </div>
-      <p class="jys-field-msg-error">⚠ 标签命中敏感词，已拒绝（FR-C2）；当前标签 10/10，已达上限（P9-09）</p>
+      <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>标签命中敏感词，已拒绝（FR-C2）；当前标签 10/10，已达上限（P9-09）</p>
     </div>
   </div>
 </main>

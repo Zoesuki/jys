@@ -8,6 +8,7 @@
      交互：富文本工具条、版块选择、图片上传（进度/失败重试）、敏感词命中→审核中提示、草稿自动保存 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="发布新帖" data-page-group="member" data-trace="PRD 5.2 B2/B9/B15 / SRS FR-B2/B9/B15" data-states="normal,validation">
@@ -42,9 +43,9 @@
             <button class="px-2 rounded hover:bg-white" title="下划线"><u>U</u></button>
             <span style="border-left:1px solid var(--jys-border);margin:2px 4px"></span>
             <button class="px-2 rounded hover:bg-white">H2</button><button class="px-2 rounded hover:bg-white">引用</button>
-            <button class="px-2 rounded hover:bg-white">链接</button><button class="px-2 rounded hover:bg-white">😊</button>
+            <button class="px-2 rounded hover:bg-white">链接</button><button class="px-2 rounded hover:bg-white inline-flex items-center"><span data-jys-icon="smile"></span></button>
             <button class="px-2 rounded hover:bg-white">@成员</button>
-            <button class="px-2 rounded hover:bg-white">🖼️ 图片</button>
+            <button class="px-2 rounded hover:bg-white"><span data-jys-icon="image"></span>图片</button>
             <span class="ml-auto text-[10px] text-right" style="color:var(--jys-text-3)">富文本白名单过滤（NFR-10）</span>
           </div>
           <textarea class="jys-textarea" rows="9" style="border-radius:0 0 8px 8px;font-family:inherit">S3 赛季来啦！本次赛制：32 强双败，胜场积分 +30、参与积分 +10（积分累积为贡献值，不解锁权限）。
@@ -88,17 +89,17 @@
         <div>
           <label class="jys-label jys-required">选择版块</label>
           <select class="jys-select" style="border-color:var(--jys-error)"><option>请选择版块…</option></select>
-          <p class="jys-field-msg-error">⚠ 请选择发布版块</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>请选择发布版块</p>
         </div>
         <div>
           <label class="jys-label jys-required">标题</label>
           <input class="jys-input jys-input-error" value="代练接单加V">
-          <p class="jys-field-msg-error">⚠ 标题命中敏感词（垃圾广告类），已转人工审核（Q7/R4），请修改后重试</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>标题命中敏感词（垃圾广告类），已转人工审核（Q7/R4），请修改后重试</p>
         </div>
         <div>
           <label class="jys-label jys-required">正文</label>
           <textarea class="jys-textarea" rows="4">低价代练，加V秒回，全服全能代练工作室…</textarea>
-          <p class="jys-field-msg-error">⚠ 正文命中敏感词 2 处（垃圾广告类），发布被拦截</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>正文命中敏感词 2 处（垃圾广告类），发布被拦截</p>
         </div>
         <div class="jys-sunken p-3 text-xs" style="color:var(--jys-text-2)">说明：命中敏感词的内容进入人工审核队列（时效默认 72h，P9-03），未命中则直接发布（先发后审，Q7）。</div>
         <button class="jys-btn jys-btn-primary" disabled>发布</button>

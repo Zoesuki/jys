@@ -8,6 +8,7 @@
      交互：敏感词库（即时生效）、通知开关、公告发布、运营参数集中配置（含 G 模块） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="系统配置与运营参数" data-page-group="admin" data-trace="PRD 5.5 E10、7.1 R9 / SRS FR-E10、附录 10.2 参数表" data-states="normal">
@@ -15,23 +16,23 @@
 <div class="flex gap-5">
   <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
     <nav class="space-y-0.5 text-sm">
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
-      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="settings.html">⚙️ 系统配置</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html"><span data-jys-icon="layout-dashboard"></span>数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html"><span data-jys-icon="clipboard-check"></span>入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html"><span data-jys-icon="users"></span>成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html"><span data-jys-icon="file-text"></span>帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html"><span data-jys-icon="flag"></span>举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html"><span data-jys-icon="layers"></span>版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html"><span data-jys-icon="calendar"></span>活动管理</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="settings.html"><span data-jys-icon="settings"></span>系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html"><span data-jys-icon="scroll"></span>审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html"><span data-jys-icon="gift"></span>赠送经验/积分</a>
     </nav>
   </aside>
 
   <div class="flex-1 space-y-5">
     <!-- 公告 -->
     <section class="jys-card p-5">
-      <h3 class="font-bold mb-3">📢 发布公告（→ 公告栏 / 群机器人 P2）</h3>
+      <h3 class="font-bold mb-3 flex items-center gap-1.5"><span data-jys-icon="megaphone"></span>发布公告（→ 公告栏 / 群机器人 P2）</h3>
       <div class="flex gap-2">
         <input class="jys-input" placeholder="公告标题，如：11 月月度聚会报名开启">
         <button class="jys-btn jys-btn-primary shrink-0">发布公告</button>
@@ -42,7 +43,7 @@
     <!-- 敏感词库 -->
     <section class="jys-card p-5">
       <div class="flex items-center justify-between mb-3">
-        <h3 class="font-bold">🚫 敏感词库（128 个词）</h3>
+        <h3 class="font-bold flex items-center gap-1.5"><span data-jys-icon="lock-shield"></span>敏感词库（128 个词）</h3>
         <span class="jys-badge jys-badge-success jys-badge-dot">增删即时生效（Q8-⑭）</span>
       </div>
       <div class="flex gap-2 mb-3">
@@ -57,7 +58,7 @@
 
     <!-- 通知开关 -->
     <section class="jys-card p-5">
-      <h3 class="font-bold mb-3">🔔 通知开关</h3>
+      <h3 class="font-bold mb-3 flex items-center gap-1.5"><span data-jys-icon="bell"></span>通知开关</h3>
       <div class="space-y-2 text-sm">
         <div class="flex items-center justify-between jys-sunken p-3"><span>邮件通知总开关（F2）</span><input type="checkbox" checked class="w-10 h-5 accent-orange-500"></div>
         <div class="flex items-center justify-between jys-sunken p-3"><span>活动提醒邮件（提前 24h / 1h，Q8-⑩）</span><input type="checkbox" checked class="w-10 h-5 accent-orange-500"></div>
@@ -70,7 +71,7 @@
     <!-- 运营参数 -->
     <section class="jys-card p-5">
       <div class="flex items-center justify-between mb-1">
-        <h3 class="font-bold">⚙️ 运营参数集中配置（R9：标注值仅为默认值，全部可后台修改）</h3>
+        <h3 class="font-bold flex items-center gap-1.5"><span data-jys-icon="settings"></span>运营参数集中配置（R9：标注值仅为默认值，全部可后台修改）</h3>
         <span class="text-xs" style="color:var(--jys-text-3)">修改留痕 → 审计日志（E11）</span>
       </div>
       <table class="jys-table mt-3">

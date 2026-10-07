@@ -8,6 +8,7 @@
      交互：报名/候补名单、CSV 导出（留痕）、取消活动（须通知 R6）、催促递补确认 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="活动管理 · 我的活动" data-page-group="organizer" data-trace="PRD 5.4 D2、5.5 E8 / SRS FR-D2/E8" data-states="normal,empty">
@@ -25,7 +26,7 @@
         <span class="text-xs" style="color:var(--jys-text-2)">10 月 19 日 19:30 · 线上 · 32/32 · 候补 5 人</span>
         <div class="ml-auto flex gap-2">
           <a class="jys-btn jys-btn-outline jys-btn-sm" href="event-form.html">编辑（截止前）</a>
-          <button class="jys-btn jys-btn-outline jys-btn-sm">⬇ 导出 CSV</button>
+          <button class="jys-btn jys-btn-outline jys-btn-sm"><span data-jys-icon="share"></span>导出 CSV</button>
           <button class="jys-btn jys-btn-danger jys-btn-sm">取消活动</button>
         </div>
       </div>
@@ -44,7 +45,7 @@
     </div>
   </div>
 
-  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🗂️</div><p class="font-bold" style="color:var(--jys-text-1)">还没有发布过活动</p><p class="text-xs mt-1">从发布第一个活动开始组织吧</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="event-form.html">＋ 发布活动</a></div></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="layers" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">还没有发布过活动</p><p class="text-xs mt-1">从发布第一个活动开始组织吧</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="event-form.html">＋ 发布活动</a></div></div></div>
 </main>
 </body>
 </html>

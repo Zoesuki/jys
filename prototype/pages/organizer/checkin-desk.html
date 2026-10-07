@@ -8,6 +8,7 @@
      交互：扫码签到（默认）/口令签到切换（Q8-⑨）、实时核销列表、异常处理（未报名/重复签到） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="签到核销台" data-page-group="organizer" data-trace="PRD 5.4 D5 / SRS FR-D5（Q8-⑨）" data-page-note="活动：周六桌游面杀 · 第 15 期" data-states="normal,empty,error">
@@ -22,8 +23,8 @@
     <!-- 核销面板 -->
     <section class="jys-card p-6 text-center">
       <div class="flex justify-center gap-1 mb-5">
-        <button class="jys-btn jys-btn-primary jys-btn-sm">📷 扫码签到（默认）</button>
-        <button class="jys-btn jys-btn-ghost jys-btn-sm">🔑 口令签到</button>
+        <button class="jys-btn jys-btn-primary jys-btn-sm"><span data-jys-icon="scan-line"></span>扫码签到（默认）</button>
+        <button class="jys-btn jys-btn-ghost jys-btn-sm"><span data-jys-icon="key-round"></span>口令签到</button>
       </div>
       <div class="jys-sunken p-6 mb-4" style="border:1.5px dashed var(--jys-border-primary)">
         <div class="mx-auto" style="width:180px;height:180px;background:conic-gradient(#1F2937 25%,#fff 0 50%,#1F2937 0 75%,#fff 0);background-size:20px 20px;border:8px solid #1F2937;border-radius:8px;position:relative">
@@ -45,15 +46,15 @@
         <span class="text-xs" style="color:var(--jys-text-3)">自动刷新</span>
       </div>
       <div class="space-y-2 text-sm">
-        <div class="flex items-center gap-2 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">漠</span>北漠 <span class="jys-badge jys-badge-success ml-auto">14:00 已签</span></div>
-        <div class="flex items-center gap-2 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">茶</span>阿茶 <span class="jys-badge jys-badge-success ml-auto">14:02 已签</span></div>
-        <div class="flex items-center gap-2 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">星</span>星野子 <span class="jys-badge jys-badge-success ml-auto">14:07 已签</span></div>
-        <div class="flex items-center gap-2 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">鱼</span>咸鱼要翻身 <span class="jys-badge jys-badge-success ml-auto">14:09 已签</span></div>
-        <div class="flex items-center gap-2 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">南</span>南栀 <span class="jys-badge jys-badge-neutral ml-auto">未签到</span></div>
-        <div class="flex items-center gap-2 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">月</span>月见黑 <span class="jys-badge jys-badge-neutral ml-auto">未签到</span></div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">漠</span>北漠 <span class="jys-badge jys-badge-success ml-auto">14:00 已签</span></div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">茶</span>阿茶 <span class="jys-badge jys-badge-success ml-auto">14:02 已签</span></div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">星</span>星野子 <span class="jys-badge jys-badge-success ml-auto">14:07 已签</span></div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">鱼</span>咸鱼要翻身 <span class="jys-badge jys-badge-success ml-auto">14:09 已签</span></div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">南</span>南栀 <span class="jys-badge jys-badge-neutral ml-auto">未签到</span></div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">月</span>月见黑 <span class="jys-badge jys-badge-neutral ml-auto">未签到</span></div>
       </div>
       <div class="jys-error-banner mt-4">
-        <span>⚠️</span>
+        <span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span>
         <div><p class="font-bold text-sm">核销异常提示（错误态演示）</p><p class="text-xs mt-1">「路过的猫」不在报名名单中（NET-游客状态），已拒绝签到；「阿茶」重复扫码，系统已幂等处理并提示"已签到"。</p></div>
       </div>
     </section>

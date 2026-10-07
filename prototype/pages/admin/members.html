@@ -8,6 +8,7 @@
      交互：成员表、禁言（1/7/30 天档位）/封禁确认弹层、角色分配（版主/组织者）、管理员互处置禁止（P9-13） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="成员管理" data-page-group="admin" data-trace="PRD 5.5 E2/E3/E4 / SRS FR-E2/E3/E4、状态机 4.1" data-states="normal,empty">
@@ -15,16 +16,16 @@
 <div class="flex gap-5">
   <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
     <nav class="space-y-0.5 text-sm">
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
-      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="members.html">👥 成员管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html"><span data-jys-icon="layout-dashboard"></span>数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html"><span data-jys-icon="clipboard-check"></span>入会审核</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="members.html"><span data-jys-icon="users"></span>成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html"><span data-jys-icon="file-text"></span>帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html"><span data-jys-icon="flag"></span>举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html"><span data-jys-icon="layers"></span>版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html"><span data-jys-icon="calendar"></span>活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html"><span data-jys-icon="settings"></span>系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html"><span data-jys-icon="scroll"></span>审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html"><span data-jys-icon="gift"></span>赠送经验/积分</a>
     </nav>
   </aside>
 
@@ -43,7 +44,7 @@
         <tbody>
           <tr>
             <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">漠</span><div><b>北漠</b><p class="text-[11px]" style="color:var(--jys-text-3)">bmo@jyouclub.cn</p></div></td>
-            <td><span class="jys-lv jys-lv5"><span class="lv-num">5</span></span> 1,864</td>
+            <td><span class="jys-lv jys-lv18"><span class="lv-num">18</span></span> 16,200</td>
             <td><span class="jys-role jys-role-moderator">版主</span> <span class="jys-role jys-role-organizer">组织者</span></td>
             <td><span class="jys-badge jys-badge-success">正常</span></td><td class="text-xs">2025-03-14</td>
             <td><button class="jys-btn jys-btn-outline jys-btn-sm" onclick="document.getElementById('mute-modal').classList.remove('hidden')">禁言</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">角色</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">封禁</button></td>
@@ -57,7 +58,7 @@
           </tr>
           <tr>
             <td class="flex items-center gap-2"><span class="jys-avatar" style="width:28px;height:28px;font-size:11px">茶</span><div><b>阿茶</b><p class="text-[11px]" style="color:var(--jys-text-3)">acha@jyouclub.cn</p></div></td>
-            <td><span class="jys-lv jys-lv4"><span class="lv-num">4</span></span> 1,023</td>
+            <td><span class="jys-lv jys-lv14"><span class="lv-num">14</span></span> 9,640</td>
             <td><span class="jys-role jys-role-moderator">版主</span></td>
             <td><span class="jys-badge jys-badge-success">正常</span></td><td class="text-xs">2025-01-08</td>
             <td><button class="jys-btn jys-btn-outline jys-btn-sm">禁言</button> <button class="jys-btn jys-btn-ghost jys-btn-sm">角色</button> <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">封禁</button></td>
@@ -84,7 +85,7 @@
       <span class="px-2 text-xs" style="color:var(--jys-text-3)">…</span><button class="jys-btn jys-btn-ghost jys-btn-sm">347</button><button class="jys-btn jys-btn-ghost jys-btn-sm">›</button>
     </nav>
     </div>
-    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">👥</div><p class="font-bold" style="color:var(--jys-text-1)">没有符合条件的成员</p></div></div></div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="users" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">没有符合条件的成员</p></div></div></div>
   </div>
 </div>
 </main>

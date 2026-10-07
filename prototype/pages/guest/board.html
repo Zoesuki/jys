@@ -8,6 +8,7 @@
      交互：两级版块侧栏（Q4）、最新/热门排序切换、置顶帖、分页；游客点"发帖"引导注册 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="游戏分区 · 原神" data-page-group="guest" data-trace="PRD 5.2 B1/B11 / SRS FR-B1/B11" data-page-note="两级版块结构（Q4）" data-states="normal,empty,loading,error">
@@ -18,10 +19,10 @@
   <aside class="jys-card p-4 h-fit">
     <h3 class="font-bold mb-3 text-sm">全部版块</h3>
     <nav class="space-y-1 text-sm">
-      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span>📢 公告栏</span><span class="jys-badge jys-badge-primary text-[10px]">专属</span></a>
-      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span>💬 综合闲聊</span><span class="text-xs">1,842</span></a>
+      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span class="flex items-center gap-1.5"><span data-jys-icon="megaphone" style="width:15px;height:15px"></span>公告栏</span><span class="jys-badge jys-badge-primary text-[10px]">专属</span></a>
+      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span class="flex items-center gap-1.5"><span data-jys-icon="message-circle" style="width:15px;height:15px"></span>综合闲聊</span><span class="text-xs">1,842</span></a>
       <div>
-        <a class="flex items-center justify-between px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="board.html"><span>🎮 游戏分区</span><span class="text-xs">3,215</span></a>
+        <a class="flex items-center justify-between px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="board.html"><span class="flex items-center gap-1.5"><span data-jys-icon="game-chat" style="width:15px;height:15px"></span>游戏分区</span><span class="text-xs">3,215</span></a>
         <div class="ml-3 mt-1 space-y-1 text-xs">
           <a class="block px-3 py-1.5 rounded-lg font-semibold" style="background:var(--jys-primary-soft);color:var(--jys-primary-hover)" href="board.html">原神 · 1,204</a>
           <a class="block px-3 py-1.5 rounded-lg" style="color:var(--jys-text-2)" href="board.html">金铲铲之战 · 862</a>
@@ -29,11 +30,11 @@
           <a class="block px-3 py-1.5 rounded-lg" style="color:var(--jys-text-2)" href="board.html">CS2 · 518</a>
         </div>
       </div>
-      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span>🎲 桌游面杀</span><span class="text-xs">967</span></a>
-      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span>🍕 线下活动</span><span class="text-xs">423</span></a>
-      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span>🙋 求助问答</span><span class="text-xs">756</span></a>
+      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span class="flex items-center gap-1.5"><span data-jys-icon="dice-5" style="width:15px;height:15px"></span>桌游面杀</span><span class="text-xs">967</span></a>
+      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span class="flex items-center gap-1.5"><span data-jys-icon="food" style="width:15px;height:15px"></span>线下活动</span><span class="text-xs">423</span></a>
+      <a class="flex items-center justify-between px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="board.html"><span class="flex items-center gap-1.5"><span data-jys-icon="help-question" style="width:15px;height:15px"></span>求助问答</span><span class="text-xs">756</span></a>
     </nav>
-    <a href="login.html" class="jys-btn jys-btn-primary w-full justify-center mt-4">✏️ 发帖</a>
+    <a href="login.html" class="jys-btn jys-btn-primary w-full justify-center mt-4"><span data-jys-icon="pencil"></span>发帖</a>
     <p class="text-[11px] text-center mt-2" style="color:var(--jys-text-3)">游客仅可浏览，发帖需注册入会（Q7）</p>
   </aside>
 
@@ -54,9 +55,9 @@
     <div data-when="normal" class="space-y-3">
       <!-- 置顶帖 -->
       <article class="jys-card p-4" style="border-color:var(--jys-border-primary)">
-        <div class="flex items-center gap-2 mb-1"><span class="jys-badge jys-badge-error">📌 置顶</span><span class="jys-badge jys-badge-primary">公告</span></div>
+        <div class="flex items-center gap-2 mb-1"><span class="jys-badge jys-badge-neutral">置顶</span><span class="jys-badge jys-badge-primary">公告</span></div>
         <a href="post-view.html" class="font-semibold hover:underline">【版规】原神分区发帖规范 v3.0（10 月修订）</a>
-        <p class="text-xs mt-1" style="color:var(--jys-text-2)">夜风 · 3 天前 · 👍 41 · 💬 12 · 浏览 1,032</p>
+        <p class="text-xs mt-1" style="color:var(--jys-text-2)">夜风 · 3 天前 · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>41</span> · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>12</span> · 浏览 1,032</p>
       </article>
 
       <!-- 普通帖 -->
@@ -64,7 +65,7 @@
         <a href="post-view.html" class="font-semibold hover:underline">纳西妲满命了，求一套深渊 12 层的配队思路</a>
         <p class="text-xs mt-1 line-clamp-1" style="color:var(--jys-text-2)">如题， boxes：纳西妲 2命，雷电将军 0命，班尼特 5命，香菱 6命… 还缺个站场主C，草神配谁比较稳？</p>
         <div class="flex items-center gap-3 mt-2 text-xs" style="color:var(--jys-text-2)">
-          <span class="flex items-center gap-1"><span class="jys-avatar" style="width:18px;height:18px;font-size:9px">提</span>提瓦特钉子户</span><span>· 2 小时前</span><span>👍 64</span><span>💬 38</span><span class="jys-badge jys-badge-success text-[10px]">已发布</span>
+          <span class="flex items-center gap-1"><span class="jys-avatar" style="width:18px;height:18px;font-size:9px">提</span>提瓦特钉子户</span><span>· 2 小时前</span><span><span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>64</span></span><span><span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>38</span></span><span class="jys-badge jys-badge-success text-[10px]">已发布</span>
         </div>
       </article>
 
@@ -72,27 +73,27 @@
         <a href="post-view.html" class="font-semibold hover:underline">5.2 版本抽卡规划：林尼池子值得等吗？（含保底计算器）</a>
         <p class="text-xs mt-1" style="color:var(--jys-text-2)">持续更新中，评论区可以留自己的抽数我帮你们算…</p>
         <div class="flex items-center gap-3 mt-2 text-xs" style="color:var(--jys-text-2)">
-          <span class="flex items-center gap-1"><span class="jys-avatar" style="width:18px;height:18px;font-size:9px">星</span>星野子</span><span>· 5 小时前</span><span>👍 89</span><span>💬 55</span>
+          <span class="flex items-center gap-1"><span class="jys-avatar" style="width:18px;height:18px;font-size:9px">星</span>星野子</span><span>· 5 小时前</span><span><span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>89</span></span><span><span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>55</span></span>
         </div>
       </article>
 
       <article class="jys-card jys-card-hover p-4">
         <div class="flex items-center gap-2 mb-1"><span class="jys-badge jys-badge-neutral">该内容已被删除</span></div>
         <p class="text-sm" style="color:var(--jys-text-3)">该内容已被删除（删帖占位展示，Q8-㉓）</p>
-        <p class="text-xs mt-1" style="color:var(--jys-text-3)">· 昨天 · 💬 6</p>
+        <p class="text-xs mt-1" style="color:var(--jys-text-3)">· 昨天 · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>6</span></p>
       </article>
 
       <article class="jys-card jys-card-hover p-4">
         <a href="post-view.html" class="font-semibold hover:underline">萌新求带：刚回坑，圣遗物一套都没毕业，大佬带带我</a>
         <div class="flex items-center gap-3 mt-2 text-xs" style="color:var(--jys-text-2)">
-          <span class="flex items-center gap-1"><span class="jys-avatar" style="width:18px;height:18px;font-size:9px">鱼</span>咸鱼要翻身</span><span>· 昨天 22:41</span><span>👍 12</span><span>💬 19</span>
+          <span class="flex items-center gap-1"><span class="jys-avatar" style="width:18px;height:18px;font-size:9px">鱼</span>咸鱼要翻身</span><span>· 昨天 22:41</span><span><span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>12</span></span><span><span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>19</span></span>
         </div>
       </article>
     </div>
 
     <div data-when="loading" class="space-y-3"><div class="jys-skeleton h-24"></div><div class="jys-skeleton h-24"></div><div class="jys-skeleton h-24"></div></div>
-    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🗃️</div><p class="font-bold" style="color:var(--jys-text-1)">该版块还没有帖子</p><p class="text-xs mt-1">成为第一个发帖的人</p></div></div></div>
-    <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">帖子列表加载失败</p><p class="text-xs mt-1">请求超时（NET-1004），已自动重试 1 次</p><button class="jys-btn jys-btn-outline jys-btn-sm mt-2">重新加载</button></div></div></div>
+    <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="inbox" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">该版块还没有帖子</p><p class="text-xs mt-1">成为第一个发帖的人</p></div></div></div>
+    <div data-when="error"><div class="jys-error-banner"><span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span><div><p class="font-bold">帖子列表加载失败</p><p class="text-xs mt-1">请求超时（NET-1004），已自动重试 1 次</p><button class="jys-btn jys-btn-outline jys-btn-sm mt-2">重新加载</button></div></div></div>
 
     <!-- 分页 -->
     <nav class="flex items-center justify-center gap-1 pt-2">

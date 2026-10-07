@@ -1,6 +1,8 @@
 /* ============================================================
-   吉悠社成员中心 · 原型设计令牌（UI 契约 v1.0，已冻结）
-   方案 C「暖橙休闲 · 亮色」
+   吉悠社成员中心 · 原型设计令牌（UI 契约 v1.1，2026-10-07 修订并冻结）
+   方案 C「暖橙休闲 · 亮色」· 减法精致化修订（用户确认）
+   修订要点：圆角/阴影收敛、徽章降噪（彩色仅保留异常态）、
+   渐变改纯色、头像去描边环、图标统一为细线 SVG（jysIcon）
    来源：PRD v1.1 / SRS v1.0 · 状态色语义对齐 SRS 状态机
    ============================================================ */
 
@@ -57,16 +59,16 @@
   --jys-font-display: 'Plus Jakarta Sans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
   --jys-font-body: 'Plus Jakarta Sans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', -apple-system, sans-serif;
 
-  /* 圆角 */
-  --jys-radius-sm: 8px;
-  --jys-radius-md: 12px;
-  --jys-radius-lg: 16px;
+  /* 圆角（v1.1 收敛：卡片 10px、容器 8px、按钮/输入 6px） */
+  --jys-radius-sm: 6px;
+  --jys-radius-md: 8px;
+  --jys-radius-lg: 10px;
   --jys-radius-full: 9999px;
 
-  /* 阴影（暖调） */
-  --jys-shadow-sm: 0 1px 2px rgba(194, 65, 12, 0.06), 0 1px 3px rgba(249, 115, 22, 0.08);
-  --jys-shadow-md: 0 4px 12px rgba(194, 65, 12, 0.10), 0 2px 4px rgba(249, 115, 22, 0.06);
-  --jys-shadow-lg: 0 12px 32px rgba(194, 65, 12, 0.14), 0 4px 8px rgba(249, 115, 22, 0.08);
+  /* 阴影（v1.1 收敛为微投影） */
+  --jys-shadow-sm: 0 1px 2px rgba(194, 65, 12, 0.05);
+  --jys-shadow-md: 0 2px 8px rgba(194, 65, 12, 0.08);
+  --jys-shadow-lg: 0 8px 24px rgba(194, 65, 12, 0.10);
 
   /* 间距 */
   --jys-space-1: 4px;  --jys-space-2: 8px;  --jys-space-3: 12px;
@@ -94,19 +96,19 @@ h1,h2,h3,h4 { font-family: var(--jys-font-display); font-weight: 700; }
   box-shadow: var(--jys-shadow-sm);
   transition: box-shadow .2s ease, transform .2s ease;
 }
-.jys-card-hover:hover { box-shadow: var(--jys-shadow-md); transform: translateY(-2px); }
+.jys-card-hover:hover { box-shadow: var(--jys-shadow-md); transform: translateY(-1px); }
 .jys-sunken { background: var(--jys-bg-sunken); border-radius: var(--jys-radius-md); }
 
 /* ---------- 按钮 ---------- */
 .jys-btn { display:inline-flex; align-items:center; gap:6px; font-weight:600; border-radius: var(--jys-radius-sm); padding: 8px 16px; font-size:14px; cursor:pointer; transition: all .15s ease; border:1px solid transparent; }
 .jys-btn:disabled { opacity:.5; cursor:not-allowed; }
-.jys-btn-primary { background: var(--jys-primary); color: var(--jys-text-on-primary); box-shadow: 0 2px 8px rgba(249,115,22,.3); }
-.jys-btn-primary:hover:not(:disabled) { background: var(--jys-primary-hover); transform: translateY(-1px); }
+.jys-btn-primary { background: var(--jys-primary); color: var(--jys-text-on-primary); box-shadow: 0 1px 3px rgba(249,115,22,.22); }
+.jys-btn-primary:hover:not(:disabled) { background: var(--jys-primary-hover); }
 .jys-btn-secondary { background: var(--jys-secondary); color:#fff; }
 .jys-btn-secondary:hover:not(:disabled) { background: var(--jys-secondary-hover); }
 .jys-btn-outline { background:#fff; border-color: var(--jys-border-primary); color: var(--jys-primary-hover); }
 .jys-btn-outline:hover:not(:disabled) { background: var(--jys-primary-soft); }
-.jys-btn-ghost { background:transparent; color: var(--jys-text-2); }
+.jys-btn-ghost { background:#F3F4F6; color: var(--jys-text-2); }  /* v1.1 增补：软底化，静息态即有按钮感（原透明底仅悬停可见） */
 .jys-btn-ghost:hover:not(:disabled) { background: var(--jys-primary-soft); color: var(--jys-primary-hover); }
 .jys-btn-danger { background: var(--jys-error); color:#fff; }
 .jys-btn-danger:hover:not(:disabled) { background:#DC2626; }
@@ -127,14 +129,14 @@ h1,h2,h3,h4 { font-family: var(--jys-font-display); font-weight: 700; }
 .jys-field-msg-ok { color: var(--jys-success); font-size:12px; margin-top:4px; }
 .jys-required::after { content:' *'; color: var(--jys-error); }
 
-/* ---------- 徽章/标签（状态机语义） ---------- */
+/* ---------- 徽章/标签（状态机语义；v1.1 降噪：常规态统一灰底深灰字，彩色仅保留异常态 审核中/禁言/候补/删除/封禁/驳回） ---------- */
 .jys-badge { display:inline-flex; align-items:center; gap:4px; padding:2px 10px; border-radius: var(--jys-radius-full); font-size:12px; font-weight:600; line-height:20px; }
 .jys-badge-dot::before { content:''; width:6px; height:6px; border-radius:50%; background: currentColor; }
-.jys-badge-success { background: var(--jys-success-light); color:#15803D; }
-.jys-badge-warning { background: var(--jys-warning-light); color:#B45309; }
-.jys-badge-error   { background: var(--jys-error-light); color:#B91C1C; }
-.jys-badge-info    { background: var(--jys-info-light); color:#0369A1; }
-.jys-badge-primary { background: var(--jys-primary-light); color:#C2410C; }
+.jys-badge-success { background: var(--jys-neutral-badge); color:#4B5563; }   /* v1.1 降噪：已发布/审核通过等常规态 */
+.jys-badge-warning { background: var(--jys-warning-light); color:#B45309; }   /* 异常态：审核中/禁言中/候补 */
+.jys-badge-error   { background: var(--jys-error-light); color:#B91C1C; }     /* 异常态：删除/封禁/驳回 */
+.jys-badge-info    { background: var(--jys-neutral-badge); color:#4B5563; }   /* v1.1 降噪 */
+.jys-badge-primary { background: var(--jys-neutral-badge); color:#4B5563; }   /* v1.1 降噪 */
 .jys-badge-neutral { background: var(--jys-neutral-badge); color: var(--jys-text-2); }
 .jys-badge-outline { background:#fff; border:1px solid var(--jys-border); color: var(--jys-text-2); }
 
@@ -146,12 +148,25 @@ h1,h2,h3,h4 { font-family: var(--jys-font-display); font-weight: 700; }
 .jys-role-member { background: var(--jys-primary-light); color:#C2410C; }
 .jys-role-guest { background: var(--jys-neutral-badge); color: var(--jys-text-2); }
 
-/* 等级徽章（Lv1–Lv5） */
-.jys-lv { display:inline-flex; align-items:center; gap:4px; font-weight:800; font-size:12px; }
-.jys-lv .lv-num { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:6px; color:#fff; font-size:11px; }
-.jys-lv1 .lv-num { background: var(--jys-lv1); } .jys-lv2 .lv-num { background: var(--jys-lv2); }
-.jys-lv3 .lv-num { background: var(--jys-lv3); } .jys-lv4 .lv-num { background: var(--jys-lv4); }
-.jys-lv5 .lv-num { background: var(--jys-lv5); }
+/* 等级徽章（FR-G2 · v1.1 增补 2026-10-07：Lv1–20 分 5 大段位，方案三「段位框」）
+   段位：见习 Lv1–4 / 常驻 Lv5–8 / 活跃 Lv9–12 / 元老 Lv13–16 / 传奇 Lv17–20
+   曲线：Lv n→n+1 需 100×n 经验（累计 50×n(n−1)，Lv20 需 19,000），后台可配置 */
+.jys-lv { display:inline-flex; align-items:center; gap:5px; font-weight:700; font-size:12px; line-height:1; }
+.jys-lv .lv-num { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:8px; color:#fff; font-size:11px; font-weight:800; box-shadow: inset 0 0 0 2px rgba(255,255,255,.42); }
+.jys-lv .lv-name { font-weight:600; }
+.jys-lv1 .lv-num,.jys-lv2 .lv-num,.jys-lv3 .lv-num,.jys-lv4 .lv-num { background:#9CA3AF; }
+.jys-lv5 .lv-num,.jys-lv6 .lv-num,.jys-lv7 .lv-num,.jys-lv8 .lv-num { background:#22C55E; }
+.jys-lv9 .lv-num,.jys-lv10 .lv-num,.jys-lv11 .lv-num,.jys-lv12 .lv-num { background:#0EA5E9; }
+.jys-lv13 .lv-num,.jys-lv14 .lv-num,.jys-lv15 .lv-num,.jys-lv16 .lv-num { background:#A855F7; }
+.jys-lv17 .lv-num,.jys-lv18 .lv-num,.jys-lv19 .lv-num,.jys-lv20 .lv-num { background:#F59E0B; }
+.jys-lv1 .lv-name,.jys-lv2 .lv-name,.jys-lv3 .lv-name,.jys-lv4 .lv-name { color:#6B7280; }
+.jys-lv5 .lv-name,.jys-lv6 .lv-name,.jys-lv7 .lv-name,.jys-lv8 .lv-name { color:#15803D; }
+.jys-lv9 .lv-name,.jys-lv10 .lv-name,.jys-lv11 .lv-name,.jys-lv12 .lv-name { color:#0369A1; }
+.jys-lv13 .lv-name,.jys-lv14 .lv-name,.jys-lv15 .lv-name,.jys-lv16 .lv-name { color:#7E22CE; }
+.jys-lv17 .lv-name,.jys-lv18 .lv-name,.jys-lv19 .lv-name,.jys-lv20 .lv-name { color:#B45309; }
+/* 等级进度微条（个人主页/签到页，方案四形态） */
+.jys-lv-bar { display:inline-block; width:46px; height:5px; border-radius:3px; background:#EDEEF2; overflow:hidden; vertical-align:middle; }
+.jys-lv-bar > i { display:block; height:100%; }
 
 /* ---------- 表格 ---------- */
 .jys-table { width:100%; border-collapse:collapse; font-size:13px; }
@@ -184,10 +199,17 @@ h1,h2,h3,h4 { font-family: var(--jys-font-display); font-weight: 700; }
 
 /* ---------- 空状态/骨架屏/错误 ---------- */
 .jys-empty { text-align:center; padding:56px 24px; color: var(--jys-text-2); }
-.jys-empty .jys-empty-icon { font-size:44px; margin-bottom:12px; opacity:.85; }
+.jys-empty .jys-empty-icon { color: var(--jys-text-3); margin-bottom:12px; line-height:1; }
 .jys-skeleton { background: linear-gradient(90deg,#F3F4F6 25%,#E5E7EB 50%,#F3F4F6 75%); background-size:200% 100%; animation: jys-shimmer 1.4s infinite; border-radius: var(--jys-radius-sm); }
 @keyframes jys-shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 .jys-error-banner { background: var(--jys-error-light); border:1px solid #FECACA; color:#B91C1C; border-radius: var(--jys-radius-md); padding:16px; display:flex; gap:12px; align-items:flex-start; }
+
+/* ---------- 图标（v1.1 图标修订：微软 Fluent Color 彩色图标）
+   本地内联 SVG 资源见 assets/jys-icons.js（MIT），由 prototype.js 的
+   jysIcon() 优先渲染；静态 HTML 放占位 <span data-jys-icon="name"></span>。
+   默认 16px，可经 style 调整；未覆盖语义回退细线单色 SVG。 ---------- */
+[data-jys-icon], .jys-ic { display:inline-flex; width:16px; height:16px; flex:none; align-items:center; justify-content:center; vertical-align:-2px; }
+[data-jys-icon] svg, .jys-ic svg { width:100%; height:100%; display:block; }
 
 /* ---------- 弹层 ---------- */
 .jys-modal-mask { position:fixed; inset:0; background:rgba(31,41,55,.45); z-index:60; display:flex; align-items:center; justify-content:center; padding:16px; }
@@ -195,11 +217,11 @@ h1,h2,h3,h4 { font-family: var(--jys-font-display); font-weight: 700; }
 
 /* ---------- 进度条（签到/经验/活动名额） ---------- */
 .jys-progress { height:10px; border-radius: var(--jys-radius-full); background: var(--jys-primary-light); overflow:hidden; }
-.jys-progress > div { height:100%; border-radius: var(--jys-radius-full); background: linear-gradient(90deg, var(--jys-primary), #FB923C); transition: width .4s ease; }
+.jys-progress > div { height:100%; border-radius: var(--jys-radius-full); background: var(--jys-primary); transition: width .4s ease; }
 
 /* ---------- 头像 ---------- */
 .jys-avatar { border-radius:50%; object-fit:cover; background: var(--jys-primary-light); display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:#C2410C; }
-.jys-avatar-ring { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--jys-primary); }
+.jys-avatar-ring { /* v1.1 移除描边环（保留类名以兼容旧标记） */ }
 
 /* ---------- 通知未读点 ---------- */
 .jys-dot { position:absolute; top:-2px; right:-4px; min-width:16px; height:16px; border-radius:8px; background: var(--jys-error); color:#fff; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; padding:0 4px; }

@@ -8,6 +8,7 @@
      交互：报名记录（含候补位次/递补确认）、取消报名（触发候补递补）、出勤统计 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="我的报名与出勤" data-page-group="member" data-trace="PRD 5.4 D2/D3/D6 / SRS FR-D2/D3/D6、状态机 4.6" data-states="normal,empty">
@@ -30,7 +31,7 @@
           <button class="jys-btn jys-btn-outline jys-btn-sm">放弃候补</button>
         </div>
       </div>
-      <p class="text-xs mt-2" style="color:var(--jys-text-2)">⏳ 有成员释放名额后按顺序递补，递补通知后 <b>12 小时内确认</b>，超时顺延下一位（D3/Q8-⑧）。确认截止：10 月 14 日 21:00</p>
+      <p class="text-xs mt-2" style="color:var(--jys-text-2)">有成员释放名额后按顺序递补，递补通知后 <b>12 小时内确认</b>，超时顺延下一位（D3/Q8-⑧）。确认截止：10 月 14 日 21:00</p>
     </div>
 
     <div class="jys-card p-4">
@@ -66,7 +67,7 @@
     </div>
   </div>
 
-  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📅</div><p class="font-bold" style="color:var(--jys-text-1)">还没有报名任何活动</p><p class="text-xs mt-1">去活动日历看看最近的安排</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="../guest/activity-calendar.html">查看活动日历</a></div></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="calendar" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">还没有报名任何活动</p><p class="text-xs mt-1">去活动日历看看最近的安排</p><a class="jys-btn jys-btn-primary jys-btn-sm mt-3" href="../guest/activity-calendar.html">查看活动日历</a></div></div></div>
 </main>
 </body>
 </html>

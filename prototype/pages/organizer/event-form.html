@@ -8,6 +8,7 @@
      交互：表单校验（开始时间不可早于当前）、人数上限、开始前2h停止编辑口径、取消活动须通知（R6） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="发布活动" data-page-group="organizer" data-trace="PRD 5.4 D1 / SRS FR-D1、状态机 4.5（R6）" data-states="normal,validation">
@@ -64,24 +65,24 @@
       <div>
         <label class="jys-label jys-required">活动标题</label>
         <input class="jys-input" value="">
-        <p class="jys-field-msg-error">⚠ 标题不能为空</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>标题不能为空</p>
       </div>
       <div class="grid grid-cols-2 gap-3">
         <div>
           <label class="jys-label jys-required">开始时间</label>
           <input class="jys-input jys-input-error" type="datetime-local" value="2026-10-01T09:00">
-          <p class="jys-field-msg-error">⚠ 开始时间不能早于当前时间</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>开始时间不能早于当前时间</p>
         </div>
         <div>
           <label class="jys-label jys-required">结束时间</label>
           <input class="jys-input jys-input-error" type="datetime-local" value="2026-09-30T18:00">
-          <p class="jys-field-msg-error">⚠ 结束时间须晚于开始时间</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>结束时间须晚于开始时间</p>
         </div>
       </div>
       <div>
         <label class="jys-label jys-required">人数上限</label>
         <input class="jys-input jys-input-error" type="number" value="1">
-        <p class="jys-field-msg-error">⚠ 人数上限至少 2 人</p>
+        <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>人数上限至少 2 人</p>
       </div>
       <button class="jys-btn jys-btn-primary w-full justify-center" disabled>发布活动</button>
     </form>

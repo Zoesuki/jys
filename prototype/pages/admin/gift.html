@@ -8,6 +8,7 @@
      交互：选成员、类型/数量校验（上限/负数）、备注、站内通知说明、留痕提示 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="赠送经验值 / 积分" data-page-group="admin" data-trace="需求方变更 N3 / SRS FR-G3、账务模型 4.9" data-states="normal,validation">
@@ -15,22 +16,22 @@
 <div class="flex gap-5">
   <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
     <nav class="space-y-0.5 text-sm">
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html">📊 数据看板</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
-      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="gift.html">🎁 赠送经验/积分</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="dashboard.html"><span data-jys-icon="layout-dashboard"></span>数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html"><span data-jys-icon="clipboard-check"></span>入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html"><span data-jys-icon="users"></span>成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html"><span data-jys-icon="file-text"></span>帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html"><span data-jys-icon="flag"></span>举报工单</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html"><span data-jys-icon="layers"></span>版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html"><span data-jys-icon="calendar"></span>活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html"><span data-jys-icon="settings"></span>系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html"><span data-jys-icon="scroll"></span>审计日志</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="gift.html"><span data-jys-icon="gift"></span>赠送经验/积分</a>
     </nav>
   </aside>
 
   <div class="flex-1 space-y-5">
     <div data-when="normal" class="jys-card p-6">
-      <h3 class="font-bold mb-1">🎁 向成员赠送经验值 / 积分</h3>
+      <h3 class="font-bold mb-1 flex items-center gap-1.5"><span data-jys-icon="gift"></span>向成员赠送经验值 / 积分</h3>
       <p class="text-sm mb-5" style="color:var(--jys-text-2)">赠送后：<b>站内通知成员</b>（FR-F1）；操作留痕至审计日志（R8）；账务只增不减（4.9）。</p>
       <form class="space-y-4">
         <div>
@@ -67,12 +68,12 @@
         <div>
           <label class="jys-label jys-required">目标成员</label>
           <input class="jys-input jys-input-error" value="已注销成员_0032">
-          <p class="jys-field-msg-error">⚠ 目标成员不存在或已注销（FR-G3）</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>目标成员不存在或已注销（FR-G3）</p>
         </div>
         <div>
           <label class="jys-label jys-required">数量</label>
           <input class="jys-input jys-input-error" type="number" value="1500">
-          <p class="jys-field-msg-error">⚠ 单次赠送数量不可超过上限 1000（P9-16，后台可配置）</p>
+          <p class="jys-field-msg-error"><span data-jys-icon="alert-triangle"></span>单次赠送数量不可超过上限 1000（P9-16，后台可配置）</p>
         </div>
         <div>
           <label class="jys-label">备注</label>

@@ -8,6 +8,7 @@
      交互：出席率统计、奖励发放确认（自动口径说明）、活动回顾编辑（图文，过敏感词） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="出勤统计与活动回顾" data-page-group="organizer" data-trace="PRD 5.4 D6/D7 / SRS FR-D6/D7、FR-G2（P9-18）" data-states="normal,empty">
@@ -24,7 +25,7 @@
         <div class="jys-sunken p-4"><p style="font-size:22px;font-weight:800;color:var(--jys-primary)">2</p><p class="text-xs" style="color:var(--jys-text-2)">未出席</p></div>
       </div>
       <div class="jys-sunken p-4 mt-4 text-xs" style="color:var(--jys-text-2)">
-        ✅ 奖励已按出勤记录自动发放：12 名出席成员各获得 <b>经验 +50 · 积分 +20</b>（后台可配置，P9-16）；发放幂等（同活动同成员仅一次）。如需修正，由管理员通过调整流水冲正（P9-18），未出席者不发放。
+        奖励已按出勤记录自动发放：12 名出席成员各获得 <b>经验 +50 · 积分 +20</b>（后台可配置，P9-16）；发放幂等（同活动同成员仅一次）。如需修正，由管理员通过调整流水冲正（P9-18），未出席者不发放。
       </div>
     </section>
 
@@ -52,7 +53,7 @@
     </section>
   </div>
 
-  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📊</div><p class="font-bold" style="color:var(--jys-text-1)">暂无可统计的活动</p><p class="text-xs mt-1">活动结束后这里会出现出勤统计与回顾入口</p></div></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="bar-chart-3" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">暂无可统计的活动</p><p class="text-xs mt-1">活动结束后这里会出现出勤统计与回顾入口</p></div></div></div>
 </main>
 </body>
 </html>

@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="数据看板" data-page-group="admin" data-trace="PRD 第 9 章、5.5 E9 / SRS 第 7 章、FR-E9（Q3）" data-states="normal,loading,error">
@@ -18,16 +19,16 @@
   <!-- 侧边栏 -->
   <aside class="jys-card p-3 h-fit shrink-0" style="width:180px">
     <nav class="space-y-0.5 text-sm">
-      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="dashboard.html">📊 数据看板</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html">✅ 入会审核</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html">👥 成员管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html">📝 帖子管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html">🚩 举报工单 <span class="jys-badge jys-badge-error text-[10px]">3</span></a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html">🗂️ 版块管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html">📅 活动管理</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html">⚙️ 系统配置</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html">📜 审计日志</a>
-      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html">🎁 赠送经验/积分</a>
+      <a class="block px-3 py-2 rounded-lg font-bold" style="background:var(--jys-primary-light);color:var(--jys-primary-hover)" href="dashboard.html"><span data-jys-icon="layout-dashboard"></span>数据看板</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="applications.html"><span data-jys-icon="clipboard-check"></span>入会审核</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="members.html"><span data-jys-icon="users"></span>成员管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="posts.html"><span data-jys-icon="file-text"></span>帖子管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="reports.html"><span data-jys-icon="flag"></span>举报工单 <span class="jys-badge jys-badge-error text-[10px]">3</span></a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="boards.html"><span data-jys-icon="layers"></span>版块管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="events.html"><span data-jys-icon="calendar"></span>活动管理</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="settings.html"><span data-jys-icon="settings"></span>系统配置</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="audit.html"><span data-jys-icon="scroll"></span>审计日志</a>
+      <a class="block px-3 py-2 rounded-lg" style="color:var(--jys-text-2)" href="gift.html"><span data-jys-icon="gift"></span>赠送经验/积分</a>
     </nav>
   </aside>
 
@@ -64,13 +65,13 @@
           <div class="jys-sunken p-4"><p style="font-size:20px;font-weight:800;color:var(--jys-info)">41</p><p class="text-xs" style="color:var(--jys-text-2)">敏感词拦截量</p></div>
         </div>
         <div class="jys-error-banner mt-4" style="background:var(--jys-warning-light);border-color:#FDE68A;color:#B45309">
-          <span>⏰</span><div><p class="font-bold text-sm">2 张举报工单超时预警</p><p class="text-xs mt-1">JB-20261001-014 已用时 71h / 72h · <a class="jys-link" href="reports.html">立即处理</a>（P9-14：标记+提醒，不自动改派）</p></div>
+          <span data-jys-icon="clock" style="width:20px;height:20px"></span><div><p class="font-bold text-sm">2 张举报工单超时预警</p><p class="text-xs mt-1">JB-20261001-014 已用时 71h / 72h · <a class="jys-link" href="reports.html">立即处理</a>（P9-14：标记+提醒，不自动改派）</p></div>
         </div>
       </div>
     </div>
 
     <div data-when="loading" class="grid grid-cols-2 gap-5"><div class="jys-skeleton h-72"></div><div class="jys-skeleton h-72"></div><div class="jys-skeleton h-72"></div><div class="jys-skeleton h-72"></div></div>
-    <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">看板数据加载失败</p><p class="text-xs mt-1">统计服务不可用（错误码 BI-500），请稍后重试</p></div></div></div>
+    <div data-when="error"><div class="jys-error-banner"><span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span><div><p class="font-bold">看板数据加载失败</p><p class="text-xs mt-1">统计服务不可用（错误码 BI-500），请稍后重试</p></div></div></div>
   </div>
 </div>
 </main>

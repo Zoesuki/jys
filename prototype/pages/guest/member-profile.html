@@ -8,6 +8,7 @@
      展示：资料、标签、发帖/回帖、出勤记录（可关闭口径 P9-17→Q8-⑰）、贡献值与等级（等级由经验值决定） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="个人主页 · 北漠" data-page-group="guest" data-trace="PRD 5.3 C3/C5 / SRS FR-C3/C5/FR-G2" data-states="normal,error">
@@ -15,13 +16,13 @@
 
   <div data-when="normal" class="space-y-5">
     <!-- 头部卡 -->
-    <div class="jys-card p-6" style="background:linear-gradient(120deg,#FFF1E4,#FFF 70%)">
+    <div class="jys-card p-6" style="background:#FFF1E4">
       <div class="flex items-center gap-5 flex-wrap">
         <span class="jys-avatar jys-avatar-ring" style="width:80px;height:80px;font-size:30px">漠</span>
         <div class="flex-1 min-w-[220px]">
           <div class="flex items-center gap-2 flex-wrap">
             <h2 style="font-size:22px">北漠</h2>
-            <span class="jys-lv jys-lv5"><span class="lv-num">5</span>传奇社员</span>
+            <span class="jys-lv jys-lv18"><span class="lv-num">18</span><span class="lv-name">传奇社员</span></span><span class="inline-flex items-center gap-1.5"><span class="jys-lv-bar"><i style="width:50%;background:#F59E0B"></i></span><span class="text-[11px]" style="color:var(--jys-text-3)">距 Lv19 50%</span></span>
             <span class="jys-role jys-role-moderator">版主</span>
             <span class="jys-role jys-role-organizer">活动组织者</span>
           </div>
@@ -50,17 +51,17 @@
         <section class="jys-card p-5">
           <h3 class="font-bold mb-3">最近发帖（214）</h3>
           <div class="space-y-3">
-            <a href="post-view.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+            <a href="post-view.html" class="block p-3 rounded-lg" style="border:1px solid var(--jys-border)">
               <p class="font-semibold text-sm">血染钟楼新手入坑指南（暗流涌动版）</p>
-              <p class="text-xs mt-1" style="color:var(--jys-text-2)">桌游面杀 · 10 月 2 日 · 👍 52 · 💬 17</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">桌游面杀 · 10 月 2 日 · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>52</span> · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>17</span></p>
             </a>
-            <a href="post-view.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+            <a href="post-view.html" class="block p-3 rounded-lg" style="border:1px solid var(--jys-border)">
               <p class="font-semibold text-sm">【求助】阿瓦隆 8 人局如何防梅林速死</p>
-              <p class="text-xs mt-1" style="color:var(--jys-text-2)">求助问答 · 9 月 28 日 · 👍 18 · 💬 22</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">求助问答 · 9 月 28 日 · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>18</span> · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>22</span></p>
             </a>
-            <a href="post-view.html" class="block p-3 rounded-xl" style="border:1px solid var(--jys-border)">
+            <a href="post-view.html" class="block p-3 rounded-lg" style="border:1px solid var(--jys-border)">
               <p class="font-semibold text-sm">周六面杀第 14 期回顾：12 人车踏平钟楼村</p>
-              <p class="text-xs mt-1" style="color:var(--jys-text-2)">线下活动 · 9 月 21 日 · 👍 47 · 💬 25</p>
+              <p class="text-xs mt-1" style="color:var(--jys-text-2)">线下活动 · 9 月 21 日 · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="like" style="width:12px;height:12px"></span>47</span> · <span class="inline-flex items-center gap-0.5"><span data-jys-icon="message-circle" style="width:12px;height:12px"></span>25</span></p>
             </a>
           </div>
         </section>
@@ -69,13 +70,13 @@
         <section class="jys-card p-5">
           <h3 class="font-bold mb-3">最近活动</h3>
           <div class="space-y-2 text-sm">
-            <div class="flex items-center gap-3 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)">
+            <div class="flex items-center gap-3 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)">
               <span class="jys-badge jys-badge-success">已出席</span><b>周六桌游面杀 · 第 14 期</b><span class="ml-auto text-xs" style="color:var(--jys-text-3)">9 月 21 日 · 经验 +50 · 积分 +20</span>
             </div>
-            <div class="flex items-center gap-3 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)">
+            <div class="flex items-center gap-3 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)">
               <span class="jys-badge jys-badge-success">已出席</span><b>金铲铲社区赛 S2</b><span class="ml-auto text-xs" style="color:var(--jys-text-3)">9 月 14 日 · 冠军 · 积分 +30</span>
             </div>
-            <div class="flex items-center gap-3 p-2.5 rounded-xl" style="border:1px solid var(--jys-border)">
+            <div class="flex items-center gap-3 p-2.5 rounded-lg" style="border:1px solid var(--jys-border)">
               <span class="jys-badge jys-badge-neutral">未出席</span><b>线上联机之夜 · 9 月场</b><span class="ml-auto text-xs" style="color:var(--jys-text-3)">9 月 7 日</span>
             </div>
           </div>
@@ -105,7 +106,7 @@
     </div>
   </div>
 
-  <div data-when="error"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">用户不存在或已注销</p><p class="text-xs mt-1">该账号已按注销流程完成个人信息删除/匿名化（FR-A7/NFR-12）</p><a class="jys-btn jys-btn-outline jys-btn-sm mt-2" href="members.html">返回成员列表</a></div></div></div>
+  <div data-when="error"><div class="jys-error-banner"><span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span><div><p class="font-bold">用户不存在或已注销</p><p class="text-xs mt-1">该账号已按注销流程完成个人信息删除/匿名化（FR-A7/NFR-12）</p><a class="jys-btn jys-btn-outline jys-btn-sm mt-2" href="members.html">返回成员列表</a></div></div></div>
 </main>
 </body>
 </html>

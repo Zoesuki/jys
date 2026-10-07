@@ -8,6 +8,7 @@
      交互：草稿列表（≤20 篇，P9-08）、续编、删除；超限拒绝保存 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="草稿箱" data-page-group="member" data-trace="PRD 5.2 B15 / SRS FR-B15（P9-08）" data-states="normal,empty,validation">
@@ -19,17 +20,17 @@
       <span class="text-xs" style="color:var(--jys-text-3)">仅本人可见 · 超过 20 篇后拒绝保存并提示（P9-08）</span>
     </div>
     <div class="space-y-3">
-      <div class="flex items-center gap-3 p-3.5 rounded-xl" style="border:1px solid var(--jys-border)">
+      <div class="flex items-center gap-3 p-3.5 rounded-lg" style="border:1px solid var(--jys-border)">
         <div class="flex-1"><p class="font-semibold text-sm">11 月面杀第 16 期活动帖（待场地确认）</p><p class="text-xs mt-1" style="color:var(--jys-text-2)">桌游面杀 · 保存于 2 小时前</p></div>
         <a class="jys-btn jys-btn-outline jys-btn-sm" href="post-editor.html">续编</a>
         <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">删除</button>
       </div>
-      <div class="flex items-center gap-3 p-3.5 rounded-xl" style="border:1px solid var(--jys-border)">
+      <div class="flex items-center gap-3 p-3.5 rounded-lg" style="border:1px solid var(--jys-border)">
         <div class="flex-1"><p class="font-semibold text-sm">永劫无间新赛季武器强度表</p><p class="text-xs mt-1" style="color:var(--jys-text-2)">游戏分区 · 保存于昨天 23:41</p></div>
         <a class="jys-btn jys-btn-outline jys-btn-sm" href="post-editor.html">续编</a>
         <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">删除</button>
       </div>
-      <div class="flex items-center gap-3 p-3.5 rounded-xl" style="border:1px solid var(--jys-border)">
+      <div class="flex items-center gap-3 p-3.5 rounded-lg" style="border:1px solid var(--jys-border)">
         <div class="flex-1"><p class="font-semibold text-sm">（无标题草稿）</p><p class="text-xs mt-1" style="color:var(--jys-text-2)">综合闲聊 · 保存于 3 天前</p></div>
         <a class="jys-btn jys-btn-outline jys-btn-sm" href="post-editor.html">续编</a>
         <button class="jys-btn jys-btn-ghost jys-btn-sm" style="color:var(--jys-error)">删除</button>
@@ -37,8 +38,8 @@
     </div>
   </div>
 
-  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">📝</div><p class="font-bold" style="color:var(--jys-text-1)">草稿箱是空的</p><p class="text-xs mt-1">发帖时点击"存草稿"，内容会保存在这里</p></div></div></div>
-  <div data-when="validation"><div class="jys-error-banner"><span>⚠️</span><div><p class="font-bold">草稿保存失败</p><p class="text-xs mt-1">草稿数量已达上限 20 篇（P9-08），请先删除部分草稿后再保存。</p><a class="jys-btn jys-btn-outline jys-btn-sm mt-2" href="#">清理草稿</a></div></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="file-text" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">草稿箱是空的</p><p class="text-xs mt-1">发帖时点击"存草稿"，内容会保存在这里</p></div></div></div>
+  <div data-when="validation"><div class="jys-error-banner"><span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span><div><p class="font-bold">草稿保存失败</p><p class="text-xs mt-1">草稿数量已达上限 20 篇（P9-08），请先删除部分草稿后再保存。</p><a class="jys-btn jys-btn-outline jys-btn-sm mt-2" href="#">清理草稿</a></div></div></div>
 </main>
 </body>
 </html>

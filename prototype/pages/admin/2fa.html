@@ -8,13 +8,14 @@
      交互：邮箱验证码输入、错误/过期态 -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="后台二次验证" data-page-group="admin" data-trace="PRD 8.2 NF7 / SRS NFR-07（Q8-⑳）" data-states="normal,error">
 <main class="max-w-md mx-auto px-4 pb-16" style="max-width:420px">
 
   <div data-when="normal" class="jys-card p-7 mt-4 text-center">
-    <span style="font-size:40px">🛡️</span>
+    <span data-jys-icon="shield" style="width:40px;height:40px"></span>
     <h2 class="text-xl font-bold mt-2">管理后台二次验证</h2>
     <p class="text-sm mt-1 mb-6" style="color:var(--jys-text-2)">验证码已发送至管理员邮箱 ad***@jyouclub.cn（默认邮箱验证码方式，可升级 TOTP）</p>
     <div class="flex justify-center gap-2 mb-5">
@@ -30,10 +31,10 @@
   </div>
 
   <div data-when="error" class="jys-card p-7 mt-4 text-center">
-    <span style="font-size:40px">🛡️</span>
+    <span data-jys-icon="shield" style="width:40px;height:40px"></span>
     <h2 class="text-xl font-bold mt-2">管理后台二次验证</h2>
     <div class="jys-error-banner mt-4 mb-4" style="text-align:left">
-      <span>⚠️</span><div><p class="font-bold">验证码错误或已过期</p><p class="text-xs mt-1">已自动重发新验证码，请查收最新邮件（连续错误 5 次将锁定后台访问 15 分钟）。</p></div>
+      <span data-jys-icon="alert-triangle" style="width:20px;height:20px"></span><div><p class="font-bold">验证码错误或已过期</p><p class="text-xs mt-1">已自动重发新验证码，请查收最新邮件（连续错误 5 次将锁定后台访问 15 分钟）。</p></div>
     </div>
     <div class="flex justify-center gap-2 mb-5">
       <input class="jys-input text-center" style="width:48px;height:52px;font-size:22px;font-weight:700" maxlength="1" value="">

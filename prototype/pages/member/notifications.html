@@ -8,6 +8,7 @@
      交互：类型筛选、聚合展示（同类 1h 聚合 Q8-⑥）、已读/未读、经验值变动通知（变更 N3） -->
 <link rel="stylesheet" href="../../assets/tokens.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/jys-icons.js"></script>
 <script src="../../assets/prototype.js"></script>
 </head>
 <body class="jys" data-page-title="通知中心" data-page-group="member" data-trace="PRD 5.6 F1/F2、5.2 B13 / SRS FR-F1/B13" data-states="normal,empty">
@@ -24,7 +25,7 @@
   <div data-when="normal" class="jys-card divide-y" style="border-color:var(--jys-border)">
     <!-- 未读 -->
     <a href="checkin.html" class="flex gap-3 p-4" style="background:var(--jys-primary-soft)">
-      <span style="font-size:22px">🎁</span>
+      <span data-jys-icon="gift" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm font-bold">管理员向你赠送了 100 经验值</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-2)">备注：中秋活动奖励，感谢你在面杀场的组织工作！当前等级 Lv4 · 距 Lv5 还差 136 经验</p>
@@ -32,7 +33,7 @@
       </div>
     </a>
     <a href="post-view-member.html" class="flex gap-3 p-4" style="background:var(--jys-primary-soft)">
-      <span style="font-size:22px">💬</span>
+      <span data-jys-icon="message-circle" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm font-bold">北漠、咸鱼要翻身 等 5 人回复了你的帖子</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-2)">《纳西妲满命了，求一套深渊 12 层的配队思路》——同类通知 1 小时内聚合为一条（Q8-⑥）</p>
@@ -40,7 +41,7 @@
       </div>
     </a>
     <a href="my-events.html" class="flex gap-3 p-4" style="background:var(--jys-primary-soft)">
-      <span style="font-size:22px">✅</span>
+      <span data-jys-icon="circle-check" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm font-bold">候补递补成功：你已递补进入「金铲铲社区赛 S3」</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-2)">请在 12 小时内确认（10 月 14 日 21:00 前），超时将顺延下一位（D3）</p>
@@ -49,14 +50,14 @@
     </a>
     <!-- 已读 -->
     <div class="flex gap-3 p-4" style="opacity:.75">
-      <span style="font-size:22px">⭐</span>
+      <span data-jys-icon="star" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm">星野子 等 3 人点赞了你的回帖</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-3)">昨天 21:40 · 已读</p>
       </div>
     </div>
     <div class="flex gap-3 p-4" style="opacity:.75">
-      <span style="font-size:22px">📅</span>
+      <span data-jys-icon="calendar" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm">活动提醒：周六桌游面杀 · 第 15 期 将于明天 14:00 开始</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-2)">地点：漫卷桌游吧 2 楼包间 · 记得准时到场扫码签到</p>
@@ -64,14 +65,14 @@
       </div>
     </div>
     <div class="flex gap-3 p-4" style="opacity:.75">
-      <span style="font-size:22px">✅</span>
+      <span data-jys-icon="circle-check" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm">你的入会申请已通过，欢迎加入吉悠社！</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-3)">9 月 12 日 · 已读（同时发送邮件通知，F2）</p>
       </div>
     </div>
     <div class="flex gap-3 p-4" style="opacity:.75">
-      <span style="font-size:22px">🚩</span>
+      <span data-jys-icon="flag" style="width:22px;height:22px"></span>
       <div class="flex-1">
         <p class="text-sm">你提交的举报已办结：内容违规属实，帖子已删除</p>
         <p class="text-xs mt-0.5" style="color:var(--jys-text-3)">9 月 10 日 · 已读（处置结果通知举报人；被举报人默认不通知，Q8-㉔）</p>
@@ -79,7 +80,7 @@
     </div>
   </div>
 
-  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon">🔔</div><p class="font-bold" style="color:var(--jys-text-1)">暂无通知</p><p class="text-xs mt-1">被回复、被 @、被点赞、审核结果、报名结果与活动提醒都会出现在这里</p></div></div></div>
+  <div data-when="empty"><div class="jys-card"><div class="jys-empty"><div class="jys-empty-icon"><span data-jys-icon="bell" style="width:36px;height:36px"></span></div><p class="font-bold" style="color:var(--jys-text-1)">暂无通知</p><p class="text-xs mt-1">被回复、被 @、被点赞、审核结果、报名结果与活动提醒都会出现在这里</p></div></div></div>
 </main>
 </body>
 </html>
