@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 冻结原型的全局体感（对齐 prototype/assets/tokens.css body.jys） */
+body {
+  font-family: var(--jys-font-body);
+  background: var(--jys-bg-page);
+  color: var(--jys-text-1);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--jys-font-display);
+  font-weight: 700;
+}

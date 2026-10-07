@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.local
+uploads/
+.vite/
+.DS_Store
+.codebuddy
+.github
