@@ -31,6 +31,8 @@ pnpm dev:web        # http://localhost:5173
 
 ## 规则
 
+- **AI Agent 与协作者必读 [`AGENTS.md`](./AGENTS.md)**（红线约束 / 模块所有权 / 分支规则）；
 - 分支：`main` 保护，`feat/<module>-<topic>` 短分支，合并需 CI 四绿 + 审核（详见架构文档 §5）；
 - `packages/shared`、数据库迁移、设计令牌为主控独占，改动需契约变更 PR；
-- 冻结原型（`prototype/`）是 UI 契约，页面结构/令牌值改动需走变更确认。
+- 冻结原型（`prototype/`）是 UI 契约，页面结构/令牌值改动需走变更确认；
+- 部署：本地部署形态，服务器执行 `./deploy/deploy.sh`（构建→迁移→切流→健康检查）。
